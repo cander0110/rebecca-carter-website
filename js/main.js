@@ -5,11 +5,12 @@
 /* ---------- Config ---------- */
 
 const NAV_LINKS = [
-  { href: 'portfolio.html', label: 'Portfolio' },
-  { href: 'shop.html',      label: 'Shop' },
-  { href: 'cv.html',        label: 'CV' },
-  { href: 'shows.html',     label: 'Shows' },
-  { href: 'print-club.html',label: 'Print Club' },
+  { href: 'portfolio.html',                   label: 'Works'       },
+  { href: 'shop.html',                        label: 'Shop'        },
+  { href: 'shows.html',                       label: 'Shows'       },
+  { href: 'print-club.html',                  label: 'Print Club'  },
+  { href: 'cv.html',                          label: 'CV'          },
+  { href: 'mailto:hello@rebeccacarter.art',   label: 'Contact', absolute: true },
 ];
 
 /* Resolve whether we're at root or in /pages/ */
@@ -34,10 +35,10 @@ function buildNav() {
   const root  = rootPrefix();
   const file  = currentFile();
 
-  const linksHtml = NAV_LINKS.map(({ href, label }) => {
+  const linksHtml = NAV_LINKS.map(({ href, label, absolute }) => {
     const isActive = file === href ? ' active' : '';
-    // From /pages/, links are sibling files. From root, prepend pages/.
-    const resolvedHref = isInPages() ? href : `pages/${href}`;
+    // absolute links (mailto:, external) are used as-is; page links get pages/ prepended from root
+    const resolvedHref = absolute ? href : (isInPages() ? href : `pages/${href}`);
     return `<a href="${resolvedHref}" class="nav-link${isActive}">${label}</a>`;
   }).join('');
 
@@ -65,8 +66,8 @@ function buildFooter() {
   const year = new Date().getFullYear();
   const root = rootPrefix();
 
-  const navLinks = NAV_LINKS.map(({ href, label }) => {
-    const resolvedHref = isInPages() ? href : `pages/${href}`;
+  const navLinks = NAV_LINKS.map(({ href, label, absolute }) => {
+    const resolvedHref = absolute ? href : (isInPages() ? href : `pages/${href}`);
     return `<a href="${resolvedHref}">${label}</a>`;
   }).join('');
 
@@ -258,6 +259,26 @@ function initPrintClubForm() {
 }
 
 
+/* ---------- Nav scroll behaviour (transparent → opaque)
+   Watches the video hero section with IntersectionObserver.
+   Adds .is-scrolled to .site-nav once the hero leaves the viewport.
+   Only activates when <body class="nav-transparent"> is present.
+   ---------------------------------------------------------- */
+
+function initNavScroll() {
+  if (!document.body.classList.contains('nav-transparent')) return;
+  const nav  = document.querySelector('.site-nav');
+  const hero = document.querySelector('.hero--video');
+  if (!nav || !hero) return;
+
+  const observer = new IntersectionObserver(
+    ([entry]) => nav.classList.toggle('is-scrolled', !entry.isIntersecting),
+    { threshold: 0 }
+  );
+  observer.observe(hero);
+}
+
+
 /* ---------- Lazy image swap ---------- */
 
 function initLazyImages() {
@@ -273,6 +294,7 @@ function initLazyImages() {
 document.addEventListener('DOMContentLoaded', () => {
   injectShell();         // Nav + footer must come first
   initNavToggle();
+  initNavScroll();       // Transparent → opaque on hero scroll (home page)
   initReveal();
   initPortfolioFilter();
   initPrintClubForm();

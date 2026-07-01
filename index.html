@@ -4,96 +4,449 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Rebecca Carter — Artist</title>
-  <meta name="description" content="Rebecca Carter is an artist working in painting, printmaking, and mixed media. Based in London." />
+  <meta name="description"
+        content="Rebecca Carter is a painter, printmaker, and community builder. Explore original works, limited-edition prints, and Print Club — an ongoing interview series celebrating artists." />
   <link rel="stylesheet" href="css/styles.css" />
-</head>
-<body>
 
+  <!-- Open Graph (swap in real image when available) -->
+  <meta property="og:title"       content="Rebecca Carter — Artist" />
+  <meta property="og:description" content="Paintings, craft, and community." />
+  <meta property="og:image"       content="/assets/images/og-image.jpg" />
+  <meta property="og:type"        content="website" />
+</head>
+
+<!-- nav-transparent: makes the fixed nav start clear over the video hero -->
+<body class="nav-transparent">
+
+  <!-- ① NAV — injected by main.js using NAV_LINKS config -->
   <div id="site-nav"></div>
 
   <main>
 
-    <!-- Hero -->
-    <section class="hero">
-      <p class="hero__eyebrow reveal">London — Est. 2016</p>
-      <h1 class="hero__title reveal reveal-delay-1">Rebecca<br/>Carter</h1>
-      <p class="hero__subtitle reveal reveal-delay-2">Painting &middot; Printmaking &middot; Mixed Media</p>
+    <!-- ========================================================
+         ② HERO — Full-screen video background
+         ======================================================== -->
+    <section class="hero hero--video" aria-label="Hero">
 
-      <!-- Hero image or video.
-           Replace the .placeholder div with:
-             <img src="assets/images/featured.jpg" alt="Featured work title, year" />
-           Or for video:
-             <video autoplay muted loop playsinline poster="assets/images/featured-poster.jpg">
-               <source src="assets/videos/studio-reel.mp4" type="video/mp4" />
-             </video>  -->
-      <div class="hero__media reveal reveal-delay-3">
-        <div class="placeholder">Featured work — add image or video to assets/</div>
-      </div>
-    </section>
+      <!--
+        VIDEO: autoplay + muted are required by all browsers for autoplay to work.
+        poster shows a still frame while the video loads.
+        Replace the src paths once real assets are available.
+        Recommended encoding: H.264 MP4, 1920×1080, ≤ 10 MB, no audio track.
+      -->
+      <video
+        class="hero__bg-video"
+        autoplay
+        muted
+        loop
+        playsinline
+        poster="/assets/images/hero-poster.jpg"
+        aria-hidden="true">
+        <source src="/assets/videos/hero.mp4" type="video/mp4" />
+      </video>
 
-    <!-- Recent work -->
-    <section class="section container">
-      <div class="section-header reveal">
-        <h2>Recent Work</h2>
-        <a href="pages/portfolio.html">View all &rarr;</a>
-      </div>
+      <!-- Gradient overlay — improves text legibility over any video content -->
+      <div class="hero__overlay" aria-hidden="true"></div>
 
-      <div class="artwork-grid artwork-grid--3">
-        <div class="artwork-card reveal">
-          <div class="artwork-card__image">
-            <!-- <img src="assets/images/work-1.jpg" alt="Untitled I, oil on linen, 2024" loading="lazy" /> -->
-            <div class="placeholder">Image</div>
-          </div>
-          <div class="artwork-card__meta">
-            <p class="artwork-card__title">Untitled I</p>
-            <p class="artwork-card__medium">Oil on linen &middot; 2024</p>
-          </div>
-        </div>
+      <div class="hero__content">
+        <p class="hero__eyebrow reveal">Rebecca Carter — Artist</p>
 
-        <div class="artwork-card reveal reveal-delay-1">
-          <div class="artwork-card__image">
-            <div class="placeholder">Image</div>
-          </div>
-          <div class="artwork-card__meta">
-            <p class="artwork-card__title">Untitled II</p>
-            <p class="artwork-card__medium">Screenprint, ed. 20 &middot; 2024</p>
-          </div>
-        </div>
+        <h1 class="hero__headline reveal reveal-delay-1">
+          Paintings.<br />Craft.<br />Community.
+        </h1>
 
-        <div class="artwork-card reveal reveal-delay-2">
-          <div class="artwork-card__image">
-            <div class="placeholder">Image</div>
-          </div>
-          <div class="artwork-card__meta">
-            <p class="artwork-card__title">Untitled III</p>
-            <p class="artwork-card__medium">Mixed media &middot; 2023</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Print Club teaser -->
-    <section class="section section--alt">
-      <div class="container" style="max-width:640px; text-align:center; margin-inline:auto;">
-        <p class="label reveal">Print Club</p>
-        <h2 class="reveal reveal-delay-1" style="margin-top:var(--sp-4); margin-bottom:var(--sp-6);">
-          An edition, four times a year.
-        </h2>
-        <p class="reveal reveal-delay-2">
-          Members receive a hand-signed, numbered print each quarter — made in small
-          editions and available nowhere else.
+        <p class="hero__tagline reveal reveal-delay-2">
+          Original work rooted in material and meaning — and a community of artists
+          who create from the heart.
         </p>
-        <a href="pages/print-club.html" class="btn reveal reveal-delay-3"
-           style="margin-top:var(--sp-8);">
-          Join the club
-        </a>
+
+        <div class="hero__ctas reveal reveal-delay-3">
+          <a href="pages/portfolio.html" class="btn btn--filled-light btn--lg">
+            View Works
+          </a>
+          <a href="pages/shop.html" class="btn btn--light btn--lg">
+            Shop Now
+          </a>
+        </div>
+      </div>
+
+      <!-- Scroll indicator -->
+      <div class="scroll-indicator" aria-hidden="true">
+        <span class="scroll-indicator__text">Scroll</span>
+        <svg width="14" height="22" viewBox="0 0 14 22" fill="none"
+             xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <line x1="7" y1="0" x2="7" y2="16" stroke="currentColor" stroke-width="1.25"/>
+          <polyline points="1,11 7,18 13,11" fill="none" stroke="currentColor" stroke-width="1.25"/>
+        </svg>
+      </div>
+
+    </section>
+
+
+    <!-- ========================================================
+         ③ ABOUT SNIPPET — 2-column: image left, bio right
+         ======================================================== -->
+    <section class="section" aria-labelledby="about-heading">
+      <div class="container">
+        <div class="about-grid">
+
+          <!-- Left: portrait / studio photo
+               Replace .placeholder with:
+               <img src="assets/images/rebecca-portrait.jpg"
+                    alt="Rebecca Carter in her studio"
+                    loading="lazy" />              -->
+          <div class="about-image reveal">
+            <div class="placeholder">Studio portrait</div>
+          </div>
+
+          <!-- Right: bio -->
+          <div class="about-text">
+            <h4 class="label reveal">About the Artist</h4>
+
+            <h2 id="about-heading" class="reveal reveal-delay-1">
+              Making with intention.<br />Sharing with heart.
+            </h2>
+
+            <p class="reveal reveal-delay-2">
+              Rebecca Carter is a self-taught painter and printmaker whose practice
+              grows from a deep belief that art belongs to everyone. Working across oil,
+              screenprint, and mixed media, she makes images that sit somewhere between
+              the intimate and the elemental — colour and texture holding what words
+              can't quite reach.
+            </p>
+
+            <p class="reveal reveal-delay-2">
+              Alongside her studio work, Rebecca runs <em>Print Club</em>, an Instagram
+              interview series in which she sits down with artists, makers, and creatives
+              to talk about process, community, and why they make what they make.
+            </p>
+
+            <a href="pages/cv.html"
+               class="btn reveal reveal-delay-3"
+               aria-label="Read Rebecca's full CV">
+              Read More
+            </a>
+          </div>
+
+        </div>
       </div>
     </section>
+
+
+    <!-- ========================================================
+         ④ FEATURED WORKS — 3-column grid
+         ======================================================== -->
+    <section class="section section--alt" aria-labelledby="featured-heading">
+      <div class="container">
+
+        <div class="section-header reveal">
+          <h2 id="featured-heading">Featured Works</h2>
+          <a href="pages/portfolio.html" aria-label="View all works">View All &rarr;</a>
+        </div>
+
+        <!--
+          ARTWORK CARDS — add or remove cards as needed.
+          For each image replace .placeholder with:
+            <img src="assets/images/your-file.jpg"
+                 alt="Work title, medium, dimensions, year"
+                 loading="lazy" />
+        -->
+        <div class="artwork-grid artwork-grid--3">
+
+          <div class="artwork-card reveal">
+            <a href="pages/portfolio.html" aria-label="View Threshold I">
+              <div class="artwork-card__image">
+                <div class="placeholder">Painting</div>
+              </div>
+            </a>
+            <div class="artwork-card__meta">
+              <p class="artwork-card__title">Threshold I</p>
+              <p class="artwork-card__medium">Oil on linen &middot; 60 &times; 80 cm &middot; 2024</p>
+            </div>
+          </div>
+
+          <div class="artwork-card reveal reveal-delay-1">
+            <a href="pages/portfolio.html" aria-label="View Still Ground">
+              <div class="artwork-card__image">
+                <div class="placeholder">Painting</div>
+              </div>
+            </a>
+            <div class="artwork-card__meta">
+              <p class="artwork-card__title">Still Ground</p>
+              <p class="artwork-card__medium">Oil on canvas &middot; 50 &times; 60 cm &middot; 2024</p>
+            </div>
+          </div>
+
+          <div class="artwork-card reveal reveal-delay-2">
+            <a href="pages/portfolio.html" aria-label="View Morning Field (Print)">
+              <div class="artwork-card__image">
+                <div class="placeholder">Print</div>
+              </div>
+            </a>
+            <div class="artwork-card__meta">
+              <p class="artwork-card__title">Morning Field</p>
+              <p class="artwork-card__medium">Screenprint, ed. of 20 &middot; 2024</p>
+            </div>
+          </div>
+
+        </div>
+
+        <div style="text-align:center; margin-top:var(--sp-12);" class="reveal">
+          <a href="pages/portfolio.html" class="btn">View All Works</a>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ========================================================
+         ⑤ UPCOMING SHOW CALLOUT — dark ink banner
+         ======================================================== -->
+    <section class="show-callout" aria-labelledby="show-heading">
+      <div class="container">
+
+        <div>
+          <p class="show-callout__label reveal">Upcoming Exhibition</p>
+
+          <!--
+            UPDATE: Replace placeholder show name, date range, venue name, and
+            address once confirmed. The decorative date block (right column)
+            uses the opening night day.
+          -->
+          <h2 id="show-heading" class="reveal reveal-delay-1">
+            Drawn to the Skin
+          </h2>
+
+          <div class="show-callout__meta reveal reveal-delay-2">
+            <span>June 2025</span>
+            <strong>
+              [Tattoo Studio Name] &mdash; York, Pennsylvania
+            </strong>
+            <span>
+              A group exhibition celebrating the intersection of tattooing, painting,
+              and printmaking. Rebecca will show five new paintings alongside works
+              by local and regional artists.
+            </span>
+          </div>
+
+          <a href="pages/shows.html"
+             class="btn btn--light reveal reveal-delay-3"
+             aria-label="Learn more about the June show in York PA">
+            Learn More
+          </a>
+        </div>
+
+        <!-- Decorative date block — hidden on tablet/mobile via CSS -->
+        <div class="show-callout__date-block" aria-hidden="true">
+          <span class="show-callout__month">June</span>
+          <span class="show-callout__day">06</span>
+          <span class="show-callout__year">2025</span>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ========================================================
+         ⑥ PRINT CLUB TEASER — sage green, interview series
+         ======================================================== -->
+    <section class="section pc-teaser" aria-labelledby="pc-heading">
+      <div class="container">
+        <div class="pc-teaser-grid">
+
+          <!-- Left: text -->
+          <div class="pc-teaser__text">
+            <p class="pc-teaser__eyebrow reveal">Print Club</p>
+
+            <h2 id="pc-heading" class="reveal reveal-delay-1">
+              Conversations with artists who make things.
+            </h2>
+
+            <p class="reveal reveal-delay-2">
+              Print Club is Rebecca's ongoing Instagram interview series — candid
+              conversations with painters, printmakers, ceramicists, illustrators, and
+              makers of all kinds. Each episode explores process, community, and the
+              unglamorous reality of sustaining a creative practice.
+            </p>
+
+            <p class="reveal reveal-delay-2">
+              New episodes every other week. Watch on Instagram, or catch up in the
+              Print Club archive.
+            </p>
+
+            <a href="pages/print-club.html"
+               class="btn btn--sage reveal reveal-delay-3"
+               aria-label="Explore Print Club episodes">
+              Explore Print Club
+            </a>
+          </div>
+
+          <!-- Right: featured video embed (16:9) -->
+          <div class="reveal reveal-delay-1">
+            <!--
+              EMBED: Replace the placeholder below with a real YouTube iframe.
+              Copy-paste the block below and fill in YOUR_VIDEO_ID:
+
+              <iframe
+                src="https://www.youtube.com/embed/YOUR_VIDEO_ID"
+                title="Print Club — Featured Interview"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen
+                loading="lazy">
+              </iframe>
+
+              Or for a self-hosted video:
+              <video controls poster="/assets/images/pc-episode-poster.jpg">
+                <source src="/assets/videos/print-club-episode.mp4" type="video/mp4" />
+              </video>
+            -->
+            <div class="video-embed" role="img" aria-label="Print Club featured episode — video placeholder">
+              <div class="placeholder">
+                <span>Featured Episode</span>
+                <span class="placeholder__sub">Replace with YouTube embed</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ========================================================
+         ⑦ ARTIST SIGN-UP — interest form for Print Club guests
+         ======================================================== -->
+    <section class="section artist-signup" id="artist-signup"
+             aria-labelledby="signup-heading">
+      <div class="container">
+        <div class="signup-layout">
+
+          <!-- Left: intro copy -->
+          <div class="signup-intro">
+            <p class="signup-intro__eyebrow reveal">Be Featured</p>
+
+            <h2 id="signup-heading" class="reveal reveal-delay-1">
+              Are you an artist?
+            </h2>
+
+            <p class="reveal reveal-delay-2">
+              Print Club is always looking for its next guest. If you're a working
+              artist, maker, or creative — at any career stage, in any discipline —
+              and you'd like to be considered for an interview, fill out the form and
+              Rebecca will be in touch.
+            </p>
+
+            <p class="reveal reveal-delay-2">
+              No follower counts, no prestige gatekeeping. Just honest conversations
+              about making things.
+            </p>
+          </div>
+
+          <!-- Right: form -->
+          <div class="reveal reveal-delay-1">
+
+            <!--
+              BACKEND REQUIRED — This form uses Formspree for zero-config submissions.
+
+              Setup (free tier handles 50 submissions/month):
+              1. Sign up at formspree.io
+              2. Click "New Form", give it a name, and copy the form endpoint URL
+              3. Replace "YOUR_FORM_ID" in the action attribute below
+              4. Formspree will email Rebecca with each submission
+
+              Alternative: replace the action with any serverless function endpoint
+              (Netlify Forms, AWS Lambda, etc.) — see README for details.
+            -->
+            <form
+              class="form"
+              id="artistSignupForm"
+              action="https://formspree.io/f/YOUR_FORM_ID"
+              method="POST">
+
+              <!-- Honeypot spam field — hidden from real users -->
+              <input type="text" name="_gotcha" style="display:none" tabindex="-1" />
+              <!-- Send to a readable subject line in Formspree -->
+              <input type="hidden" name="_subject" value="Print Club Artist Interest" />
+
+              <div class="form-group">
+                <label class="form-label" for="artistName">Full Name</label>
+                <input
+                  class="form-input"
+                  type="text"
+                  id="artistName"
+                  name="name"
+                  autocomplete="name"
+                  placeholder="Your full name"
+                  required />
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="artistEmail">Email Address</label>
+                <input
+                  class="form-input"
+                  type="email"
+                  id="artistEmail"
+                  name="email"
+                  autocomplete="email"
+                  placeholder="you@example.com"
+                  required />
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="artistMedium">Medium / Discipline</label>
+                <input
+                  class="form-input"
+                  type="text"
+                  id="artistMedium"
+                  name="medium"
+                  placeholder="e.g. oil painting, ceramics, illustration"
+                  required />
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="artistInstagram">
+                  Instagram Handle
+                  <span style="font-family:var(--font-body); letter-spacing:0; text-transform:none;
+                                color:var(--ink-light); font-size:var(--text-xs);"> — optional</span>
+                </label>
+                <input
+                  class="form-input"
+                  type="text"
+                  id="artistInstagram"
+                  name="instagram"
+                  placeholder="@yourhandle"
+                  autocomplete="off" />
+              </div>
+
+              <button
+                type="submit"
+                class="btn btn--filled-terra"
+                style="align-self:flex-start; margin-top:var(--sp-2);">
+                Submit Interest
+              </button>
+
+            </form>
+
+            <!-- Legal disclaimer -->
+            <p class="legal-disclaimer">
+              By submitting this form, you agree to our
+              <a href="#">Privacy Policy</a>.
+              Your information will only be used to contact you about Print Club
+              opportunities and will never be sold to third parties.
+            </p>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
 
   </main>
 
+  <!-- ⑧ FOOTER — injected by main.js -->
   <div id="site-footer"></div>
 
   <script src="js/main.js"></script>
+
 </body>
 </html>
