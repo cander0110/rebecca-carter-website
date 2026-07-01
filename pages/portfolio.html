@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio — Rebecca Carter</title>
+  <meta name="description" content="Portfolio of paintings, prints, and mixed-media works by Rebecca Carter." />
+  <link rel="stylesheet" href="../css/styles.css" />
+</head>
+<body>
+
+  <div id="site-nav"></div>
+
+  <main>
+    <div class="page-hero container">
+      <h1>Portfolio</h1>
+    </div>
+
+    <section class="section container">
+      <!-- Filter buttons (optional — wire up in main.js if needed) -->
+      <div style="display:flex; gap:1rem; margin-bottom:2rem; flex-wrap:wrap;">
+        <button class="btn" data-filter="all">All</button>
+        <button class="btn" data-filter="painting">Painting</button>
+        <button class="btn" data-filter="print">Print</button>
+        <button class="btn" data-filter="mixed-media">Mixed Media</button>
+      </div>
+
+      <div class="grid grid-3" id="portfolioGrid">
+        <!-- Add a .grid-item block per artwork.
+             data-category matches the filter buttons above.
+             Replace .image-placeholder with a real <img>:
+               <img src="../assets/images/your-file.jpg" alt="Descriptive alt text" loading="lazy" />
+        -->
+        <div data-category="painting">
+          <div class="grid-item"><div class="image-placeholder">Image</div></div>
+          <div class="grid-item-caption">
+            <h3>Work Title</h3>
+            <p class="text-muted">Oil on canvas, 60 × 80 cm, 2024</p>
+          </div>
+        </div>
+        <div data-category="print">
+          <div class="grid-item"><div class="image-placeholder">Image</div></div>
+          <div class="grid-item-caption">
+            <h3>Work Title</h3>
+            <p class="text-muted">2-colour risograph, edition of 30, 2024</p>
+          </div>
+        </div>
+        <div data-category="mixed-media">
+          <div class="grid-item"><div class="image-placeholder">Image</div></div>
+          <div class="grid-item-caption">
+            <h3>Work Title</h3>
+            <p class="text-muted">Collage and acrylic, 42 × 59 cm, 2023</p>
+          </div>
+        </div>
+        <div data-category="painting">
+          <div class="grid-item"><div class="image-placeholder">Image</div></div>
+          <div class="grid-item-caption">
+            <h3>Work Title</h3>
+            <p class="text-muted">Oil on linen, 50 × 60 cm, 2023</p>
+          </div>
+        </div>
+        <div data-category="print">
+          <div class="grid-item"><div class="image-placeholder">Image</div></div>
+          <div class="grid-item-caption">
+            <h3>Work Title</h3>
+            <p class="text-muted">Etching and aquatint, 2023</p>
+          </div>
+        </div>
+        <div data-category="mixed-media">
+          <div class="grid-item"><div class="image-placeholder">Image</div></div>
+          <div class="grid-item-caption">
+            <h3>Work Title</h3>
+            <p class="text-muted">Found objects and paint, 2022</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script src="../js/main.js"></script>
+  <script>
+    // Simple category filter
+    document.querySelectorAll('[data-filter]').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const filter = btn.dataset.filter;
+        document.querySelectorAll('#portfolioGrid [data-category]').forEach((item) => {
+          item.style.display = (filter === 'all' || item.dataset.category === filter)
+            ? '' : 'none';
+        });
+        document.querySelectorAll('[data-filter]').forEach(b => b.classList.remove('btn-accent'));
+        btn.classList.add('btn-accent');
+      });
+    });
+  </script>
+</body>
+</html>

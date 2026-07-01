@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Print Club — Rebecca Carter</title>
+  <meta name="description" content="Join Rebecca Carter's Print Club and receive an exclusive limited-edition print each quarter." />
+  <link rel="stylesheet" href="../css/styles.css" />
+</head>
+<body>
+
+  <div id="site-nav"></div>
+
+  <main>
+    <div class="page-hero container">
+      <h1>Print Club</h1>
+    </div>
+
+    <section class="section container">
+
+      <div class="print-club-intro">
+        <p>
+          Four times a year I make a small edition of prints available exclusively
+          to Print Club members before they go anywhere else &mdash; or they never
+          go anywhere else at all. Each edition is hand-signed and numbered.
+        </p>
+        <p>
+          Membership costs &pound;20 per quarter (cancel any time). You'll also
+          receive a short letter about the work, studio process notes, and early
+          access to the Shop.
+        </p>
+      </div>
+
+      <div class="print-club-benefits">
+        <div class="benefit-card">
+          <h3>Exclusive Editions</h3>
+          <p>
+            One new hand-signed, numbered print per quarter, made in editions
+            of 25 or fewer.
+          </p>
+        </div>
+        <div class="benefit-card">
+          <h3>Studio Letters</h3>
+          <p>
+            A personal note about what I'm working on, what's influencing me,
+            and what's next.
+          </p>
+        </div>
+        <div class="benefit-card">
+          <h3>Early Access</h3>
+          <p>
+            Shop drops and show announcements land in your inbox 48 hours before
+            they go public.
+          </p>
+        </div>
+        <div class="benefit-card">
+          <h3>Cancel Any Time</h3>
+          <p>
+            No contracts. Pause or cancel at any time by replying to any club email.
+          </p>
+        </div>
+      </div>
+
+      <!-- Sign-up form.
+           This currently only logs to the console — connect it to a real
+           mailing list or payment service (e.g. Mailchimp, ConvertKit, Stripe)
+           by replacing the form's submit handler in main.js. -->
+      <div>
+        <h2 style="font-size:1.5rem; margin-bottom:var(--space-md);">
+          Join the Club
+        </h2>
+
+        <form class="signup-form" id="printClubForm" novalidate>
+          <div class="form-group">
+            <label for="firstName">First name</label>
+            <input type="text" id="firstName" name="firstName" autocomplete="given-name" required />
+          </div>
+          <div class="form-group">
+            <label for="email">Email address</label>
+            <input type="email" id="email" name="email" autocomplete="email" required />
+          </div>
+          <div class="form-group">
+            <label for="country">Country</label>
+            <select id="country" name="country">
+              <option value="">Select country…</option>
+              <option value="GB">United Kingdom</option>
+              <option value="US">United States</option>
+              <option value="CA">Canada</option>
+              <option value="AU">Australia</option>
+              <option value="EU">Europe (other)</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+          <button type="submit" class="btn btn-accent">
+            Sign me up &mdash; &pound;20 / quarter
+          </button>
+          <p class="text-small text-muted" style="margin-top:var(--space-sm);">
+            By signing up you agree to receive emails about Print Club and studio
+            news. Unsubscribe any time.
+          </p>
+        </form>
+      </div>
+
+    </section>
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>
