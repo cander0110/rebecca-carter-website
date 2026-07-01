@@ -13,76 +13,65 @@
 
   <main>
     <div class="page-hero container">
-      <h1>Print Club</h1>
+      <p class="page-hero__label">Membership</p>
+      <h1 class="reveal">Print Club</h1>
+      <p class="page-hero__lead reveal reveal-delay-1">
+        Four times a year I make a small edition available exclusively to members
+        before they go anywhere else &mdash; or they never go anywhere else at all.
+      </p>
     </div>
 
     <section class="section container">
 
-      <div class="print-club-intro">
-        <p>
-          Four times a year I make a small edition of prints available exclusively
-          to Print Club members before they go anywhere else &mdash; or they never
-          go anywhere else at all. Each edition is hand-signed and numbered.
-        </p>
-        <p>
-          Membership costs &pound;20 per quarter (cancel any time). You'll also
-          receive a short letter about the work, studio process notes, and early
-          access to the Shop.
-        </p>
+      <div class="benefits-grid">
+        <div class="benefit-card reveal">
+          <p class="benefit-card__icon">01</p>
+          <h3>Exclusive Editions</h3>
+          <p>One new hand-signed, numbered print per quarter, in editions of 25 or fewer.</p>
+        </div>
+        <div class="benefit-card reveal reveal-delay-1">
+          <p class="benefit-card__icon">02</p>
+          <h3>Studio Letters</h3>
+          <p>A personal note about what I'm working on, what's influencing me, and what's next.</p>
+        </div>
+        <div class="benefit-card reveal reveal-delay-2">
+          <p class="benefit-card__icon">03</p>
+          <h3>Early Access</h3>
+          <p>Shop drops and show announcements land in your inbox 48 hours before they go public.</p>
+        </div>
+        <div class="benefit-card reveal reveal-delay-3">
+          <p class="benefit-card__icon">04</p>
+          <h3>Cancel Any Time</h3>
+          <p>No contracts. Pause or cancel at any time by replying to any club email.</p>
+        </div>
       </div>
 
-      <div class="print-club-benefits">
-        <div class="benefit-card">
-          <h3>Exclusive Editions</h3>
-          <p>
-            One new hand-signed, numbered print per quarter, made in editions
-            of 25 or fewer.
-          </p>
-        </div>
-        <div class="benefit-card">
-          <h3>Studio Letters</h3>
-          <p>
-            A personal note about what I'm working on, what's influencing me,
-            and what's next.
-          </p>
-        </div>
-        <div class="benefit-card">
-          <h3>Early Access</h3>
-          <p>
-            Shop drops and show announcements land in your inbox 48 hours before
-            they go public.
-          </p>
-        </div>
-        <div class="benefit-card">
-          <h3>Cancel Any Time</h3>
-          <p>
-            No contracts. Pause or cancel at any time by replying to any club email.
-          </p>
-        </div>
-      </div>
+      <hr class="divider" />
 
       <!-- Sign-up form.
-           This currently only logs to the console — connect it to a real
-           mailing list or payment service (e.g. Mailchimp, ConvertKit, Stripe)
-           by replacing the form's submit handler in main.js. -->
-      <div>
-        <h2 style="font-size:1.5rem; margin-bottom:var(--space-md);">
-          Join the Club
-        </h2>
+           Wire the submit handler in main.js to your mailing list or payment
+           provider (Mailchimp, ConvertKit, Stripe Checkout, etc.). -->
+      <div style="max-width:480px;" class="reveal">
+        <h2 style="margin-bottom:var(--sp-8);">Join the Club</h2>
+        <p style="margin-bottom:var(--sp-8);">
+          &pound;20 per quarter. Cancel any time.
+        </p>
 
-        <form class="signup-form" id="printClubForm" novalidate>
+        <form class="form" id="printClubForm" novalidate>
           <div class="form-group">
-            <label for="firstName">First name</label>
-            <input type="text" id="firstName" name="firstName" autocomplete="given-name" required />
+            <label class="form-label" for="firstName">First name</label>
+            <input class="form-input" type="text" id="firstName" name="firstName"
+                   autocomplete="given-name" required />
           </div>
           <div class="form-group">
-            <label for="email">Email address</label>
-            <input type="email" id="email" name="email" autocomplete="email" required />
+            <label class="form-label" for="email">Email address</label>
+            <input class="form-input" type="email" id="email" name="email"
+                   autocomplete="email" required />
           </div>
           <div class="form-group">
-            <label for="country">Country</label>
-            <select id="country" name="country">
-              <option value="">Select country…</option>
+            <label class="form-label" for="country">Country</label>
+            <select class="form-select" id="country" name="country">
+              <option value="">Select&hellip;</option>
               <option value="GB">United Kingdom</option>
               <option value="US">United States</option>
               <option value="CA">Canada</option>
@@ -91,12 +80,14 @@
               <option value="other">Other</option>
             </select>
           </div>
-          <button type="submit" class="btn btn-accent">
+
+          <button type="submit" class="btn btn--filled-terra btn--lg"
+                  style="margin-top:var(--sp-2); align-self:flex-start;">
             Sign me up &mdash; &pound;20 / quarter
           </button>
-          <p class="text-small text-muted" style="margin-top:var(--space-sm);">
-            By signing up you agree to receive emails about Print Club and studio
-            news. Unsubscribe any time.
+
+          <p class="form-hint">
+            By signing up you agree to receive Print Club emails. Unsubscribe any time.
           </p>
         </form>
       </div>

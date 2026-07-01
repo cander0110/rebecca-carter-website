@@ -4,66 +4,94 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Rebecca Carter — Artist</title>
-  <meta name="description" content="Rebecca Carter is an artist working in painting, print, and mixed media." />
+  <meta name="description" content="Rebecca Carter is an artist working in painting, printmaking, and mixed media. Based in London." />
   <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body>
 
-  <!-- Injected by main.js -->
   <div id="site-nav"></div>
 
   <main>
-    <section class="hero section container">
-      <h1>Rebecca Carter</h1>
-      <p class="hero-subtitle">Painting &middot; Printmaking &middot; Mixed Media</p>
 
-      <!-- Replace this placeholder with a featured image or video.
-           For an image: set data-src="assets/images/featured.jpg" on the <img> below.
-           For a video:  swap the <img> for a <video> tag with the correct src. -->
-      <div class="hero-featured">
-        <div class="image-placeholder">
-          Featured work — add an image or video to assets/
-        </div>
+    <!-- Hero -->
+    <section class="hero">
+      <p class="hero__eyebrow reveal">London — Est. 2016</p>
+      <h1 class="hero__title reveal reveal-delay-1">Rebecca<br/>Carter</h1>
+      <p class="hero__subtitle reveal reveal-delay-2">Painting &middot; Printmaking &middot; Mixed Media</p>
+
+      <!-- Hero image or video.
+           Replace the .placeholder div with:
+             <img src="assets/images/featured.jpg" alt="Featured work title, year" />
+           Or for video:
+             <video autoplay muted loop playsinline poster="assets/images/featured-poster.jpg">
+               <source src="assets/videos/studio-reel.mp4" type="video/mp4" />
+             </video>  -->
+      <div class="hero__media reveal reveal-delay-3">
+        <div class="placeholder">Featured work — add image or video to assets/</div>
       </div>
     </section>
 
+    <!-- Recent work -->
     <section class="section container">
-      <h2>Recent Work</h2>
-      <div class="grid grid-3">
-        <!-- Repeat these .grid-item blocks for each thumbnail.
-             Set the <img> src to your actual image path. -->
-        <div>
-          <div class="grid-item">
-            <div class="image-placeholder">Image</div>
+      <div class="section-header reveal">
+        <h2>Recent Work</h2>
+        <a href="pages/portfolio.html">View all &rarr;</a>
+      </div>
+
+      <div class="artwork-grid artwork-grid--3">
+        <div class="artwork-card reveal">
+          <div class="artwork-card__image">
+            <!-- <img src="assets/images/work-1.jpg" alt="Untitled I, oil on linen, 2024" loading="lazy" /> -->
+            <div class="placeholder">Image</div>
           </div>
-          <div class="grid-item-caption">
-            <h3>Untitled I</h3>
-            <p class="text-muted">Oil on linen, 2024</p>
-          </div>
-        </div>
-        <div>
-          <div class="grid-item">
-            <div class="image-placeholder">Image</div>
-          </div>
-          <div class="grid-item-caption">
-            <h3>Untitled II</h3>
-            <p class="text-muted">Screenprint, 2024</p>
+          <div class="artwork-card__meta">
+            <p class="artwork-card__title">Untitled I</p>
+            <p class="artwork-card__medium">Oil on linen &middot; 2024</p>
           </div>
         </div>
-        <div>
-          <div class="grid-item">
-            <div class="image-placeholder">Image</div>
+
+        <div class="artwork-card reveal reveal-delay-1">
+          <div class="artwork-card__image">
+            <div class="placeholder">Image</div>
           </div>
-          <div class="grid-item-caption">
-            <h3>Untitled III</h3>
-            <p class="text-muted">Mixed media, 2023</p>
+          <div class="artwork-card__meta">
+            <p class="artwork-card__title">Untitled II</p>
+            <p class="artwork-card__medium">Screenprint, ed. 20 &middot; 2024</p>
+          </div>
+        </div>
+
+        <div class="artwork-card reveal reveal-delay-2">
+          <div class="artwork-card__image">
+            <div class="placeholder">Image</div>
+          </div>
+          <div class="artwork-card__meta">
+            <p class="artwork-card__title">Untitled III</p>
+            <p class="artwork-card__medium">Mixed media &middot; 2023</p>
           </div>
         </div>
       </div>
     </section>
+
+    <!-- Print Club teaser -->
+    <section class="section section--alt">
+      <div class="container" style="max-width:640px; text-align:center; margin-inline:auto;">
+        <p class="label reveal">Print Club</p>
+        <h2 class="reveal reveal-delay-1" style="margin-top:var(--sp-4); margin-bottom:var(--sp-6);">
+          An edition, four times a year.
+        </h2>
+        <p class="reveal reveal-delay-2">
+          Members receive a hand-signed, numbered print each quarter — made in small
+          editions and available nowhere else.
+        </p>
+        <a href="pages/print-club.html" class="btn reveal reveal-delay-3"
+           style="margin-top:var(--sp-8);">
+          Join the club
+        </a>
+      </div>
+    </section>
+
   </main>
 
-  <!-- Injected by main.js -->
   <div id="site-footer"></div>
 
   <script src="js/main.js"></script>

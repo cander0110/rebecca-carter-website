@@ -1,73 +1,149 @@
-/* ===================================================
+/* ============================================================
    Rebecca Carter — main.js
-   =================================================== */
+   ============================================================ */
 
-/* ---------- Nav injection ----------
-   Injects consistent nav and footer into every page.
-   The nav-links and footer-links arrays are the single
-   source of truth for site navigation.
-   --------------------------------------------------- */
+/* ---------- Config ---------- */
 
 const NAV_LINKS = [
-  { href: '/pages/portfolio.html', label: 'Portfolio' },
-  { href: '/pages/shop.html',      label: 'Shop' },
-  { href: '/pages/cv.html',        label: 'CV' },
-  { href: '/pages/shows.html',     label: 'Shows' },
-  { href: '/pages/print-club.html',label: 'Print Club' },
+  { href: 'portfolio.html', label: 'Portfolio' },
+  { href: 'shop.html',      label: 'Shop' },
+  { href: 'cv.html',        label: 'CV' },
+  { href: 'shows.html',     label: 'Shows' },
+  { href: 'print-club.html',label: 'Print Club' },
 ];
 
+/* Resolve whether we're at root or in /pages/ */
+function isInPages() {
+  return window.location.pathname.includes('/pages/');
+}
+
+function rootPrefix() {
+  return isInPages() ? '../' : './';
+}
+
+/* Current filename (e.g. "portfolio.html") */
+function currentFile() {
+  const parts = window.location.pathname.split('/');
+  return parts[parts.length - 1] || 'index.html';
+}
+
+
+/* ---------- Nav ---------- */
+
 function buildNav() {
-  const currentPath = window.location.pathname;
+  const root  = rootPrefix();
+  const file  = currentFile();
 
   const linksHtml = NAV_LINKS.map(({ href, label }) => {
-    const isActive = currentPath.endsWith(href.replace(/^\//, '')) ? ' active' : '';
-    return `<a href="${href}"class="${'nav-link' + isActive}">${label}</a>`;
+    const isActive = file === href ? ' active' : '';
+    // From /pages/, links are sibling files. From root, prepend pages/.
+    const resolvedHref = isInPages() ? href : `pages/${href}`;
+    return `<a href="${resolvedHref}" class="nav-link${isActive}">${label}</a>`;
   }).join('');
 
-  const rootPrefix = currentPath.includes('/pages/') ? '../' : './';
-
   return `
-    <nav class="site-nav" aria-label="Main navigation">
-      <div class="container">
-        <div class="nav-logo">
-          <a href="${rootPrefix}index.html">Rebecca Carter</a>
-        </div>
-        <div class="nav-links" id="navLinks">
-          ${NAV_LINKS.map(({ href, label }) => {
-            const resolvedHref = currentPath.includes('/pages/')
-              ? href.replace('/pages/', '')
-              : href;
-            const isActive = currentPath.endsWith(href.replace(/^\/pages\//, '')) ? ' active' : '';
-            return `<a href="${resolvedHref}" class="nav-link${isActive}">${label}</a>`;
-          }).join('')}
-        </div>
-        <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
-          <span></span><span></span><span></span>
-        </button>
-      </div>
-    </nav>`;
+<nav class="site-nav" aria-label="Main navigation">
+  <div class="container">
+    <div class="nav-logo">
+      <a href="${root}index.html">Rebecca Carter</a>
+    </div>
+    <div class="nav-links" id="navLinks" role="list">
+      ${linksHtml}
+    </div>
+    <button class="nav-toggle" id="navToggle"
+            aria-label="Toggle navigation menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>`;
 }
+
+
+/* ---------- Footer ---------- */
 
 function buildFooter() {
   const year = new Date().getFullYear();
+  const root = rootPrefix();
+
+  const navLinks = NAV_LINKS.map(({ href, label }) => {
+    const resolvedHref = isInPages() ? href : `pages/${href}`;
+    return `<a href="${resolvedHref}">${label}</a>`;
+  }).join('');
+
   return `
-    <footer class="site-footer">
-      <div class="container">
-        <span>&copy; ${year} Rebecca Carter. All rights reserved.</span>
-        <nav class="footer-links" aria-label="Footer navigation">
-          <a href="mailto:hello@rebeccacarter.art">Contact</a>
-          <a href="https://www.instagram.com/" target="_blank" rel="noopener">Instagram</a>
-        </nav>
+<footer class="site-footer">
+  <div class="footer-body">
+    <div class="container">
+      <div class="footer-grid">
+
+        <div class="footer-brand">
+          <a class="footer-brand__logo" href="${root}index.html">Rebecca Carter</a>
+          <p>Painting, printmaking, and mixed media.<br/>Based in London.</p>
+          <p>Available for commissions, residencies,<br/>and editorial projects.</p>
+        </div>
+
+        <div class="footer-col">
+          <p class="footer-col__heading">Navigate</p>
+          <nav class="footer-col__links" aria-label="Footer navigation">
+            ${navLinks}
+          </nav>
+        </div>
+
+        <div class="footer-col">
+          <p class="footer-col__heading">Info</p>
+          <div class="footer-col__links">
+            <a href="mailto:hello@rebeccacarter.art">hello@rebeccacarter.art</a>
+            <span>For press and gallery enquiries,<br/>please email directly.</span>
+            <span>Represented by<br/>[Gallery Name], London</span>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <p class="footer-col__heading">Connect</p>
+          <nav class="footer-col__links" aria-label="Social links">
+            <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">
+              Instagram
+            </a>
+            <a href="https://www.pinterest.com/" target="_blank" rel="noopener noreferrer">
+              Pinterest
+            </a>
+            <a href="https://www.artsy.net/" target="_blank" rel="noopener noreferrer">
+              Artsy
+            </a>
+            <a href="${root}pages/print-club.html">
+              Newsletter
+            </a>
+          </nav>
+        </div>
+
       </div>
-    </footer>`;
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div class="container flex-between" style="flex-wrap:wrap; gap:var(--sp-4);">
+      <span>&copy; ${year} Rebecca Carter. All rights reserved.</span>
+      <span>London, UK</span>
+    </div>
+  </div>
+</footer>`;
 }
 
+
+/* ---------- Shell injection ---------- */
+
 function injectShell() {
-  const navEl = document.getElementById('site-nav');
-  const footerEl = document.getElementById('site-footer');
-  if (navEl) navEl.outerHTML = buildNav();
-  if (footerEl) footerEl.outerHTML = buildFooter();
+  const navPlaceholder    = document.getElementById('site-nav');
+  const footerPlaceholder = document.getElementById('site-footer');
+
+  if (navPlaceholder) {
+    navPlaceholder.outerHTML = buildNav();
+  }
+  if (footerPlaceholder) {
+    footerPlaceholder.outerHTML = buildFooter();
+  }
 }
+
 
 /* ---------- Mobile nav toggle ---------- */
 
@@ -77,18 +153,85 @@ function initNavToggle() {
   if (!toggle || !links) return;
 
   toggle.addEventListener('click', () => {
-    const isOpen = links.classList.toggle('open');
-    toggle.setAttribute('aria-expanded', isOpen);
+    const isOpen = links.classList.toggle('is-open');
+    toggle.setAttribute('aria-expanded', String(isOpen));
+    document.body.style.overflow = isOpen ? 'hidden' : '';
   });
 
-  // Close on outside click
+  // Close on overlay click / outside
   document.addEventListener('click', (e) => {
     if (!toggle.contains(e.target) && !links.contains(e.target)) {
-      links.classList.remove('open');
+      links.classList.remove('is-open');
       toggle.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    }
+  });
+
+  // Close on Escape
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      links.classList.remove('is-open');
+      toggle.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
     }
   });
 }
+
+
+/* ---------- Scroll-reveal (IntersectionObserver)
+   Any element with class "reveal" fades up when it enters
+   the viewport. Add "reveal-delay-1" through "reveal-delay-4"
+   to stagger children.
+   ---------------------------------------------------------- */
+
+function initReveal() {
+  if (!('IntersectionObserver' in window)) {
+    // Fallback: show everything immediately
+    document.querySelectorAll('.reveal').forEach(el => el.classList.add('is-visible'));
+    return;
+  }
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target); // fire once
+        }
+      });
+    },
+    {
+      threshold: 0.08,
+      rootMargin: '0px 0px -60px 0px',
+    }
+  );
+
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+}
+
+
+/* ---------- Portfolio filter ---------- */
+
+function initPortfolioFilter() {
+  const filterBtns = document.querySelectorAll('[data-filter]');
+  const grid       = document.getElementById('portfolioGrid');
+  if (!filterBtns.length || !grid) return;
+
+  filterBtns.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const filter = btn.dataset.filter;
+
+      grid.querySelectorAll('[data-category]').forEach((item) => {
+        const show = filter === 'all' || item.dataset.category === filter;
+        item.style.display = show ? '' : 'none';
+      });
+
+      filterBtns.forEach(b => b.classList.remove('is-active'));
+      btn.classList.add('is-active');
+    });
+  });
+}
+
 
 /* ---------- Print Club form ---------- */
 
@@ -99,31 +242,39 @@ function initPrintClubForm() {
   form.addEventListener('submit', (e) => {
     e.preventDefault();
     const data = Object.fromEntries(new FormData(form));
-    // TODO: wire up to a real mailing list service (e.g. Mailchimp, ConvertKit)
+    // TODO: replace with fetch() to your mailing list provider
+    // e.g. Mailchimp, ConvertKit, or a serverless function
     console.log('Print Club signup:', data);
-    form.innerHTML = `<p style="font-size:1.125rem; font-family: Georgia, serif;">
-      Thank you, ${data.firstName || 'friend'}! You're on the list.
-    </p>`;
+    form.innerHTML = `
+      <p style="font-family: 'Cormorant Garamond', serif;
+                font-style: italic;
+                font-size: 1.5rem;
+                color: var(--ink);
+                line-height: 1.4;">
+        Thank you${data.firstName ? ', ' + data.firstName : ''}.<br/>
+        You&rsquo;re on the list.
+      </p>`;
   });
 }
 
-/* ---------- Lazy-load placeholder swap ----------
-   When you add real images, they will load automatically.
-   Placeholders are shown only when no src is set.
-   --------------------------------------------------- */
 
-function initPlaceholders() {
+/* ---------- Lazy image swap ---------- */
+
+function initLazyImages() {
   document.querySelectorAll('img[data-src]').forEach((img) => {
     img.src = img.dataset.src;
     img.removeAttribute('data-src');
   });
 }
 
+
 /* ---------- Boot ---------- */
 
 document.addEventListener('DOMContentLoaded', () => {
-  injectShell();
+  injectShell();         // Nav + footer must come first
   initNavToggle();
+  initReveal();
+  initPortfolioFilter();
   initPrintClubForm();
-  initPlaceholders();
+  initLazyImages();
 });

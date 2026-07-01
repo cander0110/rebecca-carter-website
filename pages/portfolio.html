@@ -13,66 +13,89 @@
 
   <main>
     <div class="page-hero container">
-      <h1>Portfolio</h1>
+      <p class="page-hero__label">Work</p>
+      <h1 class="reveal">Portfolio</h1>
+      <p class="page-hero__lead reveal reveal-delay-1">
+        Painting, printmaking, and mixed media — 2019 to present.
+      </p>
     </div>
 
     <section class="section container">
-      <!-- Filter buttons (optional — wire up in main.js if needed) -->
-      <div style="display:flex; gap:1rem; margin-bottom:2rem; flex-wrap:wrap;">
-        <button class="btn" data-filter="all">All</button>
-        <button class="btn" data-filter="painting">Painting</button>
-        <button class="btn" data-filter="print">Print</button>
-        <button class="btn" data-filter="mixed-media">Mixed Media</button>
+      <!-- Filter bar -->
+      <div class="filter-bar reveal" style="margin-bottom:var(--sp-8);">
+        <button class="filter-btn is-active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="painting">Painting</button>
+        <button class="filter-btn" data-filter="print">Print</button>
+        <button class="filter-btn" data-filter="mixed-media">Mixed Media</button>
       </div>
 
-      <div class="grid grid-3" id="portfolioGrid">
-        <!-- Add a .grid-item block per artwork.
-             data-category matches the filter buttons above.
-             Replace .image-placeholder with a real <img>:
-               <img src="../assets/images/your-file.jpg" alt="Descriptive alt text" loading="lazy" />
-        -->
-        <div data-category="painting">
-          <div class="grid-item"><div class="image-placeholder">Image</div></div>
-          <div class="grid-item-caption">
-            <h3>Work Title</h3>
-            <p class="text-muted">Oil on canvas, 60 × 80 cm, 2024</p>
+      <!-- Grid — add or remove .artwork-card blocks as needed.
+           For each image, replace .placeholder with:
+             <img src="../assets/images/your-file.jpg"
+                  alt="Descriptive title, medium, year"
+                  loading="lazy" />           -->
+      <div class="artwork-grid artwork-grid--3" id="portfolioGrid">
+
+        <div class="artwork-card reveal" data-category="painting">
+          <div class="artwork-card__image">
+            <div class="placeholder">Image</div>
+          </div>
+          <div class="artwork-card__meta">
+            <p class="artwork-card__title">Work Title</p>
+            <p class="artwork-card__medium">Oil on canvas &middot; 60 &times; 80 cm &middot; 2024</p>
           </div>
         </div>
-        <div data-category="print">
-          <div class="grid-item"><div class="image-placeholder">Image</div></div>
-          <div class="grid-item-caption">
-            <h3>Work Title</h3>
-            <p class="text-muted">2-colour risograph, edition of 30, 2024</p>
+
+        <div class="artwork-card reveal reveal-delay-1" data-category="print">
+          <div class="artwork-card__image">
+            <div class="placeholder">Image</div>
+          </div>
+          <div class="artwork-card__meta">
+            <p class="artwork-card__title">Work Title</p>
+            <p class="artwork-card__medium">2-colour risograph, ed. 30 &middot; 2024</p>
           </div>
         </div>
-        <div data-category="mixed-media">
-          <div class="grid-item"><div class="image-placeholder">Image</div></div>
-          <div class="grid-item-caption">
-            <h3>Work Title</h3>
-            <p class="text-muted">Collage and acrylic, 42 × 59 cm, 2023</p>
+
+        <div class="artwork-card reveal reveal-delay-2" data-category="mixed-media">
+          <div class="artwork-card__image">
+            <div class="placeholder">Image</div>
+          </div>
+          <div class="artwork-card__meta">
+            <p class="artwork-card__title">Work Title</p>
+            <p class="artwork-card__medium">Collage and acrylic &middot; 42 &times; 59 cm &middot; 2023</p>
           </div>
         </div>
-        <div data-category="painting">
-          <div class="grid-item"><div class="image-placeholder">Image</div></div>
-          <div class="grid-item-caption">
-            <h3>Work Title</h3>
-            <p class="text-muted">Oil on linen, 50 × 60 cm, 2023</p>
+
+        <div class="artwork-card reveal" data-category="painting">
+          <div class="artwork-card__image">
+            <div class="placeholder">Image</div>
+          </div>
+          <div class="artwork-card__meta">
+            <p class="artwork-card__title">Work Title</p>
+            <p class="artwork-card__medium">Oil on linen &middot; 50 &times; 60 cm &middot; 2023</p>
           </div>
         </div>
-        <div data-category="print">
-          <div class="grid-item"><div class="image-placeholder">Image</div></div>
-          <div class="grid-item-caption">
-            <h3>Work Title</h3>
-            <p class="text-muted">Etching and aquatint, 2023</p>
+
+        <div class="artwork-card reveal reveal-delay-1" data-category="print">
+          <div class="artwork-card__image">
+            <div class="placeholder">Image</div>
+          </div>
+          <div class="artwork-card__meta">
+            <p class="artwork-card__title">Work Title</p>
+            <p class="artwork-card__medium">Etching and aquatint &middot; 2023</p>
           </div>
         </div>
-        <div data-category="mixed-media">
-          <div class="grid-item"><div class="image-placeholder">Image</div></div>
-          <div class="grid-item-caption">
-            <h3>Work Title</h3>
-            <p class="text-muted">Found objects and paint, 2022</p>
+
+        <div class="artwork-card reveal reveal-delay-2" data-category="mixed-media">
+          <div class="artwork-card__image">
+            <div class="placeholder">Image</div>
+          </div>
+          <div class="artwork-card__meta">
+            <p class="artwork-card__title">Work Title</p>
+            <p class="artwork-card__medium">Found objects and paint &middot; 2022</p>
           </div>
         </div>
+
       </div>
     </section>
   </main>
@@ -80,19 +103,5 @@
   <div id="site-footer"></div>
 
   <script src="../js/main.js"></script>
-  <script>
-    // Simple category filter
-    document.querySelectorAll('[data-filter]').forEach((btn) => {
-      btn.addEventListener('click', () => {
-        const filter = btn.dataset.filter;
-        document.querySelectorAll('#portfolioGrid [data-category]').forEach((item) => {
-          item.style.display = (filter === 'all' || item.dataset.category === filter)
-            ? '' : 'none';
-        });
-        document.querySelectorAll('[data-filter]').forEach(b => b.classList.remove('btn-accent'));
-        btn.classList.add('btn-accent');
-      });
-    });
-  </script>
 </body>
 </html>

@@ -13,85 +13,104 @@
 
   <main>
     <div class="page-hero container">
-      <h1>Shows</h1>
+      <p class="page-hero__label">Exhibitions</p>
+      <h1 class="reveal">Shows</h1>
     </div>
 
     <section class="section container">
 
-      <h2>Upcoming</h2>
-      <div class="shows-list" style="margin-bottom:var(--space-lg);">
-        <!-- One .show-entry per exhibition.
-             Set the date, title, venue, location, and dates.
-             Swap .show-badge classes: "upcoming" for future, no class for past. -->
-        <div class="show-entry">
+      <div class="section-header reveal">
+        <h2>Upcoming</h2>
+      </div>
+
+      <!-- One .show-entry per exhibition.
+           Upcoming entries get class="badge badge--upcoming".
+           Past entries get class="badge" with no modifier. -->
+      <div class="shows-list" style="margin-bottom:var(--sp-16);">
+
+        <div class="show-entry reveal">
           <div class="show-date">Sep 2025</div>
           <div>
             <p class="show-title">Exhibition Title</p>
             <p class="show-venue">Gallery Name &mdash; City, Country</p>
-            <p class="text-small text-muted">12 September &ndash; 4 October 2025</p>
+            <p class="text-xs text-muted" style="margin-top:var(--sp-1);">
+              12 September &ndash; 4 October 2025 &middot; Solo
+            </p>
           </div>
-          <span class="show-badge upcoming">Upcoming</span>
+          <span class="badge badge--upcoming">Upcoming</span>
         </div>
-        <div class="show-entry">
+
+        <div class="show-entry reveal">
           <div class="show-date">Nov 2025</div>
           <div>
             <p class="show-title">Art Fair Booth</p>
             <p class="show-venue">Fair Name &mdash; City</p>
-            <p class="text-small text-muted">7&ndash;10 November 2025</p>
+            <p class="text-xs text-muted" style="margin-top:var(--sp-1);">
+              7&ndash;10 November 2025
+            </p>
           </div>
-          <span class="show-badge upcoming">Upcoming</span>
+          <span class="badge badge--upcoming">Upcoming</span>
         </div>
+
       </div>
 
-      <h2>Past</h2>
+      <div class="section-header reveal">
+        <h2>Past</h2>
+      </div>
+
       <div class="shows-list">
-        <div class="show-entry">
+
+        <div class="show-entry reveal">
           <div class="show-date">Mar 2024</div>
           <div>
             <p class="show-title">Exhibition Title</p>
             <p class="show-venue">Gallery Name &mdash; City</p>
-            <p class="text-small text-muted">Solo</p>
+            <p class="text-xs text-muted" style="margin-top:var(--sp-1);">Solo</p>
           </div>
-          <span class="show-badge">Past</span>
+          <span class="badge">Past</span>
         </div>
-        <div class="show-entry">
+
+        <div class="show-entry reveal">
           <div class="show-date">Oct 2023</div>
           <div>
             <p class="show-title">Exhibition Title</p>
             <p class="show-venue">Gallery Name &mdash; City</p>
-            <p class="text-small text-muted">Group</p>
+            <p class="text-xs text-muted" style="margin-top:var(--sp-1);">Group</p>
           </div>
-          <span class="show-badge">Past</span>
+          <span class="badge">Past</span>
         </div>
-        <div class="show-entry">
+
+        <div class="show-entry reveal">
           <div class="show-date">Jun 2023</div>
           <div>
             <p class="show-title">Exhibition Title</p>
             <p class="show-venue">Institution &mdash; City</p>
-            <p class="text-small text-muted">Group</p>
+            <p class="text-xs text-muted" style="margin-top:var(--sp-1);">Group</p>
           </div>
-          <span class="show-badge">Past</span>
+          <span class="badge">Past</span>
         </div>
-        <div class="show-entry">
+
+        <div class="show-entry reveal">
           <div class="show-date">Feb 2022</div>
           <div>
             <p class="show-title">Exhibition Title</p>
             <p class="show-venue">Gallery Name &mdash; City</p>
-            <p class="text-small text-muted">Solo</p>
+            <p class="text-xs text-muted" style="margin-top:var(--sp-1);">Solo</p>
           </div>
-          <span class="show-badge">Past</span>
+          <span class="badge">Past</span>
         </div>
-        <div class="show-entry">
+
+        <div class="show-entry reveal">
           <div class="show-date">Sep 2021</div>
           <div>
             <p class="show-title">Exhibition Title</p>
             <p class="show-venue">Gallery Name &mdash; City</p>
-            <p class="text-small text-muted">Group</p>
+            <p class="text-xs text-muted" style="margin-top:var(--sp-1);">Group</p>
           </div>
-          <span class="show-badge">Past</span>
+          <span class="badge">Past</span>
         </div>
-      </div>
 
+      </div>
     </section>
   </main>
 
