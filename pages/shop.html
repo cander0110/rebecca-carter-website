@@ -4,7 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Shop — Rebecca Carter</title>
-  <meta name="description" content="Original works and limited-edition prints available to purchase from Rebecca Carter." />
+  <meta name="description"
+        content="Purchase original paintings and handmade crafts by Rebecca Carter — or commission a painting made just for you." />
   <link rel="stylesheet" href="../css/styles.css" />
 </head>
 <body>
@@ -12,86 +13,449 @@
   <div id="site-nav"></div>
 
   <main>
-    <div class="page-hero container">
-      <p class="page-hero__label">Available Works</p>
-      <h1 class="reveal">Shop</h1>
-      <p class="page-hero__lead reveal reveal-delay-1">
-        Originals and limited editions. All works shipped insured and tracked.
-        For enquiries: <a href="mailto:hello@rebeccacarter.art"
-          style="border-bottom:1px solid var(--border-color);">hello@rebeccacarter.art</a>
+
+    <!-- ============================================================
+         PAGE HERO
+         ============================================================ -->
+    <div class="shop-page-hero container">
+      <p class="shop-page-hero__eyebrow reveal">Rebecca Carter</p>
+      <h1 class="reveal reveal-delay-1">Shop</h1>
+      <p class="shop-page-hero__lead reveal reveal-delay-2">
+        Original paintings available to own, handmade goods from the studio,
+        and commissions made to order.
       </p>
     </div>
 
-    <section class="section container">
-      <div class="shop-grid">
 
-        <!-- Duplicate a .shop-card block for each item.
-             Replace .placeholder with:
-               <img src="../assets/images/your-file.jpg" alt="Work title" loading="lazy" />
-             Update title, medium, edition, price.
-             Remove .btn for sold works; add a .badge--sold span instead. -->
+    <!-- ============================================================
+         TWO-COLUMN PRODUCT LAYOUT
+         ============================================================ -->
+    <section class="section" aria-label="Products">
+      <div class="container">
+        <div class="shop-columns">
 
-        <div class="shop-card reveal">
-          <div class="shop-card__image">
-            <div class="placeholder">Image</div>
-          </div>
-          <p class="shop-card__category">Original</p>
-          <p class="shop-card__title">Work Title</p>
-          <p class="shop-card__medium">Oil on canvas, 40 &times; 50 cm</p>
-          <div class="shop-card__footer">
-            <span class="shop-card__price">&pound;850</span>
-            <a href="mailto:hello@rebeccacarter.art?subject=Enquiry: Work Title"
-               class="btn btn--terra btn--sm">Enquire</a>
-          </div>
-        </div>
 
-        <div class="shop-card reveal reveal-delay-1">
-          <div class="shop-card__image">
-            <div class="placeholder">Image</div>
-          </div>
-          <p class="shop-card__category">Limited Edition Print</p>
-          <p class="shop-card__title">Print Title</p>
-          <p class="shop-card__medium">Screenprint, ed. of 20, 30 &times; 40 cm</p>
-          <div class="shop-card__footer">
-            <span class="shop-card__price">&pound;120</span>
-            <a href="mailto:hello@rebeccacarter.art?subject=Purchase: Print Title"
-               class="btn btn--terra btn--sm">Buy</a>
-          </div>
-        </div>
+          <!-- ── PAINTINGS COLUMN ───────────────────────────────── -->
+          <div class="shop-col shop-col--paintings">
 
-        <div class="shop-card reveal reveal-delay-2">
-          <div class="shop-card__image">
-            <div class="placeholder">Image</div>
-          </div>
-          <p class="shop-card__category">Limited Edition Print</p>
-          <p class="shop-card__title">Print Title II</p>
-          <p class="shop-card__medium">Risograph, ed. of 50, A4</p>
-          <div class="shop-card__footer">
-            <span class="shop-card__price">&pound;45</span>
-            <a href="mailto:hello@rebeccacarter.art?subject=Purchase: Print Title II"
-               class="btn btn--terra btn--sm">Buy</a>
-          </div>
-        </div>
+            <div class="shop-col__header">
+              <h2>Paintings</h2>
+              <span class="shop-col__count">3 available</span>
+            </div>
 
-        <div class="shop-card reveal">
-          <div class="shop-card__image">
-            <div class="placeholder">Image</div>
-          </div>
-          <p class="shop-card__category">Original</p>
-          <p class="shop-card__title">Work Title II</p>
-          <p class="shop-card__medium">Mixed media on board, 30 &times; 30 cm</p>
-          <div class="shop-card__footer">
-            <span class="shop-card__price">&pound;450</span>
-            <span class="badge badge--sold">Sold</span>
-          </div>
-        </div>
+            <!--
+              ADDING A PAINTING:
+              1. Copy a .painting-product block.
+              2. Replace .placeholder with:
+                   <img src="../assets/images/your-file.jpg"
+                        alt="Title, medium, year" loading="lazy" />
+              3. Update title, medium, dimensions, price.
+              4. Update the mailto subject line in the Inquire button.
+            -->
+            <div role="list">
 
+              <article class="painting-product reveal" role="listitem">
+                <div class="painting-product__image">
+                  <!-- Swap for real image when available -->
+                  <div class="placeholder">Oil on linen</div>
+                </div>
+                <div class="painting-product__info">
+                  <h3 class="painting-product__title">Threshold I</h3>
+                  <p class="painting-product__medium">Oil on linen</p>
+                  <p class="painting-product__dimensions">60 &times; 80 cm &nbsp;&middot;&nbsp; 2024</p>
+                  <p class="painting-product__price">&pound;850</p>
+                  <!--
+                    INQUIRE BUTTON: links to a mailto with a pre-filled subject.
+                    Replace with a modal form or a Typeform/Tally link
+                    if you'd prefer a richer inquiry flow.
+                  -->
+                  <a href="mailto:hello@rebeccacarter.art?subject=Inquiry%3A%20Threshold%20I"
+                     class="btn btn--terra btn--sm"
+                     aria-label="Inquire to purchase Threshold I">
+                    Inquire to Purchase
+                  </a>
+                </div>
+              </article>
+
+              <article class="painting-product reveal reveal-delay-1" role="listitem">
+                <div class="painting-product__image">
+                  <div class="placeholder">Oil on canvas</div>
+                </div>
+                <div class="painting-product__info">
+                  <h3 class="painting-product__title">Still Ground</h3>
+                  <p class="painting-product__medium">Oil on canvas</p>
+                  <p class="painting-product__dimensions">50 &times; 60 cm &nbsp;&middot;&nbsp; 2024</p>
+                  <p class="painting-product__price">&pound;650</p>
+                  <a href="mailto:hello@rebeccacarter.art?subject=Inquiry%3A%20Still%20Ground"
+                     class="btn btn--terra btn--sm"
+                     aria-label="Inquire to purchase Still Ground">
+                    Inquire to Purchase
+                  </a>
+                </div>
+              </article>
+
+              <article class="painting-product reveal reveal-delay-2" role="listitem">
+                <div class="painting-product__image">
+                  <div class="placeholder">Mixed media</div>
+                </div>
+                <div class="painting-product__info">
+                  <h3 class="painting-product__title">The Wait</h3>
+                  <p class="painting-product__medium">Mixed media on paper</p>
+                  <p class="painting-product__dimensions">30 &times; 42 cm &nbsp;&middot;&nbsp; 2023</p>
+                  <p class="painting-product__price">&pound;320</p>
+                  <a href="mailto:hello@rebeccacarter.art?subject=Inquiry%3A%20The%20Wait"
+                     class="btn btn--terra btn--sm"
+                     aria-label="Inquire to purchase The Wait">
+                    Inquire to Purchase
+                  </a>
+                </div>
+              </article>
+
+            </div><!-- /role=list -->
+
+            <!-- Note below the painting list -->
+            <p class="shop-col__note reveal">
+              All painting purchases are handled directly — click Inquire and
+              Rebecca will be in touch within 48 hours to discuss payment,
+              framing, and shipping.
+            </p>
+
+          </div><!-- /shop-col--paintings -->
+
+
+          <!-- ── CRAFTS & GOODS COLUMN ──────────────────────────── -->
+          <div class="shop-col shop-col--crafts">
+
+            <div class="shop-col__header">
+              <h2>Crafts &amp; Goods</h2>
+              <span class="shop-col__count">Studio made</span>
+            </div>
+
+            <!--
+              ADDING A CRAFT ITEM:
+              1. Copy a .craft-product block.
+              2. Replace .placeholder with:
+                   <img src="../assets/images/your-file.jpg"
+                        alt="Item name" loading="lazy" />
+              3. Update name, desc, price.
+              4. Replace the "Add to Cart" button href with your
+                 Squarespace or Etsy product URL (see comment below).
+            -->
+            <div role="list">
+
+              <article class="craft-product reveal" role="listitem">
+                <div class="craft-product__image">
+                  <!-- Swap for real product photo -->
+                  <div class="placeholder">Print</div>
+                </div>
+                <div class="craft-product__info">
+                  <p class="craft-product__name">Studio Print — No. 1</p>
+                  <p class="craft-product__desc">
+                    Hand-pulled two-colour risograph on 100gsm natural stock.
+                    A4, signed and numbered. Edition of 50.
+                  </p>
+                  <div class="craft-product__footer">
+                    <span class="craft-product__price">&pound;35</span>
+                    <!--
+                      ADD TO CART PLACEHOLDER:
+                      Replace href="#" with your Squarespace or Etsy product URL:
+                        Squarespace: https://your-shop.squarespace.com/product/...
+                        Etsy:        https://www.etsy.com/listing/...
+                      You can also embed an Etsy button widget instead of this link.
+                    -->
+                    <a href="#"
+                       class="btn btn--sm"
+                       aria-label="Add Studio Print No. 1 to cart (link coming soon)"
+                       title="Shop link coming soon">
+                      Add to Cart
+                    </a>
+                  </div>
+                </div>
+              </article>
+
+              <article class="craft-product reveal reveal-delay-1" role="listitem">
+                <div class="craft-product__image">
+                  <div class="placeholder">Tote</div>
+                </div>
+                <div class="craft-product__info">
+                  <p class="craft-product__name">Artist Tote</p>
+                  <p class="craft-product__desc">
+                    Natural heavyweight canvas screen-printed with a studio
+                    design. One size, reinforced handles.
+                  </p>
+                  <div class="craft-product__footer">
+                    <span class="craft-product__price">&pound;28</span>
+                    <a href="#"
+                       class="btn btn--sm"
+                       aria-label="Add Artist Tote to cart (link coming soon)"
+                       title="Shop link coming soon">
+                      Add to Cart
+                    </a>
+                  </div>
+                </div>
+              </article>
+
+              <article class="craft-product reveal reveal-delay-2" role="listitem">
+                <div class="craft-product__image">
+                  <div class="placeholder">Book</div>
+                </div>
+                <div class="craft-product__info">
+                  <p class="craft-product__name">Hand-Bound Sketchbook</p>
+                  <p class="craft-product__desc">
+                    A5, 80 pages of 150gsm cartridge. Exposed-spine binding,
+                    hand-stamped cover. Each one slightly different.
+                  </p>
+                  <div class="craft-product__footer">
+                    <span class="craft-product__price">&pound;22</span>
+                    <a href="#"
+                       class="btn btn--sm"
+                       aria-label="Add Hand-Bound Sketchbook to cart (link coming soon)"
+                       title="Shop link coming soon">
+                      Add to Cart
+                    </a>
+                  </div>
+                </div>
+              </article>
+
+            </div><!-- /role=list -->
+
+            <!-- In-store availability banner -->
+            <div class="in-store-banner reveal">
+              <p class="in-store-banner__label">Also in person</p>
+              <p>
+                A selection of prints, goods, and one-off studio pieces is available
+                in person at <strong>[Store Name]</strong> in York, PA.
+                Check in-store for items not listed online — stock changes regularly.
+              </p>
+            </div>
+
+          </div><!-- /shop-col--crafts -->
+
+        </div><!-- /shop-columns -->
       </div>
     </section>
+
+
+    <!-- ============================================================
+         COMMISSION A PAINTING
+         ============================================================ -->
+    <section class="section commission-section" id="commission"
+             aria-labelledby="commission-heading">
+      <div class="container">
+        <div class="commission-layout">
+
+          <!-- Left: intro -->
+          <div class="commission-intro">
+            <p class="commission-intro__eyebrow reveal">Made for you</p>
+
+            <h2 id="commission-heading" class="reveal reveal-delay-1">
+              Commission a Painting
+            </h2>
+
+            <p class="reveal reveal-delay-2">
+              Every painting Rebecca makes begins with looking — at a place, a feeling,
+              a particular quality of light. A commission starts the same way, but with
+              your story in mind. Whether it's a landscape from a place you love, an
+              abstract built around colours that mean something to you, or something
+              else entirely, get in touch and we'll talk through what's possible.
+            </p>
+
+            <p class="reveal reveal-delay-2">
+              Commissions are accepted on a rolling basis, subject to availability.
+              Lead time is typically 6–12 weeks depending on size and complexity.
+            </p>
+
+            <dl class="commission-details reveal reveal-delay-3">
+              <div class="commission-detail-row">
+                <dt>Turnaround</dt>
+                <dd>6–12 weeks from confirmation</dd>
+              </div>
+              <div class="commission-detail-row">
+                <dt>Deposit</dt>
+                <dd>50% on agreement, 50% on completion</dd>
+              </div>
+              <div class="commission-detail-row">
+                <dt>Shipping</dt>
+                <dd>UK free &middot; International at cost</dd>
+              </div>
+              <div class="commission-detail-row">
+                <dt>Starting from</dt>
+                <dd>&pound;200 for works on paper</dd>
+              </div>
+            </dl>
+          </div>
+
+          <!-- Right: form -->
+          <div class="reveal reveal-delay-1">
+
+            <!--
+              COMMISSION FORM — uses Formspree for submission.
+              Setup:
+              1. Sign up at formspree.io
+              2. Create a new form and copy the endpoint
+              3. Replace "YOUR_FORM_ID" in the action attribute
+              Alternatively, replace with your own serverless function endpoint.
+            -->
+            <form
+              class="form"
+              id="commissionForm"
+              action="https://formspree.io/f/YOUR_FORM_ID"
+              method="POST"
+              novalidate>
+
+              <!-- Hidden fields for Formspree -->
+              <input type="hidden" name="_subject" value="Commission Inquiry" />
+              <input type="text"   name="_gotcha"  style="display:none" tabindex="-1" />
+
+              <div class="form-row-2">
+                <div class="form-group">
+                  <label class="form-label" for="commName">Name</label>
+                  <input
+                    class="form-input"
+                    type="text"
+                    id="commName"
+                    name="name"
+                    autocomplete="name"
+                    placeholder="Your full name"
+                    required />
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="commEmail">Email</label>
+                  <input
+                    class="form-input"
+                    type="email"
+                    id="commEmail"
+                    name="email"
+                    autocomplete="email"
+                    placeholder="you@example.com"
+                    required />
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="commDesc">Description of piece</label>
+                <textarea
+                  class="form-textarea"
+                  id="commDesc"
+                  name="description"
+                  placeholder="Describe what you have in mind — subject, mood, colours, any reference images you love. The more detail the better."
+                  required></textarea>
+              </div>
+
+              <div class="form-row-2">
+                <div class="form-group">
+                  <label class="form-label" for="commBudget">Budget range</label>
+                  <select class="form-select" id="commBudget" name="budget" required>
+                    <option value="">Select&hellip;</option>
+                    <option value="under-200">Under $200</option>
+                    <option value="200-500">$200 &ndash; $500</option>
+                    <option value="500-1000">$500 &ndash; $1,000</option>
+                    <option value="1000-plus">$1,000+</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="commSize">Preferred size</label>
+                  <input
+                    class="form-input"
+                    type="text"
+                    id="commSize"
+                    name="size"
+                    placeholder='e.g. A3, "about 60 × 80 cm"' />
+                </div>
+              </div>
+
+              <button
+                type="submit"
+                class="btn btn--filled-terra"
+                style="align-self:flex-start; margin-top:var(--sp-2);">
+                Send Inquiry
+              </button>
+
+            </form>
+
+            <!-- Legal disclaimer -->
+            <p class="legal-disclaimer" style="margin-top:var(--sp-5);">
+              Your information is used solely to respond to your commission inquiry.
+              It will not be shared with third parties or used for marketing without
+              your consent.
+            </p>
+
+          </div><!-- /form column -->
+        </div>
+      </div>
+    </section>
+
+
   </main>
 
   <div id="site-footer"></div>
-
   <script src="../js/main.js"></script>
+
+  <script>
+  (function () {
+    'use strict';
+
+    /* Commission form — intercept submit, POST via fetch to Formspree */
+    const form = document.getElementById('commissionForm');
+    if (!form) return;
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const btn = form.querySelector('[type="submit"]');
+      const originalText = btn.textContent;
+      btn.textContent = 'Sending…';
+      btn.disabled    = true;
+
+      try {
+        const res = await fetch(form.action, {
+          method:  'POST',
+          headers: { Accept: 'application/json' },
+          body:    new FormData(form),
+        });
+
+        if (res.ok) {
+          /* Show success state */
+          form.closest('.commission-layout').innerHTML = `
+            <div style="grid-column:1/-1; text-align:center; padding-block:var(--sp-16);">
+              <p style="
+                font-family:'Cormorant Garamond',Georgia,serif;
+                font-style:italic;
+                font-size:clamp(1.5rem,3vw,2.25rem);
+                color:var(--ink);
+                line-height:1.3;
+                margin-bottom:var(--sp-6);">
+                Thank you — I&rsquo;ll be in touch<br/>within 48 hours.
+              </p>
+              <p style="font-size:var(--text-sm);color:var(--ink-light);">
+                In the meantime, feel free to browse the
+                <a href="portfolio.html" style="border-bottom:1px solid var(--border-color);">portfolio</a>.
+              </p>
+            </div>`;
+        } else {
+          /* Formspree returned an error */
+          const data = await res.json().catch(() => ({}));
+          throw new Error(data.error || 'Submission failed');
+        }
+      } catch (err) {
+        /* Show inline error without destroying the form */
+        let errEl = form.querySelector('.js-form-error');
+        if (!errEl) {
+          errEl = document.createElement('p');
+          errEl.className = 'js-form-error';
+          errEl.style.cssText =
+            'color:var(--terra);font-size:var(--text-sm);margin-top:var(--sp-3);';
+          form.appendChild(errEl);
+        }
+        errEl.textContent =
+          'Something went wrong — please try again or email hello@rebeccacarter.art directly.';
+        btn.textContent = originalText;
+        btn.disabled    = false;
+      }
+    });
+
+  })();
+  </script>
+
 </body>
 </html>
