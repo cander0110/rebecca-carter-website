@@ -3,8 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Portfolio — Rebecca Carter</title>
-  <meta name="description" content="Portfolio of paintings, prints, and mixed-media works by Rebecca Carter." />
+  <title>Works — Rebecca Carter</title>
+  <meta name="description"
+        content="Paintings and photography by Rebecca Carter — original oils, acrylics, and mixed media work alongside limited-edition photographs." />
   <link rel="stylesheet" href="../css/styles.css" />
 </head>
 <body>
@@ -12,96 +13,782 @@
   <div id="site-nav"></div>
 
   <main>
-    <div class="page-hero container">
-      <p class="page-hero__label">Work</p>
-      <h1 class="reveal">Portfolio</h1>
-      <p class="page-hero__lead reveal reveal-delay-1">
-        Painting, printmaking, and mixed media — 2019 to present.
+
+    <!-- ============================================================
+         HERO BANNER
+         ============================================================ -->
+    <div class="portfolio-hero container">
+      <p class="portfolio-hero__eyebrow">Rebecca Carter</p>
+      <h1 class="reveal">Works</h1>
+      <p class="portfolio-hero__lead reveal reveal-delay-1">
+        Paintings in oil, acrylic, and mixed media — alongside a growing body
+        of limited-edition photography.
       </p>
     </div>
 
-    <section class="section container">
-      <!-- Filter bar -->
-      <div class="filter-bar reveal" style="margin-bottom:var(--sp-8);">
-        <button class="filter-btn is-active" data-filter="all">All</button>
-        <button class="filter-btn" data-filter="painting">Painting</button>
-        <button class="filter-btn" data-filter="print">Print</button>
-        <button class="filter-btn" data-filter="mixed-media">Mixed Media</button>
+
+    <!-- ============================================================
+         TAB BAR — sticky, switches between Paintings and Photography
+         ============================================================ -->
+    <div class="tab-bar" role="tablist" aria-label="Portfolio views">
+      <div class="container">
+        <div class="tab-bar__inner">
+          <button
+            class="tab-btn is-active"
+            role="tab"
+            aria-selected="true"
+            aria-controls="panel-paintings"
+            data-tab="paintings"
+            id="tab-paintings">
+            Paintings
+          </button>
+          <button
+            class="tab-btn"
+            role="tab"
+            aria-selected="false"
+            aria-controls="panel-photography"
+            data-tab="photography"
+            id="tab-photography">
+            Photography
+          </button>
+        </div>
       </div>
+    </div>
 
-      <!-- Grid — add or remove .artwork-card blocks as needed.
-           For each image, replace .placeholder with:
-             <img src="../assets/images/your-file.jpg"
-                  alt="Descriptive title, medium, year"
-                  loading="lazy" />           -->
-      <div class="artwork-grid artwork-grid--3" id="portfolioGrid">
 
-        <div class="artwork-card reveal" data-category="painting">
-          <div class="artwork-card__image">
-            <div class="placeholder">Image</div>
+    <!-- ============================================================
+         MAIN CONTENT — panels toggled by tab JS
+         ============================================================ -->
+    <div class="section container">
+
+
+      <!-- ──────────────────────────────────────────────────────────
+           PAINTINGS PANEL
+           ────────────────────────────────────────────────────────── -->
+      <div
+        class="tab-panel is-active"
+        id="panel-paintings"
+        role="tabpanel"
+        aria-labelledby="tab-paintings">
+
+        <!-- Filter row: Year × Medium (AND logic) -->
+        <div class="filter-row" aria-label="Filter paintings">
+
+          <div class="filter-group" role="group" aria-label="Filter by year">
+            <span class="filter-group__label" id="p-year-label">Year</span>
+            <button class="filter-btn is-active" data-p-year="all"   aria-label="All years">All</button>
+            <button class="filter-btn"           data-p-year="2024"  aria-label="2024">2024</button>
+            <button class="filter-btn"           data-p-year="2023"  aria-label="2023">2023</button>
+            <button class="filter-btn"           data-p-year="2022"  aria-label="2022">2022</button>
           </div>
-          <div class="artwork-card__meta">
-            <p class="artwork-card__title">Work Title</p>
-            <p class="artwork-card__medium">Oil on canvas &middot; 60 &times; 80 cm &middot; 2024</p>
+
+          <div class="filter-group" role="group" aria-label="Filter by medium">
+            <span class="filter-group__label" id="p-medium-label">Medium</span>
+            <button class="filter-btn is-active" data-p-medium="all"     aria-label="All mediums">All</button>
+            <button class="filter-btn"           data-p-medium="oil"     aria-label="Oil">Oil</button>
+            <button class="filter-btn"           data-p-medium="acrylic" aria-label="Acrylic">Acrylic</button>
+            <button class="filter-btn"           data-p-medium="mixed"   aria-label="Mixed media">Mixed</button>
+          </div>
+
+        </div>
+
+        <!-- Results count -->
+        <p class="text-xs text-muted" id="paintingsCount"
+           style="margin-bottom:var(--sp-6);" aria-live="polite"></p>
+
+        <!-- Paintings grid -->
+        <!--
+          ADDING A NEW PAINTING:
+          1. Copy a .painting-card block below.
+          2. Update data-year, data-medium (oil / acrylic / mixed) to match the filters.
+          3. Replace .placeholder with:
+               <img src="../assets/images/your-file.jpg"
+                    alt="Title, medium, year"
+                    loading="lazy" />
+          4. Set data-full-src="../assets/images/your-file-large.jpg" on the article
+             for the higher-res lightbox version (optional — thumbnail is used as fallback).
+        -->
+        <div class="artwork-grid artwork-grid--3" id="paintingsGrid" role="list">
+
+          <article class="painting-card reveal"
+                   role="listitem"
+                   data-year="2024"
+                   data-medium="oil"
+                   data-title="Threshold I"
+                   data-details="Oil on linen · 60 × 80 cm · 2024"
+                   data-price="£850"
+                   data-full-src="">
+            <div class="painting-card__image js-lb-trigger"
+                 role="button" tabindex="0"
+                 aria-label="Open Threshold I in lightbox">
+              <div class="placeholder">Painting</div>
+            </div>
+            <div class="painting-card__meta">
+              <h3 class="painting-card__title">Threshold I</h3>
+              <p class="painting-card__medium">Oil on linen</p>
+              <p class="painting-card__year">2024</p>
+              <div class="painting-card__footer">
+                <span class="painting-card__price">£850</span>
+                <button class="btn btn--sm js-lb-trigger"
+                        aria-label="View details for Threshold I">
+                  View Details
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <article class="painting-card reveal reveal-delay-1"
+                   role="listitem"
+                   data-year="2024"
+                   data-medium="oil"
+                   data-title="Still Ground"
+                   data-details="Oil on canvas · 50 × 60 cm · 2024"
+                   data-price="£650"
+                   data-full-src="">
+            <div class="painting-card__image js-lb-trigger"
+                 role="button" tabindex="0"
+                 aria-label="Open Still Ground in lightbox">
+              <div class="placeholder">Painting</div>
+            </div>
+            <div class="painting-card__meta">
+              <h3 class="painting-card__title">Still Ground</h3>
+              <p class="painting-card__medium">Oil on canvas</p>
+              <p class="painting-card__year">2024</p>
+              <div class="painting-card__footer">
+                <span class="painting-card__price">£650</span>
+                <button class="btn btn--sm js-lb-trigger"
+                        aria-label="View details for Still Ground">
+                  View Details
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <article class="painting-card reveal reveal-delay-2"
+                   role="listitem"
+                   data-year="2023"
+                   data-medium="acrylic"
+                   data-title="Morning Field"
+                   data-details="Acrylic on board · 40 × 50 cm · 2023"
+                   data-price="NFS"
+                   data-full-src="">
+            <div class="painting-card__image js-lb-trigger"
+                 role="button" tabindex="0"
+                 aria-label="Open Morning Field in lightbox">
+              <div class="placeholder">Painting</div>
+            </div>
+            <div class="painting-card__meta">
+              <h3 class="painting-card__title">Morning Field</h3>
+              <p class="painting-card__medium">Acrylic on board</p>
+              <p class="painting-card__year">2023</p>
+              <div class="painting-card__footer">
+                <span class="painting-card__price--nfs">Not for sale</span>
+                <button class="btn btn--sm js-lb-trigger"
+                        aria-label="View details for Morning Field">
+                  View Details
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <article class="painting-card reveal"
+                   role="listitem"
+                   data-year="2023"
+                   data-medium="mixed"
+                   data-title="The Wait"
+                   data-details="Mixed media on paper · 30 × 42 cm · 2023"
+                   data-price="£320"
+                   data-full-src="">
+            <div class="painting-card__image js-lb-trigger"
+                 role="button" tabindex="0"
+                 aria-label="Open The Wait in lightbox">
+              <div class="placeholder">Painting</div>
+            </div>
+            <div class="painting-card__meta">
+              <h3 class="painting-card__title">The Wait</h3>
+              <p class="painting-card__medium">Mixed media on paper</p>
+              <p class="painting-card__year">2023</p>
+              <div class="painting-card__footer">
+                <span class="painting-card__price">£320</span>
+                <button class="btn btn--sm js-lb-trigger"
+                        aria-label="View details for The Wait">
+                  View Details
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <article class="painting-card reveal reveal-delay-1"
+                   role="listitem"
+                   data-year="2022"
+                   data-medium="oil"
+                   data-title="Interior, Blue"
+                   data-details="Oil on linen · 70 × 90 cm · 2022"
+                   data-price="£1,200"
+                   data-full-src="">
+            <div class="painting-card__image js-lb-trigger"
+                 role="button" tabindex="0"
+                 aria-label="Open Interior, Blue in lightbox">
+              <div class="placeholder">Painting</div>
+            </div>
+            <div class="painting-card__meta">
+              <h3 class="painting-card__title">Interior, Blue</h3>
+              <p class="painting-card__medium">Oil on linen</p>
+              <p class="painting-card__year">2022</p>
+              <div class="painting-card__footer">
+                <span class="painting-card__price">£1,200</span>
+                <button class="btn btn--sm js-lb-trigger"
+                        aria-label="View details for Interior, Blue">
+                  View Details
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <article class="painting-card reveal reveal-delay-2"
+                   role="listitem"
+                   data-year="2022"
+                   data-medium="mixed"
+                   data-title="Root Study"
+                   data-details="Mixed media on canvas · 50 × 50 cm · 2022"
+                   data-price="NFS"
+                   data-full-src="">
+            <div class="painting-card__image js-lb-trigger"
+                 role="button" tabindex="0"
+                 aria-label="Open Root Study in lightbox">
+              <div class="placeholder">Painting</div>
+            </div>
+            <div class="painting-card__meta">
+              <h3 class="painting-card__title">Root Study</h3>
+              <p class="painting-card__medium">Mixed media on canvas</p>
+              <p class="painting-card__year">2022</p>
+              <div class="painting-card__footer">
+                <span class="painting-card__price--nfs">Not for sale</span>
+                <button class="btn btn--sm js-lb-trigger"
+                        aria-label="View details for Root Study">
+                  View Details
+                </button>
+              </div>
+            </div>
+          </article>
+
+        </div><!-- /paintingsGrid -->
+
+        <p class="no-results" id="paintingsNoResults" hidden aria-live="polite">
+          No paintings match the selected filters.
+        </p>
+
+      </div><!-- /panel-paintings -->
+
+
+      <!-- ──────────────────────────────────────────────────────────
+           PHOTOGRAPHY PANEL
+           ────────────────────────────────────────────────────────── -->
+      <div
+        class="tab-panel"
+        id="panel-photography"
+        role="tabpanel"
+        aria-labelledby="tab-photography">
+
+        <!-- Filter row: Year only -->
+        <div class="filter-row" aria-label="Filter photography">
+          <div class="filter-group" role="group" aria-label="Filter by year">
+            <span class="filter-group__label">Year</span>
+            <button class="filter-btn is-active" data-ph-year="all"  aria-label="All years">All</button>
+            <button class="filter-btn"           data-ph-year="2024" aria-label="2024">2024</button>
+            <button class="filter-btn"           data-ph-year="2023" aria-label="2023">2023</button>
+            <button class="filter-btn"           data-ph-year="2022" aria-label="2022">2022</button>
           </div>
         </div>
 
-        <div class="artwork-card reveal reveal-delay-1" data-category="print">
-          <div class="artwork-card__image">
-            <div class="placeholder">Image</div>
-          </div>
-          <div class="artwork-card__meta">
-            <p class="artwork-card__title">Work Title</p>
-            <p class="artwork-card__medium">2-colour risograph, ed. 30 &middot; 2024</p>
-          </div>
-        </div>
+        <!-- Results count -->
+        <p class="text-xs text-muted" id="photosCount"
+           style="margin-bottom:var(--sp-6);" aria-live="polite"></p>
 
-        <div class="artwork-card reveal reveal-delay-2" data-category="mixed-media">
-          <div class="artwork-card__image">
-            <div class="placeholder">Image</div>
-          </div>
-          <div class="artwork-card__meta">
-            <p class="artwork-card__title">Work Title</p>
-            <p class="artwork-card__medium">Collage and acrylic &middot; 42 &times; 59 cm &middot; 2023</p>
-          </div>
-        </div>
+        <!-- Photography grid -->
+        <!--
+          ADDING A NEW PHOTO:
+          1. Copy a .photo-card block below.
+          2. Update data-year. Edition info goes in data-details.
+          3. Replace .placeholder with:
+               <img src="../assets/images/your-file.jpg"
+                    alt="Title, year"
+                    loading="lazy" />
+          4. Set data-full-src for higher-res lightbox version (optional).
+        -->
+        <div class="photo-grid" id="photoGrid" role="list">
 
-        <div class="artwork-card reveal" data-category="painting">
-          <div class="artwork-card__image">
-            <div class="placeholder">Image</div>
-          </div>
-          <div class="artwork-card__meta">
-            <p class="artwork-card__title">Work Title</p>
-            <p class="artwork-card__medium">Oil on linen &middot; 50 &times; 60 cm &middot; 2023</p>
-          </div>
-        </div>
+          <article class="photo-card reveal"
+                   role="listitem"
+                   data-year="2024"
+                   data-title="Foundry Series #1"
+                   data-details="Archival pigment print · 40 × 60 cm · 2024 · Ed. of 10"
+                   data-price=""
+                   data-full-src="">
+            <div class="photo-card__image js-lb-trigger"
+                 role="button" tabindex="0"
+                 aria-label="Open Foundry Series #1 in lightbox">
+              <div class="placeholder">Photo</div>
+            </div>
+            <div class="photo-card__meta">
+              <h3 class="photo-card__title">Foundry Series #1</h3>
+              <p class="photo-card__details">2024 · Edition of 10</p>
+            </div>
+          </article>
 
-        <div class="artwork-card reveal reveal-delay-1" data-category="print">
-          <div class="artwork-card__image">
-            <div class="placeholder">Image</div>
-          </div>
-          <div class="artwork-card__meta">
-            <p class="artwork-card__title">Work Title</p>
-            <p class="artwork-card__medium">Etching and aquatint &middot; 2023</p>
-          </div>
-        </div>
+          <article class="photo-card reveal reveal-delay-1"
+                   role="listitem"
+                   data-year="2024"
+                   data-title="Foundry Series #2"
+                   data-details="Archival pigment print · 40 × 60 cm · 2024 · Ed. of 10"
+                   data-price=""
+                   data-full-src="">
+            <div class="photo-card__image js-lb-trigger"
+                 role="button" tabindex="0"
+                 aria-label="Open Foundry Series #2 in lightbox">
+              <div class="placeholder">Photo</div>
+            </div>
+            <div class="photo-card__meta">
+              <h3 class="photo-card__title">Foundry Series #2</h3>
+              <p class="photo-card__details">2024 · Edition of 10</p>
+            </div>
+          </article>
 
-        <div class="artwork-card reveal reveal-delay-2" data-category="mixed-media">
-          <div class="artwork-card__image">
-            <div class="placeholder">Image</div>
-          </div>
-          <div class="artwork-card__meta">
-            <p class="artwork-card__title">Work Title</p>
-            <p class="artwork-card__medium">Found objects and paint &middot; 2022</p>
-          </div>
-        </div>
+          <article class="photo-card reveal reveal-delay-2"
+                   role="listitem"
+                   data-year="2023"
+                   data-title="Between Houses"
+                   data-details="Archival pigment print · 50 × 75 cm · 2023 · Ed. of 15"
+                   data-price=""
+                   data-full-src="">
+            <div class="photo-card__image js-lb-trigger"
+                 role="button" tabindex="0"
+                 aria-label="Open Between Houses in lightbox">
+              <div class="placeholder">Photo</div>
+            </div>
+            <div class="photo-card__meta">
+              <h3 class="photo-card__title">Between Houses</h3>
+              <p class="photo-card__details">2023 · Edition of 15</p>
+            </div>
+          </article>
 
-      </div>
-    </section>
+          <article class="photo-card reveal"
+                   role="listitem"
+                   data-year="2023"
+                   data-title="Garden Study I"
+                   data-details="Archival pigment print · 30 × 45 cm · 2023 · Unique print"
+                   data-price=""
+                   data-full-src="">
+            <div class="photo-card__image js-lb-trigger"
+                 role="button" tabindex="0"
+                 aria-label="Open Garden Study I in lightbox">
+              <div class="placeholder">Photo</div>
+            </div>
+            <div class="photo-card__meta">
+              <h3 class="photo-card__title">Garden Study I</h3>
+              <p class="photo-card__details">2023 · Unique print</p>
+            </div>
+          </article>
+
+          <article class="photo-card reveal reveal-delay-1"
+                   role="listitem"
+                   data-year="2022"
+                   data-title="Morning Light"
+                   data-details="Archival pigment print · 40 × 60 cm · 2022 · Ed. of 20"
+                   data-price=""
+                   data-full-src="">
+            <div class="photo-card__image js-lb-trigger"
+                 role="button" tabindex="0"
+                 aria-label="Open Morning Light in lightbox">
+              <div class="placeholder">Photo</div>
+            </div>
+            <div class="photo-card__meta">
+              <h3 class="photo-card__title">Morning Light</h3>
+              <p class="photo-card__details">2022 · Edition of 20</p>
+            </div>
+          </article>
+
+          <article class="photo-card reveal reveal-delay-2"
+                   role="listitem"
+                   data-year="2022"
+                   data-title="Dusk, York"
+                   data-details="Archival pigment print · 60 × 90 cm · 2022 · Ed. of 8"
+                   data-price=""
+                   data-full-src="">
+            <div class="photo-card__image js-lb-trigger"
+                 role="button" tabindex="0"
+                 aria-label="Open Dusk, York in lightbox">
+              <div class="placeholder">Photo</div>
+            </div>
+            <div class="photo-card__meta">
+              <h3 class="photo-card__title">Dusk, York</h3>
+              <p class="photo-card__details">2022 · Edition of 8</p>
+            </div>
+          </article>
+
+        </div><!-- /photoGrid -->
+
+        <p class="no-results" id="photosNoResults" hidden aria-live="polite">
+          No photographs match the selected year.
+        </p>
+
+      </div><!-- /panel-photography -->
+
+    </div><!-- /.section -->
+
   </main>
 
-  <div id="site-footer"></div>
 
+  <!-- ============================================================
+       LIGHTBOX — vanilla JS, no libraries
+       ============================================================ -->
+  <div
+    class="lightbox"
+    id="lightbox"
+    role="dialog"
+    aria-modal="true"
+    aria-label="Image viewer"
+    hidden>
+
+    <!-- Top bar -->
+    <div class="lightbox__topbar">
+      <span class="lightbox__tab-label" id="lbTabLabel"></span>
+      <span class="lightbox__counter" id="lbCounter" aria-live="polite"></span>
+      <button class="lightbox__close" id="lbClose" aria-label="Close image viewer">
+        &times;
+      </button>
+    </div>
+
+    <!-- Stage: image + prev/next arrows -->
+    <div class="lightbox__stage">
+      <div class="lightbox__figure" id="lbFigure" aria-live="polite" aria-atomic="true">
+        <!-- Populated by JS -->
+      </div>
+      <button class="lightbox__arrow lightbox__arrow--prev" id="lbPrev"
+              aria-label="Previous image">&#8592;</button>
+      <button class="lightbox__arrow lightbox__arrow--next" id="lbNext"
+              aria-label="Next image">&#8594;</button>
+    </div>
+
+    <!-- Info panel -->
+    <div class="lightbox__info">
+      <div class="lightbox__info-main">
+        <p class="lightbox__info-title" id="lbTitle"></p>
+        <p class="lightbox__info-details" id="lbDetails"></p>
+      </div>
+      <div style="display:flex; flex-direction:column; align-items:flex-end; gap:var(--sp-2);">
+        <span id="lbPrice"></span>
+        <span class="lightbox__kbd-hint">← → to navigate &nbsp;·&nbsp; Esc to close</span>
+      </div>
+    </div>
+
+  </div><!-- /lightbox -->
+
+
+  <div id="site-footer"></div>
   <script src="../js/main.js"></script>
+
+  <!-- ============================================================
+       PAGE SCRIPT — tabs, filters, lightbox
+       ============================================================ -->
+  <script>
+  (function () {
+    'use strict';
+
+    /* ── Helpers ─────────────────────────────────────────────── */
+
+    function qs(sel, ctx)  { return (ctx || document).querySelector(sel); }
+    function qsa(sel, ctx) { return [...(ctx || document).querySelectorAll(sel)]; }
+
+    /* Returns cards that are currently visible (not hidden by filter) */
+    function visibleCards(panelId) {
+      return qsa(`#${panelId} .painting-card, #${panelId} .photo-card`)
+        .filter(c => c.style.display !== 'none');
+    }
+
+    /* Update a "X works" count line */
+    function updateCount(countEl, n, noun) {
+      countEl.textContent = `${n} ${noun}${n !== 1 ? 's' : ''}`;
+    }
+
+
+    /* ── Tab switching ──────────────────────────────────────── */
+
+    const tabBtns  = qsa('.tab-btn');
+    const panels   = qsa('.tab-panel');
+    let   activeTab = 'paintings';
+
+    function switchTab(id, pushHash) {
+      if (id !== 'paintings' && id !== 'photography') id = 'paintings';
+      activeTab = id;
+
+      tabBtns.forEach(btn => {
+        const sel = btn.dataset.tab === id;
+        btn.classList.toggle('is-active', sel);
+        btn.setAttribute('aria-selected', String(sel));
+      });
+
+      panels.forEach(panel => {
+        panel.classList.toggle('is-active', panel.id === `panel-${id}`);
+      });
+
+      if (pushHash) {
+        history.replaceState(null, '', `#${id}`);
+      }
+    }
+
+    /* Read URL hash on load */
+    const initHash = location.hash.replace('#', '');
+    switchTab(initHash || 'paintings', false);
+
+    tabBtns.forEach(btn => {
+      btn.addEventListener('click', () => switchTab(btn.dataset.tab, true));
+    });
+
+    /* Respond to browser back/forward */
+    window.addEventListener('hashchange', () => {
+      switchTab(location.hash.replace('#', '') || 'paintings', false);
+    });
+
+
+    /* ── Painting filters (Year AND Medium) ─────────────────── */
+
+    const paintingsGrid      = qs('#paintingsGrid');
+    const paintingsNoResults = qs('#paintingsNoResults');
+    const paintingsCount     = qs('#paintingsCount');
+    let   activeP_Year       = 'all';
+    let   activeP_Medium     = 'all';
+
+    function applyPaintingFilters() {
+      const cards = qsa('.painting-card', paintingsGrid);
+      let   shown = 0;
+
+      cards.forEach(card => {
+        const yearOk   = activeP_Year   === 'all' || card.dataset.year   === activeP_Year;
+        const mediumOk = activeP_Medium === 'all' || card.dataset.medium === activeP_Medium;
+        const visible  = yearOk && mediumOk;
+        card.style.display = visible ? '' : 'none';
+        if (visible) shown++;
+      });
+
+      paintingsNoResults.hidden = shown > 0;
+      updateCount(paintingsCount, shown, 'painting');
+    }
+
+    /* Year buttons */
+    qsa('[data-p-year]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        qsa('[data-p-year]').forEach(b => b.classList.remove('is-active'));
+        btn.classList.add('is-active');
+        activeP_Year = btn.dataset.pYear;
+        applyPaintingFilters();
+      });
+    });
+
+    /* Medium buttons */
+    qsa('[data-p-medium]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        qsa('[data-p-medium]').forEach(b => b.classList.remove('is-active'));
+        btn.classList.add('is-active');
+        activeP_Medium = btn.dataset.pMedium;
+        applyPaintingFilters();
+      });
+    });
+
+    applyPaintingFilters(); /* run once on load */
+
+
+    /* ── Photo filters (Year only) ───────────────────────────── */
+
+    const photoGrid      = qs('#photoGrid');
+    const photosNoResults = qs('#photosNoResults');
+    const photosCount    = qs('#photosCount');
+    let   activePhYear   = 'all';
+
+    function applyPhotoFilters() {
+      const cards = qsa('.photo-card', photoGrid);
+      let   shown = 0;
+
+      cards.forEach(card => {
+        const visible = activePhYear === 'all' || card.dataset.year === activePhYear;
+        card.style.display = visible ? '' : 'none';
+        if (visible) shown++;
+      });
+
+      photosNoResults.hidden = shown > 0;
+      updateCount(photosCount, shown, 'photograph');
+    }
+
+    qsa('[data-ph-year]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        qsa('[data-ph-year]').forEach(b => b.classList.remove('is-active'));
+        btn.classList.add('is-active');
+        activePhYear = btn.dataset.phYear;
+        applyPhotoFilters();
+      });
+    });
+
+    applyPhotoFilters(); /* run once on load */
+
+
+    /* ── Lightbox ─────────────────────────────────────────────
+       State
+       -------------------------------------------------------- */
+
+    const lb       = qs('#lightbox');
+    const lbFig    = qs('#lbFigure');
+    const lbTitle  = qs('#lbTitle');
+    const lbDetail = qs('#lbDetails');
+    const lbPrice  = qs('#lbPrice');
+    const lbCount  = qs('#lbCounter');
+    const lbLabel  = qs('#lbTabLabel');
+    const lbClose  = qs('#lbClose');
+    const lbPrev   = qs('#lbPrev');
+    const lbNext   = qs('#lbNext');
+
+    let lbItems = [];   /* Array of visible card elements */
+    let lbIndex = 0;    /* Index into lbItems */
+    let lbOpen  = false;
+
+    /* Populate lightbox with data from a card */
+    function lbRender() {
+      const card    = lbItems[lbIndex];
+      const title   = card.dataset.title   || '';
+      const details = card.dataset.details || '';
+      const price   = card.dataset.price   || '';
+      const fullSrc = card.dataset.fullSrc || '';
+
+      /* Determine thumbnail src (first img inside the card, or placeholder) */
+      const thumbImg = card.querySelector('img');
+      const imgSrc   = fullSrc || (thumbImg ? thumbImg.src : '');
+
+      if (imgSrc) {
+        lbFig.innerHTML =
+          `<img class="lightbox__img" src="${imgSrc}" alt="${title}" />`;
+      } else {
+        /* No real image yet — show a styled placeholder */
+        lbFig.innerHTML =
+          `<div class="placeholder" style="
+              width: min(420px, 72vw);
+              aspect-ratio: ${activeTab === 'photography' ? '16/9' : '3/4'};
+              font-size: var(--text-sm);
+              color: color-mix(in srgb, var(--cream) 35%, transparent);
+              background-color: color-mix(in srgb, var(--cream-dark) 10%, transparent);
+           ">${title}</div>`;
+      }
+
+      lbTitle.textContent  = title;
+      lbDetail.textContent = details;
+      lbCount.textContent  = `${lbIndex + 1} / ${lbItems.length}`;
+      lbLabel.textContent  = activeTab === 'paintings' ? 'Paintings' : 'Photography';
+
+      /* Price / NFS */
+      if (price === 'NFS' || price === '') {
+        lbPrice.className   = 'lightbox__info-price--nfs';
+        lbPrice.textContent = price === 'NFS' ? 'Not for sale' : '';
+      } else {
+        lbPrice.className   = 'lightbox__info-price';
+        lbPrice.textContent = price;
+      }
+
+      lbPrev.disabled = lbIndex === 0;
+      lbNext.disabled = lbIndex === lbItems.length - 1;
+    }
+
+    function lbShow(items, index) {
+      lbItems = items;
+      lbIndex = index;
+      lbRender();
+
+      lb.removeAttribute('hidden');
+      /* Two rAF to ensure element is painted before transition begins */
+      requestAnimationFrame(() => requestAnimationFrame(() => lb.classList.add('is-open')));
+
+      document.body.style.overflow = 'hidden';
+      lbClose.focus();
+      lbOpen = true;
+    }
+
+    function lbHide() {
+      lb.classList.remove('is-open');
+      lb.addEventListener('transitionend', () => {
+        lb.setAttribute('hidden', '');
+        document.body.style.overflow = '';
+        lbOpen = false;
+        /* Return focus to the card that opened the lightbox */
+        if (lbItems[lbIndex]) {
+          const trigger = lbItems[lbIndex].querySelector('.js-lb-trigger');
+          if (trigger) trigger.focus();
+        }
+      }, { once: true });
+    }
+
+    function lbGoPrev() {
+      if (lbIndex > 0) { lbIndex--; lbRender(); }
+    }
+
+    function lbGoNext() {
+      if (lbIndex < lbItems.length - 1) { lbIndex++; lbRender(); }
+    }
+
+
+    /* ── Lightbox — event wiring ────────────────────────────── */
+
+    lbClose.addEventListener('click', lbHide);
+    lbPrev.addEventListener('click', lbGoPrev);
+    lbNext.addEventListener('click', lbGoNext);
+
+    /* Close on backdrop click (click outside figure + info) */
+    lb.addEventListener('click', (e) => {
+      if (e.target === lb || e.target.classList.contains('lightbox__stage')) {
+        lbHide();
+      }
+    });
+
+    /* Keyboard navigation */
+    document.addEventListener('keydown', (e) => {
+      if (!lbOpen) return;
+      switch (e.key) {
+        case 'Escape':    e.preventDefault(); lbHide();    break;
+        case 'ArrowLeft': e.preventDefault(); lbGoPrev(); break;
+        case 'ArrowRight':e.preventDefault(); lbGoNext(); break;
+      }
+    });
+
+    /* Open lightbox from a trigger click — delegate on each panel */
+    function bindPanel(panelId) {
+      const panel = qs(`#${panelId}`);
+      if (!panel) return;
+
+      panel.addEventListener('click', (e) => {
+        const trigger = e.target.closest('.js-lb-trigger');
+        if (!trigger) return;
+        const card  = trigger.closest('.painting-card, .photo-card');
+        if (!card) return;
+        const items = visibleCards(panelId);
+        const idx   = items.indexOf(card);
+        if (idx !== -1) lbShow(items, idx);
+      });
+
+      /* Keyboard activation for image divs with role="button" */
+      panel.addEventListener('keydown', (e) => {
+        if (e.key !== 'Enter' && e.key !== ' ') return;
+        const trigger = e.target.closest('.js-lb-trigger[role="button"]');
+        if (!trigger) return;
+        e.preventDefault();
+        const card  = trigger.closest('.painting-card, .photo-card');
+        if (!card) return;
+        const items = visibleCards(panelId);
+        const idx   = items.indexOf(card);
+        if (idx !== -1) lbShow(items, idx);
+      });
+    }
+
+    bindPanel('panel-paintings');
+    bindPanel('panel-photography');
+
+  })();
+  </script>
+
 </body>
 </html>
