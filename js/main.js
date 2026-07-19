@@ -80,7 +80,7 @@ function buildFooter() {
         <div class="footer-brand">
           <a class="footer-brand__logo" href="${root}index.html">Rebecca Carter</a>
           <p>Painting, photography, and mixed media.<br/>Based in Maryland.</p>
-          <p>Available for commissions, portrait,<br/>event, and product photography.</p>
+          <p>Original work and commissions are available.</p>
         </div>
 
         <div class="footer-col">
@@ -91,11 +91,9 @@ function buildFooter() {
         </div>
 
         <div class="footer-col">
-          <p class="footer-col__heading">Info</p>
+          <p class="footer-col__heading">Explore</p>
           <div class="footer-col__links">
-            <a href="mailto:visualartrc@gmail.com">visualartrc@gmail.com</a>
             <span>For press and exhibition enquiries,<br/>please email directly.</span>
-            <a href="https://www.ycp.edu/academics/school-of-the-arts-communication-and-global-studies/spotlights/rebecca-carter/" target="_blank" rel="noopener noreferrer">YCP Spotlight</a>
           </div>
         </div>
 
@@ -105,8 +103,19 @@ function buildFooter() {
             <a href="https://www.instagram.com/r.c.artist/" target="_blank" rel="noopener noreferrer">
               Instagram
             </a>
+            <a href="#" target="_blank" rel="noopener noreferrer">
+              <!-- SWAP: Facebook URL -->
+              Facebook
+            </a>
+            <a href="#" target="_blank" rel="noopener noreferrer">
+              <!-- SWAP: TikTok URL -->
+              TikTok
+            </a>
             <a href="${root}pages/print-club.html">
               Print Club
+            </a>
+            <a href="mailto:visualartrc@gmail.com">
+              visualartrc@gmail.com
             </a>
           </nav>
         </div>
