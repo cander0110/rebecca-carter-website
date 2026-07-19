@@ -53,12 +53,11 @@
         <p class="hero__eyebrow reveal">Rebecca Carter, Artist</p>
 
         <h1 class="hero__headline reveal reveal-delay-1">
-          Paintings.<br />Craft.<br />Community.
+          Painting.<br />Photography.<br />Community.<!-- SWAP: may change to "Collectors" -->
         </h1>
 
         <p class="hero__tagline reveal reveal-delay-2">
-          Original work rooted in material and meaning, and a community of artists
-          who create from the heart.
+          Original work rooted in exploration of the human experience and a deep need for connection.
         </p>
 
         <div class="hero__ctas reveal reveal-delay-3">
@@ -96,6 +95,7 @@
                <img src="assets/images/rebecca-portrait.jpg"
                     alt="Rebecca Carter in her studio"
                     loading="lazy" />              -->
+          <!-- SWAP: Rebecca's photo goes here -->
           <div class="about-image reveal">
             <div class="placeholder">Studio portrait</div>
           </div>
@@ -108,6 +108,7 @@
               Painter. Photographer.<br />Mixed media artist.
             </h2>
 
+            <!-- REWRITE PENDING: Rebecca will supply new bio copy -->
             <p class="reveal reveal-delay-2">
               Rebecca Carter graduated from York College of Pennsylvania, earning a Bachelor
               of Arts Degree with a major in Fine Art. She has earned minors in Art History,
@@ -117,6 +118,7 @@
               Scholarship, as well as the Coca Cola Gold Scholar. In addition to this, she
               was inducted into the Alpha Chi National Honor Society.
             </p>
+            <!-- /REWRITE PENDING -->
 
             <a href="pages/cv.html"
                class="btn reveal reveal-delay-3"
@@ -134,6 +136,7 @@
          ④ FEATURED WORKS — 3-column grid
          ======================================================== -->
     <section class="section section--alt" aria-labelledby="featured-heading">
+      <!-- DECISION PENDING: may convert from featured works to featured series for broader exposure -->
       <div class="container">
 
         <div class="section-header reveal">
@@ -211,10 +214,10 @@
     <!-- ========================================================
          ⑤ UPCOMING SHOW CALLOUT — dark ink banner
          ======================================================== -->
-    <section class="show-callout" aria-labelledby="show-heading">
+    <section class="show-callout" aria-labelledby="show-heading" id="upcomingShowSection">
       <div class="container">
 
-        <div>
+        <div id="upcomingShowContent">
           <p class="show-callout__label reveal">Upcoming Exhibition</p>
 
           <!--
@@ -245,6 +248,30 @@
           </a>
         </div>
 
+        <!--
+          FALLBACK: shown instead of the content above whenever UPCOMING_SHOWS
+          (see script near the end of this file) has no entries. Once Prompt 5's
+          shared shows data file exists, UPCOMING_SHOWS should read from it directly.
+        -->
+        <div id="noUpcomingShowsFallback" style="display:none;">
+          <p class="show-callout__label reveal">Upcoming Exhibition</p>
+          <h2 class="reveal reveal-delay-1">No Upcoming Shows Right Now</h2>
+          <div class="show-callout__meta reveal reveal-delay-2">
+            <span>
+              No upcoming shows right now. In the meantime, you can find my work in the shop.
+            </span>
+          </div>
+          <div class="reveal reveal-delay-3" style="display:flex; gap:var(--sp-4); margin-top:var(--sp-4);">
+            <a href="pages/shop.html" class="btn btn--light">
+              Shop
+            </a>
+            <a href="#" target="_blank" rel="noopener noreferrer" class="btn btn--light">
+              <!-- SWAP: eBay store URL -->
+              eBay Store
+            </a>
+          </div>
+        </div>
+
         <!-- Decorative date block — hidden on tablet/mobile via CSS -->
         <div class="show-callout__date-block" aria-hidden="true">
           <span class="show-callout__month">June</span>
@@ -268,7 +295,7 @@
             <p class="pc-teaser__eyebrow reveal">Print Club</p>
 
             <h2 id="pc-heading" class="reveal reveal-delay-1">
-              Conversations with artists who make things.
+              Conversations with artists about their voice, process, studio, and upcoming shows.
             </h2>
 
             <p class="reveal reveal-delay-2">
@@ -347,7 +374,7 @@
 
             <p class="reveal reveal-delay-2">
               No follower counts, no prestige gatekeeping. Just honest conversations
-              about making things.
+              about creative process.
             </p>
           </div>
 
@@ -456,6 +483,31 @@
   <div id="site-footer"></div>
 
   <script src="js/main.js"></script>
+
+  <script>
+  (function () {
+    'use strict';
+
+    /*
+      UPCOMING_SHOWS is a stand-in for the shared shows data file that
+      Prompt 5 introduces. When that file exists, read the upcoming-show
+      count from it here instead of this hardcoded array.
+    */
+    var UPCOMING_SHOWS = [
+      { title: 'Drawn to the Skin' },
+    ];
+
+    var content        = document.getElementById('upcomingShowContent');
+    var fallback       = document.getElementById('noUpcomingShowsFallback');
+    var dateBlock      = document.querySelector('#upcomingShowSection .show-callout__date-block');
+
+    if (UPCOMING_SHOWS.length === 0 && content && fallback) {
+      content.style.display  = 'none';
+      fallback.style.display = 'block';
+      if (dateBlock) dateBlock.style.display = 'none';
+    }
+  })();
+  </script>
 
 </body>
 </html>
