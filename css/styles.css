@@ -12,19 +12,19 @@
    ============================================================ */
 
 :root {
-  /* Palette */
-  --cream:        #F6F0E4;
-  --cream-dark:   #EDE5D4;
-  --ink:          #1A1410;
-  --ink-mid:      #4A3F35;
-  --ink-light:    #8A7B6F;
-  --terra:        #8C3A22;
-  --terra-light:  #C2674A;
-  --terra-pale:   #F2DDD6;
-  --sage:         #4E6B52;
-  --sage-pale:    #D8E5D9;
-  --gold:         #B08646;
-  --gold-pale:    #F0E4C8;
+  /* Palette — Van Gogh */
+  --cream:        #F5EDD6;   /* warm parchment        */
+  --cream-dark:   #E8D9B0;   /* deeper wheat          */
+  --ink:          #0F1A2E;   /* deep midnight blue    */
+  --ink-mid:      #1E3A5F;   /* cobalt blue           */
+  --ink-light:    #4A6FA5;   /* periwinkle            */
+  --terra:        #C4781A;   /* golden ochre          */
+  --terra-light:  #E8A835;   /* sunflower yellow      */
+  --terra-pale:   #FAF0D0;   /* pale wheat            */
+  --sage:         #1B5E6B;   /* deep teal             */
+  --sage-pale:    #D0E8EC;   /* pale teal             */
+  --gold:         #B8860B;   /* dark goldenrod        */
+  --gold-pale:    #FFF3C4;   /* pale gold             */
 
   /* Typography */
   --font-display: 'Cormorant Garamond', Georgia, serif;
@@ -262,13 +262,15 @@ p:last-child { margin-bottom: 0; }
   left: 0;
   right: 0;
   height: var(--nav-height);
-  background-color: var(--cream);
-  border-bottom: 1px solid var(--border-color);
+  background-color: var(--ink);
+  border-bottom: 1px solid color-mix(in srgb, var(--cream) 10%, transparent);
   z-index: 200;
+  /* Own compositor layer — prevents scroll from triggering nav repaints */
+  transform: translateZ(0);
   /* Subtle backdrop blur for when content scrolls under */
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
-  background-color: color-mix(in srgb, var(--cream) 92%, transparent);
+  background-color: color-mix(in srgb, var(--ink) 95%, transparent);
 }
 
 .site-nav .container {
@@ -284,12 +286,12 @@ p:last-child { margin-bottom: 0; }
   font-style: italic;
   font-weight: 400;
   font-size: var(--text-md);
-  color: var(--ink);
+  color: var(--cream);
   letter-spacing: 0.01em;
   transition: color var(--duration) var(--ease-out);
 }
 
-.nav-logo a:hover { color: var(--terra); }
+.nav-logo a:hover { color: var(--terra-light); }
 
 /* Links */
 .nav-links {
@@ -304,7 +306,7 @@ p:last-child { margin-bottom: 0; }
   font-weight: 400;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--ink-mid);
+  color: color-mix(in srgb, var(--cream) 70%, transparent);
   position: relative;
   padding-bottom: 2px;
   transition: color var(--duration) var(--ease-out);
@@ -317,17 +319,17 @@ p:last-child { margin-bottom: 0; }
   left: 0;
   right: 0;
   height: 1px;
-  background-color: var(--terra);
+  background-color: var(--terra-light);
   transform: scaleX(0);
   transform-origin: left;
   transition: transform var(--duration) var(--ease-out);
 }
 
-.nav-links a:hover { color: var(--ink); }
+.nav-links a:hover { color: var(--cream); }
 .nav-links a:hover::after { transform: scaleX(1); }
 
 .nav-links a.active {
-  color: var(--terra);
+  color: var(--terra-light);
 }
 
 .nav-links a.active::after {
@@ -352,7 +354,7 @@ p:last-child { margin-bottom: 0; }
   display: block;
   width: 22px;
   height: 1.5px;
-  background-color: var(--ink);
+  background-color: var(--cream);
   transition: transform var(--duration) var(--ease-out),
               opacity var(--duration) var(--ease-out);
 }
@@ -377,6 +379,7 @@ p:last-child { margin-bottom: 0; }
   transform: translateY(28px);
   transition: opacity 0.7s var(--ease-out),
               transform 0.7s var(--ease-out);
+  will-change: transform;
 }
 
 .reveal.is-visible {
@@ -532,7 +535,7 @@ p:last-child { margin-bottom: 0; }
   font-size: var(--text-xs);
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: var(--terra);
+  color: var(--terra-light);
   margin-bottom: var(--sp-4);
 }
 
@@ -578,8 +581,8 @@ p:last-child { margin-bottom: 0; }
 }
 
 .section-header a:hover {
-  color: var(--terra);
-  border-color: var(--terra);
+  color: var(--terra-light);
+  border-color: var(--terra-light);
 }
 
 
@@ -1150,7 +1153,7 @@ p:last-child { margin-bottom: 0; }
     display: none;
     position: fixed;
     inset: var(--nav-height) 0 0 0;
-    background-color: var(--cream);
+    background-color: var(--ink);
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -1244,7 +1247,7 @@ p:last-child { margin-bottom: 0; }
   place-items: center;
 }
 
-/* Background video — covers the full hero */
+/* Background video — sits beneath the gradient overlay */
 .hero__bg-video {
   position: absolute;
   inset: 0;
@@ -1252,21 +1255,49 @@ p:last-child { margin-bottom: 0; }
   height: 100%;
   object-fit: cover;
   z-index: 0;
-  /* Subtle desaturate so text always reads cleanly */
-  filter: brightness(0.75) saturate(0.9);
+  /* Darken and desaturate so the Van Gogh gradient is the star */
+  filter: brightness(0.45) saturate(0.5);
 }
 
-/* Gradient overlay — strengthens legibility at top and bottom */
+/* Van Gogh night-sky gradient — static layered gradient, no background-position
+   animation (which forces full repaints). The ::after pseudo-element below adds
+   a subtle breathing glow using opacity-only animation (GPU composited, no repaint). */
 .hero__overlay {
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(to bottom,
-      rgba(26, 20, 16, 0.35) 0%,
-      rgba(26, 20, 16, 0.10) 35%,
-      rgba(26, 20, 16, 0.10) 60%,
-      rgba(26, 20, 16, 0.55) 100%);
+    /* Teal streak — upper right */
+    radial-gradient(ellipse at 82% 12%, rgba(27, 95, 107, 0.60) 0%, transparent 48%),
+    /* Golden wheat glow — lower left */
+    radial-gradient(ellipse at 28% 92%, rgba(196, 120, 26, 0.55) 0%, transparent 44%),
+    /* Cobalt depth — mid left */
+    radial-gradient(ellipse at 12% 48%, rgba(27, 58, 107, 0.70) 0%, transparent 52%),
+    /* Warm gold accent — lower right */
+    radial-gradient(ellipse at 88% 88%, rgba(184, 134, 11, 0.35) 0%, transparent 42%),
+    /* Base: midnight → cobalt → sky blue → teal shadow */
+    linear-gradient(
+      158deg,
+      #0F1A2E 0%,
+      #1B3A6B 30%,
+      #2E5F8A 56%,
+      #1B4A52 78%,
+      #0F1A2E 100%
+    );
   z-index: 1;
+}
+
+/* Opacity-only pulse — GPU composited, zero repaint cost */
+.hero__overlay::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 60%, rgba(196, 120, 26, 0.15) 0%, transparent 65%);
+  animation: pulse 6s ease-in-out infinite alternate;
+}
+
+@keyframes pulse {
+  from { opacity: 0.1; }
+  to   { opacity: 0.2; }
 }
 
 /* Hero content sits above overlay */
@@ -1355,10 +1386,10 @@ p:last-child { margin-bottom: 0; }
   -webkit-backdrop-filter: none;
 }
 
-/* Solves to opaque cream once the hero scrolls out */
+/* Resolves to opaque midnight once the hero scrolls out */
 .nav-transparent .site-nav.is-scrolled {
-  background-color: color-mix(in srgb, var(--cream) 94%, transparent);
-  border-bottom-color: var(--border-color);
+  background-color: color-mix(in srgb, var(--ink) 96%, transparent);
+  border-bottom-color: color-mix(in srgb, var(--cream) 10%, transparent);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
 }
@@ -1389,26 +1420,26 @@ p:last-child { margin-bottom: 0; }
 /* 24. Buttons — Light variants (for dark backgrounds)
    ============================================================ */
 
-/* Cream outline on dark */
+/* Sunflower-yellow outline on dark — Van Gogh palette */
 .btn--light {
-  border-color: color-mix(in srgb, var(--cream) 70%, transparent);
-  color: var(--cream);
+  border-color: var(--terra-light);
+  color: var(--terra-light);
 }
 .btn--light:hover {
-  background-color: var(--cream);
-  border-color: var(--cream);
+  background-color: var(--terra-light);
+  border-color: var(--terra-light);
   color: var(--ink);
 }
 
-/* Cream filled on dark */
+/* Golden-ochre filled on dark — primary CTA on dark backgrounds */
 .btn--filled-light {
-  background-color: var(--cream);
-  border-color: var(--cream);
-  color: var(--ink);
+  background-color: var(--terra);
+  border-color: var(--terra);
+  color: var(--cream);
 }
 .btn--filled-light:hover {
-  background-color: var(--gold-pale);
-  border-color: var(--gold-pale);
+  background-color: var(--terra-light);
+  border-color: var(--terra-light);
   color: var(--ink);
 }
 
@@ -1479,7 +1510,7 @@ p:last-child { margin-bottom: 0; }
    ============================================================ */
 
 .show-callout {
-  background-color: var(--ink);
+  background-color: #1B3A6B;  /* deep cobalt — distinct from midnight nav */
   color: var(--cream);
   padding-block: var(--sp-20);
 }
@@ -1652,7 +1683,7 @@ p:last-child { margin-bottom: 0; }
   font-size: var(--text-xs);
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: var(--terra);
+  color: var(--terra-light);
   margin-bottom: var(--sp-4);
 }
 
@@ -1992,26 +2023,30 @@ p:last-child { margin-bottom: 0; }
 
 /* ---- Photo grid + card (landscape 16:9) ---- */
 
+/* CSS columns masonry — images display at natural height */
 .photo-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: var(--sp-5);
+  columns: 3;
+  column-gap: var(--sp-5);
 }
 
-.photo-card { display: flex; flex-direction: column; }
+.photo-card {
+  display: block;
+  break-inside: avoid;
+  margin-bottom: var(--sp-5);
+}
 
 .photo-card__image {
   position: relative;
-  aspect-ratio: 16 / 9;
   overflow: hidden;
   background-color: var(--ink);
   cursor: pointer;
+  display: block;
 }
 
 .photo-card__image img {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  height: auto;
+  display: block;
   transition: transform 0.5s var(--ease-out);
   filter: saturate(0.9) brightness(0.95);
 }
@@ -2264,7 +2299,7 @@ p:last-child { margin-bottom: 0; }
 
 @media (max-width: 1024px) {
   .photo-grid {
-    grid-template-columns: repeat(2, 1fr);
+    columns: 2;
   }
 
   /* Reduce to 2 cols on tablet for paintings too */
@@ -2299,7 +2334,10 @@ p:last-child { margin-bottom: 0; }
 
   .filter-group .filter-btn { font-size: 0.625rem; padding: var(--sp-2) var(--sp-4); }
 
-  .photo-grid,
+  .photo-grid {
+    columns: 1;
+  }
+
   #paintingsGrid.artwork-grid--3 {
     grid-template-columns: 1fr;
   }
@@ -2747,5 +2785,408 @@ p:last-child { margin-bottom: 0; }
 
   .painting-product__image {
     max-width: 180px;
+  }
+}
+
+
+/* 36. Shows page
+   ============================================================ */
+
+/* Upcoming show card */
+.upcoming-show-card {
+  display: grid;
+  grid-template-columns: 2fr 3fr;
+  border: 1px solid var(--border-color);
+  overflow: hidden;
+}
+
+.upcoming-show-card__image {
+  background-color: var(--cream-dark);
+  overflow: hidden;
+}
+
+.upcoming-show-card__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.upcoming-show-card__body {
+  display: flex;
+  flex-direction: column;
+  padding: var(--sp-10);
+  border-left: 1px solid var(--border-color);
+}
+
+.upcoming-show-card__badge-row {
+  margin-bottom: var(--sp-5);
+}
+
+.upcoming-show-card__title {
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-size: clamp(var(--text-xl), 3vw, var(--text-2xl));
+  color: var(--ink);
+  line-height: 1.15;
+  margin-bottom: var(--sp-6);
+}
+
+.upcoming-show-card__meta {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2);
+  margin-bottom: var(--sp-6);
+}
+
+.show-meta-row {
+  display: flex;
+  align-items: baseline;
+  gap: var(--sp-3);
+}
+
+.show-meta-row dt {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-light);
+  min-width: 56px;
+  flex-shrink: 0;
+  font-weight: 400;
+}
+
+.show-meta-row dd {
+  color: var(--ink-mid);
+  font-size: var(--text-sm);
+}
+
+.upcoming-show-card__desc {
+  font-size: var(--text-base);
+  color: var(--ink-mid);
+  line-height: 1.75;
+  margin-bottom: var(--sp-8);
+}
+
+.upcoming-show-card__cta { margin-top: auto; }
+
+/* Past shows table */
+.past-shows-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.past-shows-table th {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-light);
+  text-align: left;
+  padding: var(--sp-3) var(--sp-3) var(--sp-4);
+  border-bottom: 1px solid var(--border-color);
+  font-weight: 400;
+}
+
+.past-shows-table th:last-child { text-align: right; }
+
+.past-shows-table tbody tr {
+  border-bottom: 1px solid var(--border-color);
+  transition: background-color 0.2s;
+}
+
+.past-shows-table tbody tr:hover { background-color: var(--cream-dark); }
+.past-shows-table tbody tr:last-child { border-bottom: none; }
+
+.past-shows-table td {
+  padding: var(--sp-4) var(--sp-3);
+  vertical-align: middle;
+  color: var(--ink-mid);
+  font-size: var(--text-base);
+}
+
+.past-shows-table td:last-child { text-align: right; }
+
+.past-show__name {
+  font-family: var(--font-display);
+  font-size: var(--text-md);
+  font-weight: 400;
+  color: var(--ink);
+}
+
+.past-show__year {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: 0.06em;
+  color: var(--ink-light);
+}
+
+/* Notify section */
+.notify-section__inner { max-width: 560px; }
+
+/* CV — links inside press entries */
+.cv-detail a {
+  color: var(--ink);
+  border-bottom: 1px solid var(--border-color);
+  transition: color var(--duration) var(--ease-out),
+              border-color var(--duration) var(--ease-out);
+}
+
+.cv-detail a:hover {
+  color: var(--terra);
+  border-color: var(--terra);
+}
+
+
+/* 37. Print Club page
+   ============================================================ */
+
+/* PC page hero — sage accent */
+.pc-page-hero {
+  padding-block: var(--sp-16) var(--sp-10);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.pc-page-hero__eyebrow {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--sage);
+  margin-bottom: var(--sp-4);
+}
+
+.pc-page-hero h1 {
+  font-size: clamp(var(--text-3xl), 8vw, var(--text-4xl));
+  font-weight: 300;
+  letter-spacing: -0.02em;
+  color: var(--sage);
+}
+
+.pc-page-hero__lead {
+  margin-top: var(--sp-5);
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: clamp(var(--text-base), 2vw, var(--text-md));
+  color: var(--ink-light);
+  max-width: 52ch;
+}
+
+/* PC two-column intro layout */
+.pc-intro-layout {
+  display: grid;
+  grid-template-columns: 5fr 6fr;
+  gap: var(--sp-16);
+  align-items: start;
+}
+
+.pc-description__eyebrow {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--sage);
+  margin-bottom: var(--sp-4);
+}
+
+.pc-description h2 {
+  font-size: clamp(var(--text-lg), 2.5vw, var(--text-xl));
+  margin-bottom: var(--sp-5);
+  line-height: 1.2;
+}
+
+.pc-description p {
+  color: var(--ink-mid);
+  line-height: 1.8;
+  font-size: var(--text-base);
+  margin-bottom: var(--sp-4);
+}
+
+.pc-description p:last-of-type { margin-bottom: 0; }
+
+.pc-instagram-link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-2);
+  margin-top: var(--sp-6);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--sage);
+  border-bottom: 1px solid currentColor;
+  padding-bottom: 2px;
+  transition: opacity 0.2s;
+}
+
+.pc-instagram-link:hover { opacity: 0.7; }
+
+/* Interview cards */
+.interview-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-4);
+}
+
+.interview-card {
+  display: flex;
+  flex-direction: column;
+  padding: var(--sp-6);
+  border: 1px solid var(--border-color);
+  background-color: var(--cream);
+  transition: border-color 0.3s var(--ease-out);
+}
+
+.interview-card:hover {
+  border-color: color-mix(in srgb, var(--sage) 45%, transparent);
+}
+
+.interview-card__header {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-4);
+  margin-bottom: var(--sp-5);
+}
+
+.avatar-circle {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-size: var(--text-md);
+  font-weight: 400;
+  color: var(--cream);
+  flex-shrink: 0;
+  letter-spacing: 0.02em;
+  user-select: none;
+}
+
+.interview-card__name {
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  font-weight: 500;
+  color: var(--ink);
+  line-height: 1.2;
+  margin-bottom: var(--sp-1);
+}
+
+.interview-card__medium-loc {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--ink-light);
+  letter-spacing: 0.05em;
+}
+
+.interview-card__quote {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: var(--text-md);
+  color: var(--ink-mid);
+  line-height: 1.55;
+  border-left: 2px solid var(--sage);
+  padding-left: var(--sp-5);
+  margin: 0 0 var(--sp-5);
+}
+
+.interview-card__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp-4);
+  margin-top: auto;
+  padding-top: var(--sp-4);
+  border-top: 1px solid var(--border-color);
+}
+
+.interview-card__date {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--ink-light);
+  letter-spacing: 0.06em;
+}
+
+.interview-card__watch {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--sage);
+  border-bottom: 1px solid currentColor;
+  padding-bottom: 1px;
+  transition: opacity 0.2s;
+  white-space: nowrap;
+}
+
+.interview-card__watch:hover { opacity: 0.7; }
+
+/* PC artist interest form section */
+.pc-interest-section { background-color: var(--sage-pale); }
+
+.pc-interest-layout {
+  display: grid;
+  grid-template-columns: 5fr 7fr;
+  gap: var(--sp-16);
+  align-items: start;
+}
+
+.pc-interest-intro__eyebrow {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--sage);
+  margin-bottom: var(--sp-4);
+}
+
+.pc-interest-intro h2 {
+  font-size: clamp(var(--text-xl), 3vw, var(--text-2xl));
+  margin-bottom: var(--sp-5);
+  line-height: 1.15;
+}
+
+.pc-interest-intro p {
+  color: var(--ink-mid);
+  line-height: 1.8;
+}
+
+
+/* 38. Responsive — shows and print club
+   ============================================================ */
+
+@media (max-width: 1024px) {
+  .upcoming-show-card         { grid-template-columns: 5fr 6fr; }
+  .upcoming-show-card__body   { padding: var(--sp-8); }
+  .pc-intro-layout            { gap: var(--sp-10); }
+  .pc-interest-layout         { gap: var(--sp-10); }
+}
+
+@media (max-width: 768px) {
+  .upcoming-show-card {
+    grid-template-columns: 1fr;
+  }
+
+  .upcoming-show-card__image {
+    aspect-ratio: 16 / 9;
+  }
+
+  .upcoming-show-card__body {
+    border-left: none;
+    border-top: 1px solid var(--border-color);
+    padding: var(--sp-6);
+  }
+
+  .pc-intro-layout     { grid-template-columns: 1fr; gap: var(--sp-8); }
+  .pc-interest-layout  { grid-template-columns: 1fr; gap: var(--sp-8); }
+}
+
+/* Narrow screens: hide Venue + City columns — show Name, Type, Year only */
+@media (max-width: 640px) {
+  .past-shows-table th:nth-child(2),
+  .past-shows-table th:nth-child(3),
+  .past-shows-table td:nth-child(2),
+  .past-shows-table td:nth-child(3) {
+    display: none;
   }
 }

@@ -4,7 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Print Club — Rebecca Carter</title>
-  <meta name="description" content="Join Rebecca Carter's Print Club and receive an exclusive limited-edition print each quarter." />
+  <meta name="description"
+        content="Print Club is Rebecca Carter's ongoing Instagram interview series — candid conversations with artists, makers, and creatives about practice and community." />
   <link rel="stylesheet" href="../css/styles.css" />
 </head>
 <body>
@@ -12,91 +13,377 @@
   <div id="site-nav"></div>
 
   <main>
-    <div class="page-hero container">
-      <p class="page-hero__label">Membership</p>
-      <h1 class="reveal">Print Club</h1>
-      <p class="page-hero__lead reveal reveal-delay-1">
-        Four times a year I make a small edition available exclusively to members
-        before they go anywhere else &mdash; or they never go anywhere else at all.
+
+    <!-- ============================================================
+         PAGE HERO — sage green accent
+         ============================================================ -->
+    <div class="pc-page-hero container">
+      <p class="pc-page-hero__eyebrow reveal">Instagram Interview Series</p>
+      <h1 class="reveal reveal-delay-1">Print Club</h1>
+      <p class="pc-page-hero__lead reveal reveal-delay-2">
+        Candid conversations with artists, makers, and creatives about practice,
+        community, and the unglamorous reality of sustaining creative work.
       </p>
     </div>
 
-    <section class="section container">
 
-      <div class="benefits-grid">
-        <div class="benefit-card reveal">
-          <p class="benefit-card__icon">01</p>
-          <h3>Exclusive Editions</h3>
-          <p>One new hand-signed, numbered print per quarter, in editions of 25 or fewer.</p>
-        </div>
-        <div class="benefit-card reveal reveal-delay-1">
-          <p class="benefit-card__icon">02</p>
-          <h3>Studio Letters</h3>
-          <p>A personal note about what I'm working on, what's influencing me, and what's next.</p>
-        </div>
-        <div class="benefit-card reveal reveal-delay-2">
-          <p class="benefit-card__icon">03</p>
-          <h3>Early Access</h3>
-          <p>Shop drops and show announcements land in your inbox 48 hours before they go public.</p>
-        </div>
-        <div class="benefit-card reveal reveal-delay-3">
-          <p class="benefit-card__icon">04</p>
-          <h3>Cancel Any Time</h3>
-          <p>No contracts. Pause or cancel at any time by replying to any club email.</p>
+    <!-- ============================================================
+         INTERVIEWS + DESCRIPTION — two-column layout
+         Interview cards are rendered from the INTERVIEWS array below.
+         To add a new interview, append an object to that array.
+         ============================================================ -->
+    <section class="section" aria-labelledby="interviews-heading">
+      <div class="container">
+        <div class="pc-intro-layout">
+
+          <!-- ── LEFT: description ───────────────────────────────── -->
+          <div class="pc-description reveal">
+
+            <p class="pc-description__eyebrow">About the Series</p>
+
+            <h2 id="interviews-heading">
+              Conversations with artists who make things.
+            </h2>
+
+            <p>
+              Print Club is Rebecca's ongoing Instagram interview series — a place
+              for honest, unhurried conversations with painters, printmakers,
+              ceramicists, illustrators, and makers of all kinds.
+            </p>
+
+            <p>
+              Each episode explores the real texture of creative life: how artists
+              sustain a practice, where ideas come from, what failure looks like,
+              and why community matters. No prestige gatekeeping — just people
+              who make things talking openly about the work.
+            </p>
+
+            <p>
+              New episodes every other week. Follow along on Instagram for full
+              episodes, clips, and behind-the-scenes moments from each conversation.
+            </p>
+
+            <a
+              href="https://www.instagram.com/r.c.artist/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="pc-instagram-link"
+              aria-label="Follow Rebecca Carter on Instagram at r.c.artist">
+              @r.c.artist on Instagram
+            </a>
+
+          </div><!-- /pc-description -->
+
+          <!-- ── RIGHT: interview cards (JS-rendered) ────────────── -->
+          <div class="interview-list" id="interviewList" aria-label="Interview archive">
+            <!-- Rendered from INTERVIEWS array in <script> below -->
+          </div>
+
         </div>
       </div>
-
-      <hr class="divider" />
-
-      <!-- Sign-up form.
-           Wire the submit handler in main.js to your mailing list or payment
-           provider (Mailchimp, ConvertKit, Stripe Checkout, etc.). -->
-      <div style="max-width:480px;" class="reveal">
-        <h2 style="margin-bottom:var(--sp-8);">Join the Club</h2>
-        <p style="margin-bottom:var(--sp-8);">
-          &pound;20 per quarter. Cancel any time.
-        </p>
-
-        <form class="form" id="printClubForm" novalidate>
-          <div class="form-group">
-            <label class="form-label" for="firstName">First name</label>
-            <input class="form-input" type="text" id="firstName" name="firstName"
-                   autocomplete="given-name" required />
-          </div>
-          <div class="form-group">
-            <label class="form-label" for="email">Email address</label>
-            <input class="form-input" type="email" id="email" name="email"
-                   autocomplete="email" required />
-          </div>
-          <div class="form-group">
-            <label class="form-label" for="country">Country</label>
-            <select class="form-select" id="country" name="country">
-              <option value="">Select&hellip;</option>
-              <option value="GB">United Kingdom</option>
-              <option value="US">United States</option>
-              <option value="CA">Canada</option>
-              <option value="AU">Australia</option>
-              <option value="EU">Europe (other)</option>
-              <option value="other">Other</option>
-            </select>
-          </div>
-
-          <button type="submit" class="btn btn--filled-terra btn--lg"
-                  style="margin-top:var(--sp-2); align-self:flex-start;">
-            Sign me up &mdash; &pound;20 / quarter
-          </button>
-
-          <p class="form-hint">
-            By signing up you agree to receive Print Club emails. Unsubscribe any time.
-          </p>
-        </form>
-      </div>
-
     </section>
+
+
+    <!-- ============================================================
+         ARTIST INTEREST FORM
+         "Want to be featured in Print Club?"
+         ============================================================ -->
+    <section class="section pc-interest-section" id="apply"
+             aria-labelledby="interest-heading">
+      <div class="container">
+        <div class="pc-interest-layout">
+
+          <!-- Left: intro text -->
+          <div class="pc-interest-intro reveal">
+            <p class="pc-interest-intro__eyebrow">Be Featured</p>
+            <h2 id="interest-heading">
+              Want to be featured in Print Club?
+            </h2>
+            <p>
+              Print Club is always looking for its next guest. If you're a working
+              artist, maker, or creative &mdash; at any career stage, in any
+              discipline &mdash; fill out the form and Rebecca will be in touch.
+            </p>
+            <p>
+              No follower counts, no prestige gatekeeping. Just honest conversations
+              about making things.
+            </p>
+          </div>
+
+          <!-- Right: form -->
+          <div class="reveal reveal-delay-1">
+
+            <!--
+              FORMSPREE SETUP
+              ===============
+              This form uses Formspree for zero-config form submissions.
+
+              To connect it:
+              1. Sign up at formspree.io (free tier: 50 submissions/month)
+              2. Click "New Form" and give it a name, e.g. "Print Club Interest"
+              3. Copy the endpoint URL — it looks like:
+                   https://formspree.io/f/xabcdefg
+              4. Replace YOUR_FORM_ID in the action attribute below with
+                 the ID from that URL (just the "xabcdefg" part):
+                   action="https://formspree.io/f/xabcdefg"
+              5. Formspree will email Rebecca with each submission.
+
+              Alternative: swap the action for any serverless endpoint
+              (Netlify Forms, AWS Lambda, etc.)
+            -->
+            <form
+              class="form"
+              id="interestForm"
+              action="https://formspree.io/f/YOUR_FORM_ID"
+              method="POST"
+              novalidate>
+
+              <input type="hidden" name="_subject" value="Print Club Artist Interest" />
+              <input type="text"   name="_gotcha"  style="display:none" tabindex="-1" />
+
+              <div class="form-row-2">
+                <div class="form-group">
+                  <label class="form-label" for="pcName">Name</label>
+                  <input
+                    class="form-input"
+                    type="text"
+                    id="pcName"
+                    name="name"
+                    autocomplete="name"
+                    placeholder="Your full name"
+                    required />
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="pcEmail">Email</label>
+                  <input
+                    class="form-input"
+                    type="email"
+                    id="pcEmail"
+                    name="email"
+                    autocomplete="email"
+                    placeholder="you@example.com"
+                    required />
+                </div>
+              </div>
+
+              <div class="form-row-2">
+                <div class="form-group">
+                  <label class="form-label" for="pcInstagram">Instagram Handle</label>
+                  <input
+                    class="form-input"
+                    type="text"
+                    id="pcInstagram"
+                    name="instagram"
+                    placeholder="@yourhandle"
+                    autocomplete="off" />
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="pcMedium">Medium / Discipline</label>
+                  <input
+                    class="form-input"
+                    type="text"
+                    id="pcMedium"
+                    name="medium"
+                    placeholder="e.g. oil painting, ceramics, illustration"
+                    required />
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="pcPractice">Tell us about your practice</label>
+                <textarea
+                  class="form-textarea"
+                  id="pcPractice"
+                  name="practice"
+                  placeholder="What do you make, and why? What are you working on right now? A few sentences is fine."
+                  required></textarea>
+              </div>
+
+              <button
+                type="submit"
+                class="btn btn--filled-terra"
+                style="align-self:flex-start;">
+                Submit Interest
+              </button>
+
+            </form>
+
+            <p class="legal-disclaimer" style="margin-top:var(--sp-5);">
+              By submitting, you agree that your information may be used to contact
+              you about Print Club. We will never share or sell your data.
+            </p>
+
+          </div><!-- /form column -->
+
+        </div>
+      </div>
+    </section>
+
+
   </main>
 
   <div id="site-footer"></div>
-
   <script src="../js/main.js"></script>
+
+  <script>
+  (function () {
+    'use strict';
+
+    /* ============================================================
+       INTERVIEWS DATA
+       ============================================================
+       To add a new interview, append an object to this array.
+       Fields:
+         name      — artist's full name
+         initials  — 1–2 letter abbreviation shown in the avatar circle
+         medium    — primary medium or discipline
+         location  — city, state / country
+         quote     — short pull quote from the interview
+         date      — episode date, e.g. 'February 2025'
+         url       — direct Instagram post URL (or profile if no post link yet)
+
+       Avatar circle background colors cycle through AVATAR_COLORS below.
+       ============================================================ */
+    var INTERVIEWS = [
+      {
+        name:     'Jordan Park',
+        initials: 'JP',
+        medium:   'Ceramics',
+        location: 'Philadelphia, PA',
+        quote:    'Every piece I make starts with a question I don’t have an answer to yet. The clay helps me find my way toward something.',
+        date:     'February 2025',
+        url:      'https://www.instagram.com/r.c.artist/',
+      },
+      {
+        name:     'Sam Reyes',
+        initials: 'SR',
+        medium:   'Illustration',
+        location: 'New York, NY',
+        quote:    'Community is where the work comes from. I don’t know if I’d make anything if there wasn’t someone to share it with.',
+        date:     'January 2025',
+        url:      'https://www.instagram.com/r.c.artist/',
+      },
+      {
+        name:     'Maya Osei',
+        initials: 'MO',
+        medium:   'Printmaking',
+        location: 'Baltimore, MD',
+        quote:    'You can pull twenty prints from the same plate and each one is slightly different. It’s never quite the same twice.',
+        date:     'December 2024',
+        url:      'https://www.instagram.com/r.c.artist/',
+      },
+    ];
+
+    /* Avatar colors — cycle by index */
+    var AVATAR_COLORS = [
+      'var(--sage)',
+      'var(--terra-light)',
+      'var(--gold)',
+    ];
+
+    /* Safe HTML encoding */
+    function esc(s) {
+      return String(s)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;');
+    }
+
+    /* Safe href — only allow http/https URLs */
+    function safeHref(url) {
+      if (!url) return '#';
+      return /^https?:\/\//i.test(url) ? url : '#';
+    }
+
+    /* Render all interview cards */
+    function renderInterviews() {
+      var list = document.getElementById('interviewList');
+      if (!list) return;
+
+      list.innerHTML = INTERVIEWS.map(function (iv, i) {
+        var color = AVATAR_COLORS[i % AVATAR_COLORS.length];
+        return (
+          '<article class="interview-card">' +
+            '<div class="interview-card__header">' +
+              '<div class="avatar-circle" style="background-color:' + color + ';" aria-hidden="true">' +
+                esc(iv.initials) +
+              '</div>' +
+              '<div>' +
+                '<p class="interview-card__name">'       + esc(iv.name)                         + '</p>' +
+                '<p class="interview-card__medium-loc">' + esc(iv.medium) + ' &middot; ' + esc(iv.location) + '</p>' +
+              '</div>' +
+            '</div>' +
+            '<blockquote class="interview-card__quote">' +
+              '&ldquo;' + esc(iv.quote) + '&rdquo;' +
+            '</blockquote>' +
+            '<div class="interview-card__footer">' +
+              '<span class="interview-card__date">' + esc(iv.date) + '</span>' +
+              '<a href="' + esc(safeHref(iv.url)) + '" ' +
+                'target="_blank" rel="noopener noreferrer" ' +
+                'class="interview-card__watch" ' +
+                'aria-label="Watch ' + esc(iv.name) + ' interview on Instagram">' +
+                'Watch on Instagram &rarr;' +
+              '</a>' +
+            '</div>' +
+          '</article>'
+        );
+      }).join('');
+    }
+
+    /* Interest form — async POST to Formspree */
+    function initInterestForm() {
+      var form = document.getElementById('interestForm');
+      if (!form) return;
+
+      form.addEventListener('submit', async function (e) {
+        e.preventDefault();
+        var btn      = form.querySelector('[type="submit"]');
+        var origText = btn.textContent;
+        btn.textContent = 'Sending…';
+        btn.disabled    = true;
+
+        try {
+          var res = await fetch(form.action, {
+            method:  'POST',
+            headers: { Accept: 'application/json' },
+            body:    new FormData(form),
+          });
+
+          if (res.ok) {
+            form.innerHTML =
+              '<p style="font-family:\'Cormorant Garamond\',Georgia,serif;' +
+              'font-style:italic;font-size:clamp(1.25rem,2.5vw,1.5rem);' +
+              'color:var(--ink);line-height:1.4;">' +
+              'Thank you — Rebecca will be in touch if your practice is a good fit for an upcoming episode.' +
+              '</p>';
+          } else {
+            throw new Error('failed');
+          }
+        } catch (_) {
+          var errEl = form.querySelector('.js-interest-err');
+          if (!errEl) {
+            errEl           = document.createElement('p');
+            errEl.className = 'js-interest-err';
+            errEl.style.cssText =
+              'color:var(--terra);font-size:var(--text-sm);margin-top:var(--sp-3);';
+            form.appendChild(errEl);
+          }
+          errEl.textContent =
+            'Something went wrong — please try again or email hello@rebeccacarter.art.';
+          btn.textContent = origText;
+          btn.disabled    = false;
+        }
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+      renderInterviews();
+      initInterestForm();
+    });
+
+  })();
+  </script>
+
 </body>
 </html>

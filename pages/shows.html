@@ -3,8 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Shows — Rebecca Carter</title>
-  <meta name="description" content="Current and upcoming exhibitions by Rebecca Carter." />
+  <title>Exhibitions &amp; Shows — Rebecca Carter</title>
+  <meta name="description"
+        content="Upcoming and past exhibitions by Rebecca Carter — painter and printmaker based in York, PA." />
   <link rel="stylesheet" href="../css/styles.css" />
 </head>
 <body>
@@ -12,110 +13,321 @@
   <div id="site-nav"></div>
 
   <main>
+
+    <!-- ============================================================
+         PAGE HERO
+         ============================================================ -->
     <div class="page-hero container">
-      <p class="page-hero__label">Exhibitions</p>
-      <h1 class="reveal">Shows</h1>
+      <p class="page-hero__label reveal">Rebecca Carter</p>
+      <h1 class="reveal reveal-delay-1">Exhibitions &amp; Shows</h1>
+      <p class="page-hero__lead reveal reveal-delay-2">
+        A record of Rebecca's exhibition history — from solo shows to group exhibitions
+        and community events.
+      </p>
     </div>
 
-    <section class="section container">
 
-      <div class="section-header reveal">
-        <h2>Upcoming</h2>
-      </div>
+    <!-- ============================================================
+         UPCOMING SHOWS
+         ============================================================ -->
+    <section class="section" id="upcoming" aria-labelledby="upcoming-heading">
+      <div class="container">
 
-      <!-- One .show-entry per exhibition.
-           Upcoming entries get class="badge badge--upcoming".
-           Past entries get class="badge" with no modifier. -->
-      <div class="shows-list" style="margin-bottom:var(--sp-16);">
+        <div class="section-header reveal">
+          <h2 id="upcoming-heading">Upcoming</h2>
+          <span class="badge badge--upcoming">June 2025</span>
+        </div>
 
-        <div class="show-entry reveal">
-          <div class="show-date">Sep 2025</div>
-          <div>
-            <p class="show-title">Exhibition Title</p>
-            <p class="show-venue">Gallery Name &mdash; City, Country</p>
-            <p class="text-xs text-muted" style="margin-top:var(--sp-1);">
-              12 September &ndash; 4 October 2025 &middot; Solo
+        <!--
+          UPCOMING SHOW CARD
+          Update: show title, dates, venue, description, and badge text.
+          Replace the .placeholder div with a real image once available:
+            <img src="../assets/images/your-show-photo.jpg"
+                 alt="Brief description of the image" loading="lazy" />
+        -->
+        <article class="upcoming-show-card reveal reveal-delay-1">
+
+          <div class="upcoming-show-card__image" aria-hidden="true">
+            <div class="placeholder">Show image</div>
+          </div>
+
+          <div class="upcoming-show-card__body">
+
+            <div class="upcoming-show-card__badge-row">
+              <span class="badge badge--upcoming">Upcoming</span>
+            </div>
+
+            <h3 class="upcoming-show-card__title">
+              Drawn to the Skin
+            </h3>
+
+            <dl class="upcoming-show-card__meta">
+              <div class="show-meta-row">
+                <dt>Dates</dt>
+                <dd>June 6 &ndash; 28, 2025</dd>
+              </div>
+              <div class="show-meta-row">
+                <dt>Venue</dt>
+                <dd>[Tattoo Shop Name], York, Pennsylvania</dd>
+              </div>
+              <div class="show-meta-row">
+                <dt>Type</dt>
+                <dd>Group Exhibition</dd>
+              </div>
+              <div class="show-meta-row">
+                <dt>Opening</dt>
+                <dd>Friday, June 6 &mdash; 6:00 pm to 9:00 pm</dd>
+              </div>
+            </dl>
+
+            <p class="upcoming-show-card__desc">
+              A group exhibition celebrating the intersection of tattooing, painting,
+              and printmaking at [Tattoo Shop Name] in York, PA. Rebecca will show five
+              new paintings alongside works by local and regional artists. Free and open
+              to the public. [Add additional details here once confirmed.]
             </p>
-          </div>
-          <span class="badge badge--upcoming">Upcoming</span>
-        </div>
 
-        <div class="show-entry reveal">
-          <div class="show-date">Nov 2025</div>
-          <div>
-            <p class="show-title">Art Fair Booth</p>
-            <p class="show-venue">Fair Name &mdash; City</p>
-            <p class="text-xs text-muted" style="margin-top:var(--sp-1);">
-              7&ndash;10 November 2025
-            </p>
+            <div class="upcoming-show-card__cta">
+              <a href="#notify" class="btn btn--filled-terra">
+                Get Notified
+              </a>
+            </div>
+
           </div>
-          <span class="badge badge--upcoming">Upcoming</span>
-        </div>
+        </article>
 
       </div>
+    </section>
 
-      <div class="section-header reveal">
-        <h2>Past</h2>
-      </div>
 
-      <div class="shows-list">
+    <!-- ============================================================
+         PAST EXHIBITIONS
+         Table body is rendered from the PAST_SHOWS array in the
+         <script> below. To add a show, append to that array.
+         ============================================================ -->
+    <section class="section section--alt" id="past" aria-labelledby="past-heading">
+      <div class="container">
 
-        <div class="show-entry reveal">
-          <div class="show-date">Mar 2024</div>
-          <div>
-            <p class="show-title">Exhibition Title</p>
-            <p class="show-venue">Gallery Name &mdash; City</p>
-            <p class="text-xs text-muted" style="margin-top:var(--sp-1);">Solo</p>
-          </div>
-          <span class="badge">Past</span>
+        <div class="section-header reveal">
+          <h2 id="past-heading">Past Exhibitions</h2>
+          <span id="pastShowsCount" class="label"></span>
         </div>
 
-        <div class="show-entry reveal">
-          <div class="show-date">Oct 2023</div>
-          <div>
-            <p class="show-title">Exhibition Title</p>
-            <p class="show-venue">Gallery Name &mdash; City</p>
-            <p class="text-xs text-muted" style="margin-top:var(--sp-1);">Group</p>
-          </div>
-          <span class="badge">Past</span>
-        </div>
-
-        <div class="show-entry reveal">
-          <div class="show-date">Jun 2023</div>
-          <div>
-            <p class="show-title">Exhibition Title</p>
-            <p class="show-venue">Institution &mdash; City</p>
-            <p class="text-xs text-muted" style="margin-top:var(--sp-1);">Group</p>
-          </div>
-          <span class="badge">Past</span>
-        </div>
-
-        <div class="show-entry reveal">
-          <div class="show-date">Feb 2022</div>
-          <div>
-            <p class="show-title">Exhibition Title</p>
-            <p class="show-venue">Gallery Name &mdash; City</p>
-            <p class="text-xs text-muted" style="margin-top:var(--sp-1);">Solo</p>
-          </div>
-          <span class="badge">Past</span>
-        </div>
-
-        <div class="show-entry reveal">
-          <div class="show-date">Sep 2021</div>
-          <div>
-            <p class="show-title">Exhibition Title</p>
-            <p class="show-venue">Gallery Name &mdash; City</p>
-            <p class="text-xs text-muted" style="margin-top:var(--sp-1);">Group</p>
-          </div>
-          <span class="badge">Past</span>
+        <div class="reveal reveal-delay-1">
+          <table class="past-shows-table" aria-label="Past exhibitions">
+            <thead>
+              <tr>
+                <th scope="col">Exhibition</th>
+                <th scope="col">Venue</th>
+                <th scope="col">City</th>
+                <th scope="col">Type</th>
+                <th scope="col">Year</th>
+              </tr>
+            </thead>
+            <tbody id="pastShowsList">
+              <!-- Rendered by JS from PAST_SHOWS array below -->
+            </tbody>
+          </table>
         </div>
 
       </div>
     </section>
+
+
+    <!-- ============================================================
+         STAY IN THE LOOP — email notification signup
+         The "Get Notified" button above scrolls here via href="#notify"
+         ============================================================ -->
+    <section class="section" id="notify" aria-labelledby="notify-heading">
+      <div class="container">
+        <div class="notify-section__inner reveal">
+
+          <h2 id="notify-heading" style="
+              font-size: clamp(var(--text-xl), 3vw, var(--text-2xl));
+              margin-bottom: var(--sp-4);">
+            Stay in the Loop
+          </h2>
+
+          <p style="color:var(--ink-mid); margin-bottom:var(--sp-8); line-height:1.7;">
+            Sign up to be notified when new shows and events are announced.
+          </p>
+
+          <!--
+            FORMSPREE SETUP
+            1. Sign up at formspree.io
+            2. Create a new form — name it "Show Notifications"
+            3. Replace YOUR_FORM_ID in the action attribute below
+          -->
+          <form
+            class="form"
+            id="notifyForm"
+            action="https://formspree.io/f/YOUR_FORM_ID"
+            method="POST"
+            novalidate>
+
+            <input type="hidden" name="_subject" value="Show Notification Signup" />
+            <input type="text"   name="_gotcha"  style="display:none" tabindex="-1" />
+
+            <div class="form-row-2">
+              <div class="form-group">
+                <label class="form-label" for="notifyName">Name</label>
+                <input
+                  class="form-input"
+                  type="text"
+                  id="notifyName"
+                  name="name"
+                  autocomplete="given-name"
+                  placeholder="Your name"
+                  required />
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="notifyEmail">Email</label>
+                <input
+                  class="form-input"
+                  type="email"
+                  id="notifyEmail"
+                  name="email"
+                  autocomplete="email"
+                  placeholder="you@example.com"
+                  required />
+              </div>
+            </div>
+
+            <button
+              type="submit"
+              class="btn btn--filled-terra"
+              style="align-self:flex-start;">
+              Notify Me
+            </button>
+
+          </form>
+
+          <p class="legal-disclaimer" style="margin-top:var(--sp-5);">
+            Your email will only be used to notify you about Rebecca Carter's upcoming
+            shows and exhibitions. You can unsubscribe at any time. We will never sell
+            or share your information.
+          </p>
+
+        </div>
+      </div>
+    </section>
+
+
   </main>
 
   <div id="site-footer"></div>
-
   <script src="../js/main.js"></script>
+
+  <script>
+  (function () {
+    'use strict';
+
+    /* ============================================================
+       PAST SHOWS DATA
+       ============================================================
+       To add a new show, append an object to PAST_SHOWS.
+       Fields:
+         name   — exhibition title
+         venue  — gallery / venue name
+         city   — city and state / country
+         type   — 'Solo', 'Group', 'Duo', etc.
+         year   — four-digit year string
+
+       Newest-first order recommended.
+       ============================================================ */
+    var PAST_SHOWS = [
+      { name: 'Exhibition Title', venue: 'Gallery Name',    city: 'Philadelphia, PA', type: 'Solo',  year: '2024' },
+      { name: 'Exhibition Title', venue: 'Art Center Name', city: 'New York, NY',     type: 'Group', year: '2023' },
+      { name: 'Exhibition Title', venue: 'Gallery Name',    city: 'York, PA',         type: 'Solo',  year: '2023' },
+      { name: 'Exhibition Title', venue: 'Studio Space',    city: 'Baltimore, MD',    type: 'Group', year: '2022' },
+      { name: 'Exhibition Title', venue: 'Community Arts',  city: 'Harrisburg, PA',   type: 'Group', year: '2021' },
+    ];
+
+    /* Safe HTML encoding for dynamic content */
+    function esc(s) {
+      return String(s)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;');
+    }
+
+    /* Render PAST_SHOWS into the table body */
+    function renderPastShows() {
+      var tbody   = document.getElementById('pastShowsList');
+      var countEl = document.getElementById('pastShowsCount');
+      if (!tbody) return;
+
+      tbody.innerHTML = PAST_SHOWS.map(function (s) {
+        return (
+          '<tr>' +
+            '<td><span class="past-show__name">' + esc(s.name)  + '</span></td>' +
+            '<td>' + esc(s.venue) + '</td>' +
+            '<td>' + esc(s.city)  + '</td>' +
+            '<td><span class="badge">'         + esc(s.type)  + '</span></td>' +
+            '<td class="past-show__year">'     + esc(s.year)  + '</td>' +
+          '</tr>'
+        );
+      }).join('');
+
+      if (countEl) {
+        countEl.textContent = PAST_SHOWS.length + ' shows';
+      }
+    }
+
+    /* Notify form — async POST to Formspree */
+    function initNotifyForm() {
+      var form = document.getElementById('notifyForm');
+      if (!form) return;
+
+      form.addEventListener('submit', async function (e) {
+        e.preventDefault();
+        var btn      = form.querySelector('[type="submit"]');
+        var origText = btn.textContent;
+        btn.textContent = 'Sending…';
+        btn.disabled    = true;
+
+        try {
+          var res = await fetch(form.action, {
+            method:  'POST',
+            headers: { Accept: 'application/json' },
+            body:    new FormData(form),
+          });
+
+          if (res.ok) {
+            form.innerHTML =
+              '<p style="font-family:\'Cormorant Garamond\',Georgia,serif;' +
+              'font-style:italic;font-size:clamp(1.25rem,2.5vw,1.5rem);' +
+              'color:var(--ink);line-height:1.4;">' +
+              'You’re on the list — we’ll be in touch before the next show.' +
+              '</p>';
+          } else {
+            throw new Error('failed');
+          }
+        } catch (_) {
+          var errEl = form.querySelector('.js-notify-err');
+          if (!errEl) {
+            errEl           = document.createElement('p');
+            errEl.className = 'js-notify-err';
+            errEl.style.cssText =
+              'color:var(--terra);font-size:var(--text-sm);margin-top:var(--sp-3);';
+            form.appendChild(errEl);
+          }
+          errEl.textContent =
+            'Something went wrong — please try again or email hello@rebeccacarter.art.';
+          btn.textContent = origText;
+          btn.disabled    = false;
+        }
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+      renderPastShows();
+      initNotifyForm();
+    });
+
+  })();
+  </script>
+
 </body>
 </html>

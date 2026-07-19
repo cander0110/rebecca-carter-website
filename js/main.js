@@ -10,7 +10,7 @@ const NAV_LINKS = [
   { href: 'shows.html',                       label: 'Shows'       },
   { href: 'print-club.html',                  label: 'Print Club'  },
   { href: 'cv.html',                          label: 'CV'          },
-  { href: 'mailto:hello@rebeccacarter.art',   label: 'Contact', absolute: true },
+  { href: 'mailto:visualartrc@gmail.com',      label: 'Contact', absolute: true },
 ];
 
 /* Resolve whether we're at root or in /pages/ */
@@ -79,8 +79,8 @@ function buildFooter() {
 
         <div class="footer-brand">
           <a class="footer-brand__logo" href="${root}index.html">Rebecca Carter</a>
-          <p>Painting, printmaking, and mixed media.<br/>Based in London.</p>
-          <p>Available for commissions, residencies,<br/>and editorial projects.</p>
+          <p>Painting, photography, and mixed media.<br/>Based in York, PA.</p>
+          <p>Available for commissions, portrait,<br/>event, and product photography.</p>
         </div>
 
         <div class="footer-col">
@@ -93,26 +93,20 @@ function buildFooter() {
         <div class="footer-col">
           <p class="footer-col__heading">Info</p>
           <div class="footer-col__links">
-            <a href="mailto:hello@rebeccacarter.art">hello@rebeccacarter.art</a>
-            <span>For press and gallery enquiries,<br/>please email directly.</span>
-            <span>Represented by<br/>[Gallery Name], London</span>
+            <a href="mailto:visualartrc@gmail.com">visualartrc@gmail.com</a>
+            <span>For press and exhibition enquiries,<br/>please email directly.</span>
+            <a href="https://www.ycp.edu/academics/school-of-the-arts-communication-and-global-studies/spotlights/rebecca-carter/" target="_blank" rel="noopener noreferrer">YCP Spotlight</a>
           </div>
         </div>
 
         <div class="footer-col">
           <p class="footer-col__heading">Connect</p>
           <nav class="footer-col__links" aria-label="Social links">
-            <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">
+            <a href="https://www.instagram.com/r.c.artist/" target="_blank" rel="noopener noreferrer">
               Instagram
             </a>
-            <a href="https://www.pinterest.com/" target="_blank" rel="noopener noreferrer">
-              Pinterest
-            </a>
-            <a href="https://www.artsy.net/" target="_blank" rel="noopener noreferrer">
-              Artsy
-            </a>
             <a href="${root}pages/print-club.html">
-              Newsletter
+              Print Club
             </a>
           </nav>
         </div>
@@ -124,7 +118,7 @@ function buildFooter() {
   <div class="footer-bottom">
     <div class="container flex-between" style="flex-wrap:wrap; gap:var(--sp-4);">
       <span>&copy; ${year} Rebecca Carter. All rights reserved.</span>
-      <span>London, UK</span>
+      <span>York, PA</span>
     </div>
   </div>
 </footer>`;
