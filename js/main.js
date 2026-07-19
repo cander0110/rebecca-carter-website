@@ -79,7 +79,7 @@ function buildFooter() {
 
         <div class="footer-brand">
           <a class="footer-brand__logo" href="${root}index.html">Rebecca Carter</a>
-          <p>Painting, photography, and mixed media.<br/>Based in York, PA.</p>
+          <p>Painting, photography, and mixed media.<br/>Based in Maryland.</p>
           <p>Available for commissions, portrait,<br/>event, and product photography.</p>
         </div>
 
@@ -118,7 +118,7 @@ function buildFooter() {
   <div class="footer-bottom">
     <div class="container flex-between" style="flex-wrap:wrap; gap:var(--sp-4);">
       <span>&copy; ${year} Rebecca Carter. All rights reserved.</span>
-      <span>York, PA</span>
+      <span>Maryland</span>
     </div>
   </div>
 </footer>`;
