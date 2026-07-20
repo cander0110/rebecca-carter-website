@@ -2405,11 +2405,11 @@ p:last-child { margin-bottom: 0; }
   grid-template-columns: 1fr 1fr;
 }
 
-.shop-col--paintings {
+.shop-col--left {
   padding-right: var(--sp-12);
 }
 
-.shop-col--crafts {
+.shop-col--right {
   padding-left: var(--sp-12);
   border-left: 1px solid var(--border-color);
 }
@@ -2740,8 +2740,8 @@ p:last-child { margin-bottom: 0; }
    ============================================================ */
 
 @media (max-width: 1024px) {
-  .shop-col--paintings { padding-right: var(--sp-8); }
-  .shop-col--crafts    { padding-left:  var(--sp-8); }
+  .shop-col--left { padding-right: var(--sp-8); }
+  .shop-col--right    { padding-left:  var(--sp-8); }
   .commission-layout   { gap: var(--sp-10); }
 
   .painting-product { grid-template-columns: 110px 1fr; gap: var(--sp-5); }
@@ -2754,13 +2754,13 @@ p:last-child { margin-bottom: 0; }
     gap: 0;
   }
 
-  .shop-col--paintings {
+  .shop-col--left {
     padding-right: 0;
     padding-bottom: var(--sp-12);
     border-bottom: 1px solid var(--border-color);
   }
 
-  .shop-col--crafts {
+  .shop-col--right {
     padding-left: 0;
     border-left: none;
     padding-top: var(--sp-12);
