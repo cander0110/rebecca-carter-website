@@ -32,6 +32,11 @@
          ============================================================ -->
     <section class="section" aria-label="Products">
       <div class="container">
+
+        <p class="reveal" style="font-size:var(--text-xs); color:var(--ink-light); margin-bottom:var(--sp-8);">
+          Payments are processed securely by Stripe. No payment information is stored on this site.
+        </p>
+
         <div class="shop-columns">
 
 
@@ -149,6 +154,12 @@
                 <div class="painting-product__info">
                   <h3 class="painting-product__title">Painting Prints</h3>
                   <p class="painting-product__medium">Coming soon</p>
+                  <a href="#"
+                     class="btn btn--sm js-buy-btn"
+                     data-payment-key="paintingPrints"
+                     data-product-name="Painting Prints">
+                    Buy
+                  </a>
                 </div>
               </article>
 
@@ -162,6 +173,12 @@
                 <div class="painting-product__info">
                   <h3 class="painting-product__title">Painting Prints</h3>
                   <p class="painting-product__medium">Coming soon</p>
+                  <a href="#"
+                     class="btn btn--sm js-buy-btn"
+                     data-payment-key="paintingPrints"
+                     data-product-name="Painting Prints">
+                    Buy
+                  </a>
                 </div>
               </article>
 
@@ -185,6 +202,12 @@
                 <div class="painting-product__info">
                   <h3 class="painting-product__title">Photography Prints</h3>
                   <p class="painting-product__medium">Coming soon</p>
+                  <a href="#"
+                     class="btn btn--sm js-buy-btn"
+                     data-payment-key="photographyPrints"
+                     data-product-name="Photography Prints">
+                    Buy
+                  </a>
                 </div>
               </article>
 
@@ -198,6 +221,12 @@
                 <div class="painting-product__info">
                   <h3 class="painting-product__title">Photography Prints</h3>
                   <p class="painting-product__medium">Coming soon</p>
+                  <a href="#"
+                     class="btn btn--sm js-buy-btn"
+                     data-payment-key="photographyPrints"
+                     data-product-name="Photography Prints">
+                    Buy
+                  </a>
                 </div>
               </article>
 
@@ -227,6 +256,12 @@
                 <div class="painting-product__info">
                   <h3 class="painting-product__title">Earrings</h3>
                   <p class="painting-product__medium">Coming soon</p>
+                  <a href="#"
+                     class="btn btn--sm js-buy-btn"
+                     data-payment-key="earrings"
+                     data-product-name="Earrings">
+                    Buy
+                  </a>
                 </div>
               </article>
 
@@ -240,6 +275,12 @@
                 <div class="painting-product__info">
                   <h3 class="painting-product__title">Earrings</h3>
                   <p class="painting-product__medium">Coming soon</p>
+                  <a href="#"
+                     class="btn btn--sm js-buy-btn"
+                     data-payment-key="earrings"
+                     data-product-name="Earrings">
+                    Buy
+                  </a>
                 </div>
               </article>
 
@@ -263,6 +304,12 @@
                 <div class="painting-product__info">
                   <h3 class="painting-product__title">Hand-Painted Magnets</h3>
                   <p class="painting-product__medium">Coming soon</p>
+                  <a href="#"
+                     class="btn btn--sm js-buy-btn"
+                     data-payment-key="handPaintedMagnets"
+                     data-product-name="Hand-Painted Magnets">
+                    Buy
+                  </a>
                 </div>
               </article>
 
@@ -276,6 +323,12 @@
                 <div class="painting-product__info">
                   <h3 class="painting-product__title">Hand-Painted Magnets</h3>
                   <p class="painting-product__medium">Coming soon</p>
+                  <a href="#"
+                     class="btn btn--sm js-buy-btn"
+                     data-payment-key="handPaintedMagnets"
+                     data-product-name="Hand-Painted Magnets">
+                    Buy
+                  </a>
                 </div>
               </article>
 
@@ -299,6 +352,12 @@
                 <div class="painting-product__info">
                   <h3 class="painting-product__title">Hand-Painted Ornaments</h3>
                   <p class="painting-product__medium">Coming soon</p>
+                  <a href="#"
+                     class="btn btn--sm js-buy-btn"
+                     data-payment-key="handPaintedOrnaments"
+                     data-product-name="Hand-Painted Ornaments">
+                    Buy
+                  </a>
                 </div>
               </article>
 
@@ -312,6 +371,12 @@
                 <div class="painting-product__info">
                   <h3 class="painting-product__title">Hand-Painted Ornaments</h3>
                   <p class="painting-product__medium">Coming soon</p>
+                  <a href="#"
+                     class="btn btn--sm js-buy-btn"
+                     data-payment-key="handPaintedOrnaments"
+                     data-product-name="Hand-Painted Ornaments">
+                    Buy
+                  </a>
                 </div>
               </article>
 
@@ -335,6 +400,12 @@
                 <div class="painting-product__info">
                   <h3 class="painting-product__title">Trading Cards / ACEOs</h3>
                   <p class="painting-product__medium">Coming soon</p>
+                  <a href="#"
+                     class="btn btn--sm js-buy-btn"
+                     data-payment-key="tradingCardsAceos"
+                     data-product-name="Trading Cards / ACEOs">
+                    Buy
+                  </a>
                 </div>
               </article>
 
@@ -348,6 +419,12 @@
                 <div class="painting-product__info">
                   <h3 class="painting-product__title">Trading Cards / ACEOs</h3>
                   <p class="painting-product__medium">Coming soon</p>
+                  <a href="#"
+                     class="btn btn--sm js-buy-btn"
+                     data-payment-key="tradingCardsAceos"
+                     data-product-name="Trading Cards / ACEOs">
+                    Buy
+                  </a>
                 </div>
               </article>
 
@@ -536,10 +613,32 @@
 
   <div id="site-footer"></div>
   <script src="../js/main.js"></script>
+  <script src="../data/paymentLinks.js"></script>
 
   <script>
   (function () {
     'use strict';
+
+    /* Wire "Buy" buttons to Stripe Payment Links (PAYMENT_LINKS, from
+       ../data/paymentLinks.js), falling back to the contact-to-purchase
+       flow when no link exists yet for that category. */
+    document.querySelectorAll('.js-buy-btn').forEach(function (btn) {
+      var key  = btn.dataset.paymentKey;
+      var link = (typeof PAYMENT_LINKS !== 'undefined') ? PAYMENT_LINKS[key] : null;
+
+      if (link) {
+        btn.href = link;
+        btn.target = '_blank';
+        btn.rel = 'noopener noreferrer';
+        btn.textContent = 'Buy';
+      } else {
+        var name = btn.dataset.productName || 'this item';
+        btn.href = 'mailto:visualartrc@gmail.com?subject=' + encodeURIComponent('Inquiry: ' + name);
+        btn.removeAttribute('target');
+        btn.removeAttribute('rel');
+        btn.textContent = 'Inquire to Purchase';
+      }
+    });
 
     /* Commission form — intercept submit, POST via fetch to Formspree */
     const form = document.getElementById('commissionForm');

@@ -172,14 +172,17 @@
         </p>
 
         <a href="#"
-           target="_blank"
-           rel="noopener noreferrer"
+           id="joinClubBtn"
            class="btn btn--filled-terra btn--lg reveal reveal-delay-3"
            style="margin-top:var(--sp-4);"
            aria-label="Join the Print Club">
           <!-- SWAP: payment link, e.g., Stripe payment link -->
           Join the Club
         </a>
+
+        <p class="reveal reveal-delay-3" style="font-size:var(--text-xs); color:var(--ink-light); margin-top:var(--sp-3);">
+          Payments are processed securely by Stripe. No payment information is stored on this site.
+        </p>
 
       </div>
     </section>
@@ -355,6 +358,7 @@
 
   <div id="site-footer"></div>
   <script src="../js/main.js"></script>
+  <script src="../data/paymentLinks.js"></script>
 
   <script>
   (function () {
@@ -508,9 +512,31 @@
       });
     }
 
+    /* Wire the "Join the Club" button to the Print Club membership
+       Stripe Payment Link (PAYMENT_LINKS.printClubMembership, from
+       ../data/paymentLinks.js), falling back to a contact email when
+       no link exists yet. */
+    function initJoinClubButton() {
+      var btn = document.getElementById('joinClubBtn');
+      if (!btn) return;
+
+      var link = (typeof PAYMENT_LINKS !== 'undefined') ? PAYMENT_LINKS.printClubMembership : null;
+
+      if (link) {
+        btn.href = link;
+        btn.target = '_blank';
+        btn.rel = 'noopener noreferrer';
+      } else {
+        btn.href = 'mailto:visualartrc@gmail.com?subject=' + encodeURIComponent('Print Club membership');
+        btn.removeAttribute('target');
+        btn.removeAttribute('rel');
+      }
+    }
+
     document.addEventListener('DOMContentLoaded', function () {
       renderInterviews();
       initInterestForm();
+      initJoinClubButton();
     });
 
   })();
