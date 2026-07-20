@@ -35,66 +35,18 @@
 
         <div class="section-header reveal">
           <h2 id="upcoming-heading">Upcoming</h2>
-          <span class="badge badge--upcoming">June 2025</span>
         </div>
 
         <!--
-          UPCOMING SHOW CARD
-          Update: show title, dates, venue, description, and badge text.
-          Replace the .placeholder div with a real image once available:
-            <img src="../assets/images/your-show-photo.jpg"
-                 alt="Brief description of the image" loading="lazy" />
+          Rendered from SHOWS_DATA (../data/shows.js) by the script near
+          the bottom of this page. To add, edit, or remove a show, update
+          that file only — nothing here needs to change.
         -->
-        <article class="upcoming-show-card reveal reveal-delay-1">
+        <div id="upcomingShowsContainer" role="list"></div>
 
-          <div class="upcoming-show-card__image" aria-hidden="true">
-            <div class="placeholder">Show image</div>
-          </div>
-
-          <div class="upcoming-show-card__body">
-
-            <div class="upcoming-show-card__badge-row">
-              <span class="badge badge--upcoming">Upcoming</span>
-            </div>
-
-            <h3 class="upcoming-show-card__title">
-              Drawn to the Skin
-            </h3>
-
-            <dl class="upcoming-show-card__meta">
-              <div class="show-meta-row">
-                <dt>Dates</dt>
-                <dd>June 6 &ndash; 28, 2025</dd>
-              </div>
-              <div class="show-meta-row">
-                <dt>Venue</dt>
-                <dd>[Tattoo Shop Name], York, Pennsylvania</dd>
-              </div>
-              <div class="show-meta-row">
-                <dt>Type</dt>
-                <dd>Group Exhibition</dd>
-              </div>
-              <div class="show-meta-row">
-                <dt>Opening</dt>
-                <dd>Friday, June 6 &middot; 6:00 pm to 9:00 pm</dd>
-              </div>
-            </dl>
-
-            <p class="upcoming-show-card__desc">
-              A group exhibition celebrating the intersection of tattooing, painting,
-              and printmaking at [Tattoo Shop Name] in York, PA. Rebecca will show five
-              new paintings alongside works by local and regional artists. Free and open
-              to the public. [Add additional details here once confirmed.]
-            </p>
-
-            <div class="upcoming-show-card__cta">
-              <a href="#notify" class="btn btn--filled-terra">
-                Get Notified
-              </a>
-            </div>
-
-          </div>
-        </article>
+        <p id="noUpcomingShowsMessage" class="reveal" style="color:var(--ink-mid);" hidden>
+          No upcoming shows right now. Check back soon, or see past exhibitions below.
+        </p>
 
       </div>
     </section>
@@ -102,8 +54,8 @@
 
     <!-- ============================================================
          PAST EXHIBITIONS
-         Table body is rendered from the PAST_SHOWS array in the
-         <script> below. To add a show, append to that array.
+         Table body (and the galleries below it) are rendered from
+         SHOWS_DATA in ../data/shows.js. To add a show, edit that file.
          ============================================================ -->
     <section class="section section--alt" id="past" aria-labelledby="past-heading">
       <div class="container">
@@ -125,10 +77,17 @@
               </tr>
             </thead>
             <tbody id="pastShowsList">
-              <!-- Rendered by JS from PAST_SHOWS array below -->
+              <!-- Rendered by JS from SHOWS_DATA below -->
             </tbody>
           </table>
         </div>
+
+        <!--
+          For any past show with images in its SHOWS_DATA entry, a small
+          gallery (and an optional "shop this show" link) renders here so
+          visitors can view work from that specific exhibition.
+        -->
+        <div id="pastShowGalleries"></div>
 
       </div>
     </section>
@@ -153,20 +112,18 @@
           </p>
 
           <!--
-            FORMSPREE SETUP
-            1. Sign up at formspree.io
-            2. Create a new form — name it "Show Notifications"
-            3. Replace YOUR_FORM_ID in the action attribute below
+            NEWSLETTER PROVIDER SETUP
+            Point NEWSLETTER_ENDPOINT (in the script near the bottom of
+            this page) at your provider's subscribe endpoint, e.g. a
+            Mailchimp or Buttondown form action URL.
           -->
           <form
             class="form"
             id="notifyForm"
-            action="https://formspree.io/f/YOUR_FORM_ID"
             method="POST"
             novalidate>
 
-            <input type="hidden" name="_subject" value="Show Notification Signup" />
-            <input type="text"   name="_gotcha"  style="display:none" tabindex="-1" />
+            <input type="text" name="_honeypot" style="display:none" tabindex="-1" />
 
             <div class="form-row-2">
               <div class="form-group">
@@ -203,9 +160,9 @@
           </form>
 
           <p class="legal-disclaimer" style="margin-top:var(--sp-5);">
-            Your email will only be used to notify you about Rebecca Carter's upcoming
-            shows and exhibitions. You can unsubscribe at any time. We will never sell
-            or share your information.
+            By signing up, you agree to receive occasional emails about shows and
+            new work. You can unsubscribe at any time. See our
+            <a href="#">Privacy Policy</a> for details.
           </p>
 
         </div>
@@ -217,31 +174,11 @@
 
   <div id="site-footer"></div>
   <script src="../js/main.js"></script>
+  <script src="../data/shows.js"></script>
 
   <script>
   (function () {
     'use strict';
-
-    /* ============================================================
-       PAST SHOWS DATA
-       ============================================================
-       To add a new show, append an object to PAST_SHOWS.
-       Fields:
-         name   — exhibition title
-         venue  — gallery / venue name
-         city   — city and state / country
-         type   — 'Solo', 'Group', 'Duo', etc.
-         year   — four-digit year string
-
-       Newest-first order recommended.
-       ============================================================ */
-    var PAST_SHOWS = [
-      { name: 'Exhibition Title', venue: 'Gallery Name',    city: 'Philadelphia, PA', type: 'Solo',  year: '2024' },
-      { name: 'Exhibition Title', venue: 'Art Center Name', city: 'New York, NY',     type: 'Group', year: '2023' },
-      { name: 'Exhibition Title', venue: 'Gallery Name',    city: 'York, PA',         type: 'Solo',  year: '2023' },
-      { name: 'Exhibition Title', venue: 'Studio Space',    city: 'Baltimore, MD',    type: 'Group', year: '2022' },
-      { name: 'Exhibition Title', venue: 'Community Arts',  city: 'Harrisburg, PA',   type: 'Group', year: '2021' },
-    ];
 
     /* Safe HTML encoding for dynamic content */
     function esc(s) {
@@ -252,30 +189,122 @@
         .replace(/"/g, '&quot;');
     }
 
-    /* Render PAST_SHOWS into the table body */
+    /* Render the upcoming show(s) from SHOWS_DATA, or the empty-state
+       message if there are none. */
+    function renderUpcomingShows() {
+      var container = document.getElementById('upcomingShowsContainer');
+      var emptyMsg   = document.getElementById('noUpcomingShowsMessage');
+      if (!container) return;
+
+      var upcoming = SHOWS_DATA.filter(function (s) { return s.status === 'upcoming'; });
+
+      if (upcoming.length === 0) {
+        container.innerHTML = '';
+        if (emptyMsg) emptyMsg.hidden = false;
+        return;
+      }
+
+      if (emptyMsg) emptyMsg.hidden = true;
+
+      container.innerHTML = upcoming.map(function (s, i) {
+        var openingRow = s.opening
+          ? '<div class="show-meta-row"><dt>Opening</dt><dd>' + esc(s.opening) + '</dd></div>'
+          : '';
+        return (
+          '<article class="upcoming-show-card reveal' + (i > 0 ? ' reveal-delay-1' : '') + '" role="listitem">' +
+            '<div class="upcoming-show-card__image" aria-hidden="true">' +
+              '<div class="placeholder">Show image</div>' +
+            '</div>' +
+            '<div class="upcoming-show-card__body">' +
+              '<div class="upcoming-show-card__badge-row">' +
+                '<span class="badge badge--upcoming">Upcoming</span>' +
+              '</div>' +
+              '<h3 class="upcoming-show-card__title">' + esc(s.title) + '</h3>' +
+              '<dl class="upcoming-show-card__meta">' +
+                '<div class="show-meta-row"><dt>Dates</dt><dd>' + esc(s.dates) + '</dd></div>' +
+                '<div class="show-meta-row"><dt>Venue</dt><dd>' + esc(s.venue) + ', ' + esc(s.location) + '</dd></div>' +
+                '<div class="show-meta-row"><dt>Type</dt><dd>' + esc(s.type) + ' Exhibition</dd></div>' +
+                openingRow +
+              '</dl>' +
+              '<p class="upcoming-show-card__desc">' + esc(s.description) + '</p>' +
+              '<div class="upcoming-show-card__cta">' +
+                '<a href="#notify" class="btn btn--filled-terra">Get Notified</a>' +
+              '</div>' +
+            '</div>' +
+          '</article>'
+        );
+      }).join('');
+    }
+
+    /* Render past shows into the table body */
     function renderPastShows() {
       var tbody   = document.getElementById('pastShowsList');
       var countEl = document.getElementById('pastShowsCount');
-      if (!tbody) return;
+      if (!tbody) return [];
 
-      tbody.innerHTML = PAST_SHOWS.map(function (s) {
+      var past = SHOWS_DATA.filter(function (s) { return s.status === 'past'; });
+
+      tbody.innerHTML = past.map(function (s) {
         return (
           '<tr>' +
-            '<td><span class="past-show__name">' + esc(s.name)  + '</span></td>' +
-            '<td>' + esc(s.venue) + '</td>' +
-            '<td>' + esc(s.city)  + '</td>' +
-            '<td><span class="badge">'         + esc(s.type)  + '</span></td>' +
-            '<td class="past-show__year">'     + esc(s.year)  + '</td>' +
+            '<td><span class="past-show__name">' + esc(s.title)    + '</span></td>' +
+            '<td>' + esc(s.venue)    + '</td>' +
+            '<td>' + esc(s.location) + '</td>' +
+            '<td><span class="badge">'          + esc(s.type)      + '</span></td>' +
+            '<td class="past-show__year">'      + esc(s.dates)     + '</td>' +
           '</tr>'
         );
       }).join('');
 
       if (countEl) {
-        countEl.textContent = PAST_SHOWS.length + ' shows';
+        countEl.textContent = past.length + ' shows';
       }
+
+      return past;
     }
 
-    /* Notify form — async POST to Formspree */
+    /* For any past show that includes images, render a small gallery
+       (and an optional "shop this show" link) below the table. */
+    function renderPastShowGalleries(pastShows) {
+      var container = document.getElementById('pastShowGalleries');
+      if (!container) return;
+
+      var withImages = pastShows.filter(function (s) { return s.images && s.images.length > 0; });
+
+      container.innerHTML = withImages.map(function (s) {
+        var tiles = s.images.map(function (src) {
+          var img = src
+            ? '<img src="' + esc(src) + '" alt="' + esc(s.title) + '" loading="lazy" />'
+            : (
+                '<div class="placeholder" style="background:#E8E0D0; flex-direction:column; gap:10px; color:#A89880;">' +
+                  '<svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 44 44" fill="none" aria-hidden="true"><rect x="3" y="3" width="38" height="38" rx="2" stroke="#A89880" stroke-width="2"/><rect x="8" y="8" width="28" height="28" rx="1" stroke="#A89880" stroke-width="1.5"/><path d="M8 30 L16 20 L22 26 L28 18 L36 30" stroke="#A89880" stroke-width="1.5" fill="none" stroke-linejoin="round"/><circle cx="28" cy="15" r="3" stroke="#A89880" stroke-width="1.5"/></svg>' +
+                  '<span style="font-size:10px; letter-spacing:0.1em; text-transform:uppercase; font-family:sans-serif;">Show photo coming soon</span>' +
+                '</div>'
+              );
+          return '<div class="artwork-card"><div class="artwork-card__image">' + img + '</div></div>';
+        }).join('');
+
+        var shopBtn = s.shopLink
+          ? '<a href="' + esc(s.shopLink) + '" class="btn btn--sm" style="margin-top:var(--sp-4);">Shop available pieces from this show</a>'
+          : '';
+
+        return (
+          '<div class="reveal" style="margin-top:var(--sp-12);">' +
+            '<h3 style="margin-bottom:var(--sp-1);">' + esc(s.title) + '</h3>' +
+            '<p class="text-xs text-muted" style="margin-bottom:var(--sp-4);">' +
+              esc(s.venue) + ', ' + esc(s.location) + ' &middot; ' + esc(s.dates) +
+            '</p>' +
+            '<div class="artwork-grid artwork-grid--3">' + tiles + '</div>' +
+            shopBtn +
+          '</div>'
+        );
+      }).join('');
+    }
+
+    /* SWAP: newsletter provider endpoint, e.g., Mailchimp/Buttondown */
+    var NEWSLETTER_ENDPOINT = 'https://YOUR-NEWSLETTER-PROVIDER.example.com/subscribe';
+
+    /* Notify form — async POST to the newsletter provider endpoint above */
     function initNotifyForm() {
       var form = document.getElementById('notifyForm');
       if (!form) return;
@@ -288,7 +317,7 @@
         btn.disabled    = true;
 
         try {
-          var res = await fetch(form.action, {
+          var res = await fetch(NEWSLETTER_ENDPOINT, {
             method:  'POST',
             headers: { Accept: 'application/json' },
             body:    new FormData(form),
@@ -322,7 +351,9 @@
     }
 
     document.addEventListener('DOMContentLoaded', function () {
-      renderPastShows();
+      renderUpcomingShows();
+      var past = renderPastShows();
+      renderPastShowGalleries(past);
       initNotifyForm();
     });
 
