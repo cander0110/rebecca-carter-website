@@ -2,7 +2,7 @@
 
 Static website for Rebecca Carter. Built with plain HTML, CSS, and vanilla JavaScript — no build step, no frameworks, no dependencies.
 
-**Live site:** https://rebecca-carter-website.vercel.app
+**Live site:** https://rebeccacarter.net
 
 ---
 
@@ -24,10 +24,9 @@ rebecca-carter-website/
 ├── assets/
 │   ├── images/             ← Drop artwork images here
 │   └── videos/             ← Drop video files here
-├── docs/                   ← GitHub Pages deployment copy (see below)
-│   ├── CNAME               ← Custom domain: rebeccacarter.net
-│   ├── .nojekyll           ← Prevents GitHub Jekyll processing
-│   └── (mirror of root)
+├── data/                   ← Structured content data files
+├── admin/                  ← Sveltia CMS (GitHub backend)
+├── functions/              ← Cloudflare Pages Functions (OAuth worker)
 ├── .gitignore
 └── README.md
 ```
@@ -45,73 +44,52 @@ python3 -m http.server 8080
 
 ---
 
-## Deployment: Vercel
+## Deployment: Cloudflare Pages
 
-The site is deployed on Vercel and served from the `/docs` folder. Vercel handles CDN, HTTPS, and instant cache invalidation automatically.
+The site is deployed on Cloudflare Pages, served directly from the repo root on `main`. Cloudflare handles CDN, HTTPS, and cache invalidation automatically.
 
-**Live URL:** https://rebecca-carter-website.vercel.app  
-**Dashboard:** https://vercel.com/soltura/rebecca-carter-website
+**Live URL:** https://rebeccacarter.net  
+**Dashboard:** Cloudflare dashboard → Workers & Pages → rebecca-carter-website
+
+**Build settings:**
+- Build command: *(none)*
+- Build output directory: `/`
 
 ### Redeploy after changes
 
-Edit source files at the root, sync to `/docs`, then redeploy with one command:
-
-```bash
-# 1. Sync source changes to /docs
-cp index.html docs/ && cp -r css js pages assets docs/
-
-# 2. Deploy to production (takes ~10 seconds)
-vercel --prod
-```
-
-Vercel deploys instantly — no waiting for CI/CD. The live URL updates as soon as the command finishes.
-
-### Connect the custom domain (rebeccacarter.net)
-
-**In Vercel:**
-1. Go to https://vercel.com/soltura/rebecca-carter-website → **Settings** → **Domains**
-2. Click **Add** and type `rebeccacarter.net`
-3. Vercel will show the DNS records needed (see below)
-4. Also add `www.rebeccacarter.net` — Vercel redirects it to the apex automatically
-
-**In Squarespace (DNS settings):**
-
-Squarespace manages the domain registrar. To point it to Vercel:
-
-1. Log in to Squarespace → **Domains** → click `rebeccacarter.net` → **DNS Settings**
-2. Delete any existing **A records** for the `@` host
-3. Add these records:
-
-   | Type  | Host | Value                  | TTL  |
-   |-------|------|------------------------|------|
-   | A     | @    | 76.76.21.21            | 3600 |
-   | CNAME | www  | cname.vercel-dns.com   | 3600 |
-
-4. Save, then go back to the Vercel Domains page and click **Verify** — it checks automatically
-
-DNS propagation takes 10 minutes to 48 hours. Once verified, `rebeccacarter.net` goes live over HTTPS and the temporary `.vercel.app` URL continues to work as well.
-
----
-
-## Updating the Site
-
-Edit source files at the root, then sync to `/docs` before committing:
-
-```bash
-# After editing any source file, sync /docs then redeploy:
-cp index.html docs/ && cp -r css js pages assets docs/
-vercel --prod
-```
-
-Vercel deploys in ~10 seconds. You'll see the URL printed in the terminal when it's done.
-
-If you also want to save changes in git (recommended):
+There's no `/docs` sync step — push to `main` and Cloudflare Pages builds and deploys automatically:
 
 ```bash
 git add .
 git commit -m "Describe what changed"
 git push
 ```
+
+Cloudflare Pages picks up the push, deploys, and the live URL updates within a minute or two. Check deploy status in the Cloudflare dashboard.
+
+### Connect the custom domain (rebeccacarter.net)
+
+**In Cloudflare Pages:**
+1. Go to the project in the Cloudflare dashboard → **Custom domains**
+2. Click **Set up a custom domain** and type `rebeccacarter.net`
+3. Also add `www.rebeccacarter.net`
+4. If the domain's DNS is already on Cloudflare, records are added automatically; otherwise Cloudflare shows the records to add at your registrar
+
+DNS propagation takes 10 minutes to 48 hours. Once verified, `rebeccacarter.net` goes live over HTTPS.
+
+---
+
+## Updating the Site
+
+Edit source files at the root, then commit and push:
+
+```bash
+git add .
+git commit -m "Describe what changed"
+git push
+```
+
+Cloudflare Pages deploys automatically from `main` — no sync step, no separate deploy command.
 
 ---
 
@@ -128,7 +106,7 @@ Replace the placeholder in `index.html`:
 </video>
 ```
 
-Drop `hero.mp4` and `hero-poster.jpg` into `/assets/videos/` and `/assets/images/` respectively. Keep the video under **10 MB** — compress with HandBrake or ffmpeg if needed.
+Drop `hero.mp4` and `hero-poster.jpg` into `/assets/videos/` and `/assets/images/` respectively. Keep the video under **10 MB** — compress with HandBrake or ffmpeg if needed. Commit and push to deploy.
 
 ### Artwork images (all pages)
 For any `.placeholder` div, swap it out like this:
@@ -148,9 +126,7 @@ For any `.placeholder` div, swap it out like this:
      loading="lazy" />
 ```
 
-Drop image files into `/assets/images/`. After adding images:
-1. Update the `src` in the HTML
-2. Sync to `/docs`: `cp -r assets docs/`
+Drop image files into `/assets/images/`, then update the `src` in the HTML and push.
 
 **Recommended specs:** WebP or JPG, max 2000 px wide for grids, max 3000 px for hero. Aim for files under 500 KB.
 
@@ -186,12 +162,7 @@ All four forms are wired to [Formspree](https://formspree.io) — a free service
 
 You can use one Formspree form for all (simpler) or create separate ones for each (cleaner inbox).
 
-**After updating the form IDs**, sync to /docs:
-
-```bash
-cp index.html docs/
-cp pages/shop.html pages/shows.html pages/print-club.html docs/pages/
-```
+**After updating the form IDs**, commit and push to deploy.
 
 **Free tier:** Formspree's free plan handles 50 submissions/month per form. For a personal artist site, this is plenty.
 
@@ -209,7 +180,7 @@ solo: [
 ],
 ```
 
-After saving, sync to docs: `cp pages/cv.html docs/pages/`
+After saving, commit and push to deploy.
 
 ---
 
@@ -226,7 +197,7 @@ var PAST_SHOWS = [
 
 To update the upcoming show card, find the `<article class="upcoming-show-card">` section and update the title, dates, venue, and description directly in the HTML.
 
-After saving, sync: `cp pages/shows.html docs/pages/`
+After saving, commit and push to deploy.
 
 ---
 
@@ -249,7 +220,7 @@ var INTERVIEWS = [
 ];
 ```
 
-After saving, sync: `cp pages/print-club.html docs/pages/`
+After saving, commit and push to deploy.
 
 ---
 
@@ -268,7 +239,7 @@ const NAV_LINKS = [
 ];
 ```
 
-The nav and footer on every page update automatically from this array. To rename or reorder links, edit only this array. After any change to `main.js`, sync: `cp js/main.js docs/js/`
+The nav and footer on every page update automatically from this array. To rename or reorder links, edit only this array, then commit and push.
 
 ---
 
@@ -280,8 +251,7 @@ The nav and footer on every page update automatically from this array. To rename
 - [ ] Confirm CV data is current in `pages/cv.html`
 - [ ] Confirm upcoming show details are accurate in `pages/shows.html`
 - [ ] Add real Print Club interview data in `pages/print-club.html`
-- [ ] Sync `/docs` and push to GitHub
-- [ ] Enable GitHub Pages in repo Settings → Pages → Branch: main, Folder: /docs
-- [ ] Connect `rebeccacarter.net` DNS (A records + CNAME) in Squarespace
-- [ ] Verify HTTPS is enforced in GitHub Pages settings
+- [ ] Push to GitHub `main` to trigger a Cloudflare Pages deploy
+- [ ] Connect `rebeccacarter.net` custom domain in Cloudflare Pages settings
+- [ ] Verify HTTPS is enforced
 - [ ] Test every page and form on the live URL
