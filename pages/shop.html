@@ -45,89 +45,15 @@
 
             <div class="shop-col__header">
               <h2>Originals</h2>
-              <span class="shop-col__count">3 available</span>
+              <span class="shop-col__count" id="originalsCount"></span>
             </div>
 
             <!--
-              ADDING A PAINTING:
-              1. Copy a .painting-product block.
-              2. Replace .placeholder with:
-                   <img src="../assets/images/your-file.jpg"
-                        alt="Title, medium, year" loading="lazy" />
-              3. Update title, medium, dimensions, price.
-              4. Update the mailto subject line in the Inquire button.
+              Rendered from ../data/paintings.json (category: "originals")
+              by the script near the bottom of this page. To add, edit, or
+              remove a painting, update that file only.
             -->
-            <div role="list">
-
-              <article class="painting-product reveal" role="listitem">
-                <div class="painting-product__image">
-                  <!-- REPLACE: swap this div with <img src="../assets/images/threshold-i.jpg" alt="Threshold I" loading="lazy"> -->
-                  <div class="placeholder" style="background:#E8E0D0; flex-direction:column; gap:10px; color:#A89880;">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 44 44" fill="none" aria-hidden="true"><rect x="3" y="3" width="38" height="38" rx="2" stroke="#A89880" stroke-width="2"/><rect x="8" y="8" width="28" height="28" rx="1" stroke="#A89880" stroke-width="1.5"/><path d="M8 30 L16 20 L22 26 L28 18 L36 30" stroke="#A89880" stroke-width="1.5" fill="none" stroke-linejoin="round"/><circle cx="28" cy="15" r="3" stroke="#A89880" stroke-width="1.5"/></svg>
-                    <span style="font-size:10px; letter-spacing:0.1em; text-transform:uppercase; font-family:sans-serif;">Artwork photo coming soon</span>
-                  </div>
-                </div>
-                <div class="painting-product__info">
-                  <h3 class="painting-product__title">Threshold I</h3>
-                  <p class="painting-product__medium">Watercolor on linen</p>
-                  <p class="painting-product__dimensions">24 &times; 31 in. &nbsp;&middot;&nbsp; 2024</p>
-                  <p class="painting-product__price">$850</p>
-                  <!--
-                    INQUIRE BUTTON: links to a mailto with a pre-filled subject.
-                    Replace with a modal form or a Typeform/Tally link
-                    if you'd prefer a richer inquiry flow.
-                  -->
-                  <a href="mailto:visualartrc@gmail.com?subject=Inquiry%3A%20Threshold%20I"
-                     class="btn btn--terra btn--sm"
-                     aria-label="Inquire to purchase Threshold I">
-                    Inquire to Purchase
-                  </a>
-                </div>
-              </article>
-
-              <article class="painting-product reveal reveal-delay-1" role="listitem">
-                <div class="painting-product__image">
-                  <!-- REPLACE: swap this div with <img src="../assets/images/still-ground.jpg" alt="Still Ground" loading="lazy"> -->
-                  <div class="placeholder" style="background:#E8E0D0; flex-direction:column; gap:10px; color:#A89880;">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 44 44" fill="none" aria-hidden="true"><rect x="3" y="3" width="38" height="38" rx="2" stroke="#A89880" stroke-width="2"/><rect x="8" y="8" width="28" height="28" rx="1" stroke="#A89880" stroke-width="1.5"/><path d="M8 30 L16 20 L22 26 L28 18 L36 30" stroke="#A89880" stroke-width="1.5" fill="none" stroke-linejoin="round"/><circle cx="28" cy="15" r="3" stroke="#A89880" stroke-width="1.5"/></svg>
-                    <span style="font-size:10px; letter-spacing:0.1em; text-transform:uppercase; font-family:sans-serif;">Artwork photo coming soon</span>
-                  </div>
-                </div>
-                <div class="painting-product__info">
-                  <h3 class="painting-product__title">Still Ground</h3>
-                  <p class="painting-product__medium">Watercolor on canvas</p>
-                  <p class="painting-product__dimensions">20 &times; 24 in. &nbsp;&middot;&nbsp; 2024</p>
-                  <p class="painting-product__price">$650</p>
-                  <a href="mailto:visualartrc@gmail.com?subject=Inquiry%3A%20Still%20Ground"
-                     class="btn btn--terra btn--sm"
-                     aria-label="Inquire to purchase Still Ground">
-                    Inquire to Purchase
-                  </a>
-                </div>
-              </article>
-
-              <article class="painting-product reveal reveal-delay-2" role="listitem">
-                <div class="painting-product__image">
-                  <!-- REPLACE: swap this div with <img src="../assets/images/the-wait.jpg" alt="The Wait" loading="lazy"> -->
-                  <div class="placeholder" style="background:#E8E0D0; flex-direction:column; gap:10px; color:#A89880;">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 44 44" fill="none" aria-hidden="true"><rect x="3" y="3" width="38" height="38" rx="2" stroke="#A89880" stroke-width="2"/><rect x="8" y="8" width="28" height="28" rx="1" stroke="#A89880" stroke-width="1.5"/><path d="M8 30 L16 20 L22 26 L28 18 L36 30" stroke="#A89880" stroke-width="1.5" fill="none" stroke-linejoin="round"/><circle cx="28" cy="15" r="3" stroke="#A89880" stroke-width="1.5"/></svg>
-                    <span style="font-size:10px; letter-spacing:0.1em; text-transform:uppercase; font-family:sans-serif;">Artwork photo coming soon</span>
-                  </div>
-                </div>
-                <div class="painting-product__info">
-                  <h3 class="painting-product__title">The Wait</h3>
-                  <p class="painting-product__medium">Mixed media on paper</p>
-                  <p class="painting-product__dimensions">12 &times; 17 in. &nbsp;&middot;&nbsp; 2023</p>
-                  <p class="painting-product__price">$320</p>
-                  <a href="mailto:visualartrc@gmail.com?subject=Inquiry%3A%20The%20Wait"
-                     class="btn btn--terra btn--sm"
-                     aria-label="Inquire to purchase The Wait">
-                    Inquire to Purchase
-                  </a>
-                </div>
-              </article>
-
-            </div><!-- /role=list -->
+            <div role="list" id="originalsList"></div>
 
             <!-- Note below the Originals list -->
             <p class="shop-col__note reveal">
@@ -138,99 +64,19 @@
 
             <div class="shop-col__header" style="margin-top:var(--sp-12);">
               <h2>Painting Prints</h2>
-              <span class="shop-col__count">Coming soon</span>
+              <span class="shop-col__count" id="count-paintingPrints"></span>
             </div>
 
-            <!-- SWAP: Painting Prints products -->
-            <div role="list">
-
-              <article class="painting-product reveal" role="listitem">
-                <div class="painting-product__image">
-                  <div class="placeholder" style="background:#E8E0D0; flex-direction:column; gap:10px; color:#A89880;">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 44 44" fill="none" aria-hidden="true"><rect x="3" y="3" width="38" height="38" rx="2" stroke="#A89880" stroke-width="2"/><rect x="8" y="8" width="28" height="28" rx="1" stroke="#A89880" stroke-width="1.5"/><path d="M8 30 L16 20 L22 26 L28 18 L36 30" stroke="#A89880" stroke-width="1.5" fill="none" stroke-linejoin="round"/><circle cx="28" cy="15" r="3" stroke="#A89880" stroke-width="1.5"/></svg>
-                    <span style="font-size:10px; letter-spacing:0.1em; text-transform:uppercase; font-family:sans-serif;">Painting print coming soon</span>
-                  </div>
-                </div>
-                <div class="painting-product__info">
-                  <h3 class="painting-product__title">Painting Prints</h3>
-                  <p class="painting-product__medium">Coming soon</p>
-                  <a href="#"
-                     class="btn btn--sm js-buy-btn"
-                     data-payment-key="paintingPrints"
-                     data-product-name="Painting Prints">
-                    Buy
-                  </a>
-                </div>
-              </article>
-
-              <article class="painting-product reveal" role="listitem">
-                <div class="painting-product__image">
-                  <div class="placeholder" style="background:#E8E0D0; flex-direction:column; gap:10px; color:#A89880;">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 44 44" fill="none" aria-hidden="true"><rect x="3" y="3" width="38" height="38" rx="2" stroke="#A89880" stroke-width="2"/><rect x="8" y="8" width="28" height="28" rx="1" stroke="#A89880" stroke-width="1.5"/><path d="M8 30 L16 20 L22 26 L28 18 L36 30" stroke="#A89880" stroke-width="1.5" fill="none" stroke-linejoin="round"/><circle cx="28" cy="15" r="3" stroke="#A89880" stroke-width="1.5"/></svg>
-                    <span style="font-size:10px; letter-spacing:0.1em; text-transform:uppercase; font-family:sans-serif;">Painting print coming soon</span>
-                  </div>
-                </div>
-                <div class="painting-product__info">
-                  <h3 class="painting-product__title">Painting Prints</h3>
-                  <p class="painting-product__medium">Coming soon</p>
-                  <a href="#"
-                     class="btn btn--sm js-buy-btn"
-                     data-payment-key="paintingPrints"
-                     data-product-name="Painting Prints">
-                    Buy
-                  </a>
-                </div>
-              </article>
-
-            </div><!-- /role=list -->
+            <!-- Rendered from ../data/shopProducts.json (category: "paintingPrints") -->
+            <div role="list" id="products-paintingPrints"></div>
 
             <div class="shop-col__header" style="margin-top:var(--sp-12);">
               <h2>Photography Prints</h2>
-              <span class="shop-col__count">Coming soon</span>
+              <span class="shop-col__count" id="count-photographyPrints"></span>
             </div>
 
-            <!-- SWAP: Photography Prints products -->
-            <div role="list">
-
-              <article class="painting-product reveal" role="listitem">
-                <div class="painting-product__image">
-                  <div class="placeholder" style="background:#E8E0D0; flex-direction:column; gap:10px; color:#A89880;">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 44 44" fill="none" aria-hidden="true"><rect x="3" y="3" width="38" height="38" rx="2" stroke="#A89880" stroke-width="2"/><rect x="8" y="8" width="28" height="28" rx="1" stroke="#A89880" stroke-width="1.5"/><path d="M8 30 L16 20 L22 26 L28 18 L36 30" stroke="#A89880" stroke-width="1.5" fill="none" stroke-linejoin="round"/><circle cx="28" cy="15" r="3" stroke="#A89880" stroke-width="1.5"/></svg>
-                    <span style="font-size:10px; letter-spacing:0.1em; text-transform:uppercase; font-family:sans-serif;">Photography print coming soon</span>
-                  </div>
-                </div>
-                <div class="painting-product__info">
-                  <h3 class="painting-product__title">Photography Prints</h3>
-                  <p class="painting-product__medium">Coming soon</p>
-                  <a href="#"
-                     class="btn btn--sm js-buy-btn"
-                     data-payment-key="photographyPrints"
-                     data-product-name="Photography Prints">
-                    Buy
-                  </a>
-                </div>
-              </article>
-
-              <article class="painting-product reveal" role="listitem">
-                <div class="painting-product__image">
-                  <div class="placeholder" style="background:#E8E0D0; flex-direction:column; gap:10px; color:#A89880;">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 44 44" fill="none" aria-hidden="true"><rect x="3" y="3" width="38" height="38" rx="2" stroke="#A89880" stroke-width="2"/><rect x="8" y="8" width="28" height="28" rx="1" stroke="#A89880" stroke-width="1.5"/><path d="M8 30 L16 20 L22 26 L28 18 L36 30" stroke="#A89880" stroke-width="1.5" fill="none" stroke-linejoin="round"/><circle cx="28" cy="15" r="3" stroke="#A89880" stroke-width="1.5"/></svg>
-                    <span style="font-size:10px; letter-spacing:0.1em; text-transform:uppercase; font-family:sans-serif;">Photography print coming soon</span>
-                  </div>
-                </div>
-                <div class="painting-product__info">
-                  <h3 class="painting-product__title">Photography Prints</h3>
-                  <p class="painting-product__medium">Coming soon</p>
-                  <a href="#"
-                     class="btn btn--sm js-buy-btn"
-                     data-payment-key="photographyPrints"
-                     data-product-name="Photography Prints">
-                    Buy
-                  </a>
-                </div>
-              </article>
-
-            </div><!-- /role=list -->
+            <!-- Rendered from ../data/shopProducts.json (category: "photographyPrints") -->
+            <div role="list" id="products-photographyPrints"></div>
 
           </div><!-- /shop-col--left -->
 
@@ -240,195 +86,35 @@
 
             <div class="shop-col__header">
               <h2>Earrings</h2>
-              <span class="shop-col__count">Coming soon</span>
+              <span class="shop-col__count" id="count-earrings"></span>
             </div>
 
-            <!-- SWAP: Earrings products -->
-            <div role="list">
-
-              <article class="painting-product reveal" role="listitem">
-                <div class="painting-product__image">
-                  <div class="placeholder" style="background:#E8E0D0; flex-direction:column; gap:10px; color:#A89880;">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 44 44" fill="none" aria-hidden="true"><rect x="3" y="3" width="38" height="38" rx="2" stroke="#A89880" stroke-width="2"/><rect x="8" y="8" width="28" height="28" rx="1" stroke="#A89880" stroke-width="1.5"/><path d="M8 30 L16 20 L22 26 L28 18 L36 30" stroke="#A89880" stroke-width="1.5" fill="none" stroke-linejoin="round"/><circle cx="28" cy="15" r="3" stroke="#A89880" stroke-width="1.5"/></svg>
-                    <span style="font-size:10px; letter-spacing:0.1em; text-transform:uppercase; font-family:sans-serif;">Earrings coming soon</span>
-                  </div>
-                </div>
-                <div class="painting-product__info">
-                  <h3 class="painting-product__title">Earrings</h3>
-                  <p class="painting-product__medium">Coming soon</p>
-                  <a href="#"
-                     class="btn btn--sm js-buy-btn"
-                     data-payment-key="earrings"
-                     data-product-name="Earrings">
-                    Buy
-                  </a>
-                </div>
-              </article>
-
-              <article class="painting-product reveal" role="listitem">
-                <div class="painting-product__image">
-                  <div class="placeholder" style="background:#E8E0D0; flex-direction:column; gap:10px; color:#A89880;">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 44 44" fill="none" aria-hidden="true"><rect x="3" y="3" width="38" height="38" rx="2" stroke="#A89880" stroke-width="2"/><rect x="8" y="8" width="28" height="28" rx="1" stroke="#A89880" stroke-width="1.5"/><path d="M8 30 L16 20 L22 26 L28 18 L36 30" stroke="#A89880" stroke-width="1.5" fill="none" stroke-linejoin="round"/><circle cx="28" cy="15" r="3" stroke="#A89880" stroke-width="1.5"/></svg>
-                    <span style="font-size:10px; letter-spacing:0.1em; text-transform:uppercase; font-family:sans-serif;">Earrings coming soon</span>
-                  </div>
-                </div>
-                <div class="painting-product__info">
-                  <h3 class="painting-product__title">Earrings</h3>
-                  <p class="painting-product__medium">Coming soon</p>
-                  <a href="#"
-                     class="btn btn--sm js-buy-btn"
-                     data-payment-key="earrings"
-                     data-product-name="Earrings">
-                    Buy
-                  </a>
-                </div>
-              </article>
-
-            </div><!-- /role=list -->
+            <!-- Rendered from ../data/shopProducts.json (category: "earrings") -->
+            <div role="list" id="products-earrings"></div>
 
             <div class="shop-col__header" style="margin-top:var(--sp-12);">
               <h2>Hand-Painted Magnets</h2>
-              <span class="shop-col__count">Coming soon</span>
+              <span class="shop-col__count" id="count-handPaintedMagnets"></span>
             </div>
 
-            <!-- SWAP: Hand-Painted Magnets products -->
-            <div role="list">
-
-              <article class="painting-product reveal" role="listitem">
-                <div class="painting-product__image">
-                  <div class="placeholder" style="background:#E8E0D0; flex-direction:column; gap:10px; color:#A89880;">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 44 44" fill="none" aria-hidden="true"><rect x="3" y="3" width="38" height="38" rx="2" stroke="#A89880" stroke-width="2"/><rect x="8" y="8" width="28" height="28" rx="1" stroke="#A89880" stroke-width="1.5"/><path d="M8 30 L16 20 L22 26 L28 18 L36 30" stroke="#A89880" stroke-width="1.5" fill="none" stroke-linejoin="round"/><circle cx="28" cy="15" r="3" stroke="#A89880" stroke-width="1.5"/></svg>
-                    <span style="font-size:10px; letter-spacing:0.1em; text-transform:uppercase; font-family:sans-serif;">Magnet coming soon</span>
-                  </div>
-                </div>
-                <div class="painting-product__info">
-                  <h3 class="painting-product__title">Hand-Painted Magnets</h3>
-                  <p class="painting-product__medium">Coming soon</p>
-                  <a href="#"
-                     class="btn btn--sm js-buy-btn"
-                     data-payment-key="handPaintedMagnets"
-                     data-product-name="Hand-Painted Magnets">
-                    Buy
-                  </a>
-                </div>
-              </article>
-
-              <article class="painting-product reveal" role="listitem">
-                <div class="painting-product__image">
-                  <div class="placeholder" style="background:#E8E0D0; flex-direction:column; gap:10px; color:#A89880;">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 44 44" fill="none" aria-hidden="true"><rect x="3" y="3" width="38" height="38" rx="2" stroke="#A89880" stroke-width="2"/><rect x="8" y="8" width="28" height="28" rx="1" stroke="#A89880" stroke-width="1.5"/><path d="M8 30 L16 20 L22 26 L28 18 L36 30" stroke="#A89880" stroke-width="1.5" fill="none" stroke-linejoin="round"/><circle cx="28" cy="15" r="3" stroke="#A89880" stroke-width="1.5"/></svg>
-                    <span style="font-size:10px; letter-spacing:0.1em; text-transform:uppercase; font-family:sans-serif;">Magnet coming soon</span>
-                  </div>
-                </div>
-                <div class="painting-product__info">
-                  <h3 class="painting-product__title">Hand-Painted Magnets</h3>
-                  <p class="painting-product__medium">Coming soon</p>
-                  <a href="#"
-                     class="btn btn--sm js-buy-btn"
-                     data-payment-key="handPaintedMagnets"
-                     data-product-name="Hand-Painted Magnets">
-                    Buy
-                  </a>
-                </div>
-              </article>
-
-            </div><!-- /role=list -->
+            <!-- Rendered from ../data/shopProducts.json (category: "handPaintedMagnets") -->
+            <div role="list" id="products-handPaintedMagnets"></div>
 
             <div class="shop-col__header" style="margin-top:var(--sp-12);">
               <h2>Hand-Painted Ornaments</h2>
-              <span class="shop-col__count">Coming soon</span>
+              <span class="shop-col__count" id="count-handPaintedOrnaments"></span>
             </div>
 
-            <!-- SWAP: Hand-Painted Ornaments products -->
-            <div role="list">
-
-              <article class="painting-product reveal" role="listitem">
-                <div class="painting-product__image">
-                  <div class="placeholder" style="background:#E8E0D0; flex-direction:column; gap:10px; color:#A89880;">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 44 44" fill="none" aria-hidden="true"><rect x="3" y="3" width="38" height="38" rx="2" stroke="#A89880" stroke-width="2"/><rect x="8" y="8" width="28" height="28" rx="1" stroke="#A89880" stroke-width="1.5"/><path d="M8 30 L16 20 L22 26 L28 18 L36 30" stroke="#A89880" stroke-width="1.5" fill="none" stroke-linejoin="round"/><circle cx="28" cy="15" r="3" stroke="#A89880" stroke-width="1.5"/></svg>
-                    <span style="font-size:10px; letter-spacing:0.1em; text-transform:uppercase; font-family:sans-serif;">Ornament coming soon</span>
-                  </div>
-                </div>
-                <div class="painting-product__info">
-                  <h3 class="painting-product__title">Hand-Painted Ornaments</h3>
-                  <p class="painting-product__medium">Coming soon</p>
-                  <a href="#"
-                     class="btn btn--sm js-buy-btn"
-                     data-payment-key="handPaintedOrnaments"
-                     data-product-name="Hand-Painted Ornaments">
-                    Buy
-                  </a>
-                </div>
-              </article>
-
-              <article class="painting-product reveal" role="listitem">
-                <div class="painting-product__image">
-                  <div class="placeholder" style="background:#E8E0D0; flex-direction:column; gap:10px; color:#A89880;">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 44 44" fill="none" aria-hidden="true"><rect x="3" y="3" width="38" height="38" rx="2" stroke="#A89880" stroke-width="2"/><rect x="8" y="8" width="28" height="28" rx="1" stroke="#A89880" stroke-width="1.5"/><path d="M8 30 L16 20 L22 26 L28 18 L36 30" stroke="#A89880" stroke-width="1.5" fill="none" stroke-linejoin="round"/><circle cx="28" cy="15" r="3" stroke="#A89880" stroke-width="1.5"/></svg>
-                    <span style="font-size:10px; letter-spacing:0.1em; text-transform:uppercase; font-family:sans-serif;">Ornament coming soon</span>
-                  </div>
-                </div>
-                <div class="painting-product__info">
-                  <h3 class="painting-product__title">Hand-Painted Ornaments</h3>
-                  <p class="painting-product__medium">Coming soon</p>
-                  <a href="#"
-                     class="btn btn--sm js-buy-btn"
-                     data-payment-key="handPaintedOrnaments"
-                     data-product-name="Hand-Painted Ornaments">
-                    Buy
-                  </a>
-                </div>
-              </article>
-
-            </div><!-- /role=list -->
+            <!-- Rendered from ../data/shopProducts.json (category: "handPaintedOrnaments") -->
+            <div role="list" id="products-handPaintedOrnaments"></div>
 
             <div class="shop-col__header" style="margin-top:var(--sp-12);">
               <h2>Trading Cards / ACEOs</h2>
-              <span class="shop-col__count">Coming soon</span>
+              <span class="shop-col__count" id="count-tradingCardsAceos"></span>
             </div>
 
-            <!-- SWAP: Trading Cards / ACEOs products -->
-            <div role="list">
-
-              <article class="painting-product reveal" role="listitem">
-                <div class="painting-product__image">
-                  <div class="placeholder" style="background:#E8E0D0; flex-direction:column; gap:10px; color:#A89880;">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 44 44" fill="none" aria-hidden="true"><rect x="3" y="3" width="38" height="38" rx="2" stroke="#A89880" stroke-width="2"/><rect x="8" y="8" width="28" height="28" rx="1" stroke="#A89880" stroke-width="1.5"/><path d="M8 30 L16 20 L22 26 L28 18 L36 30" stroke="#A89880" stroke-width="1.5" fill="none" stroke-linejoin="round"/><circle cx="28" cy="15" r="3" stroke="#A89880" stroke-width="1.5"/></svg>
-                    <span style="font-size:10px; letter-spacing:0.1em; text-transform:uppercase; font-family:sans-serif;">Trading card coming soon</span>
-                  </div>
-                </div>
-                <div class="painting-product__info">
-                  <h3 class="painting-product__title">Trading Cards / ACEOs</h3>
-                  <p class="painting-product__medium">Coming soon</p>
-                  <a href="#"
-                     class="btn btn--sm js-buy-btn"
-                     data-payment-key="tradingCardsAceos"
-                     data-product-name="Trading Cards / ACEOs">
-                    Buy
-                  </a>
-                </div>
-              </article>
-
-              <article class="painting-product reveal" role="listitem">
-                <div class="painting-product__image">
-                  <div class="placeholder" style="background:#E8E0D0; flex-direction:column; gap:10px; color:#A89880;">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 44 44" fill="none" aria-hidden="true"><rect x="3" y="3" width="38" height="38" rx="2" stroke="#A89880" stroke-width="2"/><rect x="8" y="8" width="28" height="28" rx="1" stroke="#A89880" stroke-width="1.5"/><path d="M8 30 L16 20 L22 26 L28 18 L36 30" stroke="#A89880" stroke-width="1.5" fill="none" stroke-linejoin="round"/><circle cx="28" cy="15" r="3" stroke="#A89880" stroke-width="1.5"/></svg>
-                    <span style="font-size:10px; letter-spacing:0.1em; text-transform:uppercase; font-family:sans-serif;">Trading card coming soon</span>
-                  </div>
-                </div>
-                <div class="painting-product__info">
-                  <h3 class="painting-product__title">Trading Cards / ACEOs</h3>
-                  <p class="painting-product__medium">Coming soon</p>
-                  <a href="#"
-                     class="btn btn--sm js-buy-btn"
-                     data-payment-key="tradingCardsAceos"
-                     data-product-name="Trading Cards / ACEOs">
-                    Buy
-                  </a>
-                </div>
-              </article>
-
-            </div><!-- /role=list -->
+            <!-- Rendered from ../data/shopProducts.json (category: "tradingCardsAceos") -->
+            <div role="list" id="products-tradingCardsAceos"></div>
 
             <!-- In-store availability banner -->
             <div class="in-store-banner reveal" style="margin-top:var(--sp-12);">
@@ -619,26 +305,142 @@
   (function () {
     'use strict';
 
-    /* Wire "Buy" buttons to Stripe Payment Links (PAYMENT_LINKS, from
-       ../data/paymentLinks.js), falling back to the contact-to-purchase
-       flow when no link exists yet for that category. */
-    document.querySelectorAll('.js-buy-btn').forEach(function (btn) {
-      var key  = btn.dataset.paymentKey;
-      var link = (typeof PAYMENT_LINKS !== 'undefined') ? PAYMENT_LINKS[key] : null;
+    function esc(s) {
+      return String(s)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;');
+    }
 
-      if (link) {
-        btn.href = link;
-        btn.target = '_blank';
-        btn.rel = 'noopener noreferrer';
-        btn.textContent = 'Buy';
-      } else {
-        var name = btn.dataset.productName || 'this item';
-        btn.href = 'mailto:visualartrc@gmail.com?subject=' + encodeURIComponent('Inquiry: ' + name);
-        btn.removeAttribute('target');
-        btn.removeAttribute('rel');
-        btn.textContent = 'Inquire to Purchase';
+    const PLACEHOLDER_SVG = '<svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 44 44" fill="none" aria-hidden="true"><rect x="3" y="3" width="38" height="38" rx="2" stroke="#A89880" stroke-width="2"/><rect x="8" y="8" width="28" height="28" rx="1" stroke="#A89880" stroke-width="1.5"/><path d="M8 30 L16 20 L22 26 L28 18 L36 30" stroke="#A89880" stroke-width="1.5" fill="none" stroke-linejoin="round"/><circle cx="28" cy="15" r="3" stroke="#A89880" stroke-width="1.5"/></svg>';
+
+    function placeholderBlock(label) {
+      return '<div class="placeholder" style="background:#E8E0D0; flex-direction:column; gap:10px; color:#A89880;">' +
+        PLACEHOLDER_SVG +
+        '<span style="font-size:10px; letter-spacing:0.1em; text-transform:uppercase; font-family:sans-serif;">' + esc(label) + '</span></div>';
+    }
+
+    /* One .painting-product article for the Originals column */
+    function originalHtml(p) {
+      const imgHtml = p.image
+        ? '<img src="../' + esc(p.image) + '" alt="' + esc(p.title) + '" loading="lazy" />'
+        : placeholderBlock('Artwork photo coming soon');
+      const dims = [p.dimensions, p.year].filter(Boolean).join('  &middot;  ');
+      const subject = encodeURIComponent('Inquiry: ' + p.title);
+      return (
+        '<article class="painting-product reveal" role="listitem">' +
+          '<div class="painting-product__image">' + imgHtml + '</div>' +
+          '<div class="painting-product__info">' +
+            '<h3 class="painting-product__title">' + esc(p.title) + '</h3>' +
+            '<p class="painting-product__medium">' + esc(p.medium || '') + '</p>' +
+            '<p class="painting-product__dimensions">' + dims + '</p>' +
+            '<p class="painting-product__price">' + esc(p.price || '') + '</p>' +
+            '<a href="mailto:visualartrc@gmail.com?subject=' + subject + '" class="btn btn--terra btn--sm" ' +
+              'aria-label="Inquire to purchase ' + esc(p.title) + '">' +
+              'Inquire to Purchase' +
+            '</a>' +
+          '</div>' +
+        '</article>'
+      );
+    }
+
+    /* One .painting-product tile for a shopProducts.json category, or a
+       generic "coming soon" tile (matching the pre-CMS placeholder design)
+       when that category has no real products yet. */
+    function productHtml(p, categoryLabel, paymentKey) {
+      const title  = p ? p.name  : categoryLabel;
+      const price  = p ? p.price : '';
+      const desc   = p ? (p.description || '') : 'Coming soon';
+      const imgHtml = (p && p.image)
+        ? '<img src="../' + esc(p.image) + '" alt="' + esc(title) + '" loading="lazy" />'
+        : placeholderBlock((p ? title : categoryLabel) + ' coming soon');
+
+      return (
+        '<article class="painting-product reveal" role="listitem">' +
+          '<div class="painting-product__image">' + imgHtml + '</div>' +
+          '<div class="painting-product__info">' +
+            '<h3 class="painting-product__title">' + esc(title) + '</h3>' +
+            '<p class="painting-product__medium">' + esc(price || desc) + '</p>' +
+            '<a href="#" class="btn btn--sm js-buy-btn" data-payment-key="' + esc(paymentKey) + '" data-product-name="' + esc(title) + '">' +
+              'Buy' +
+            '</a>' +
+          '</div>' +
+        '</article>'
+      );
+    }
+
+    const SHOP_CATEGORIES = [
+      { key: 'paintingPrints',        label: 'Painting Prints'        },
+      { key: 'photographyPrints',     label: 'Photography Prints'     },
+      { key: 'earrings',              label: 'Earrings'               },
+      { key: 'handPaintedMagnets',    label: 'Hand-Painted Magnets'   },
+      { key: 'handPaintedOrnaments',  label: 'Hand-Painted Ornaments' },
+      { key: 'tradingCardsAceos',     label: 'Trading Cards / ACEOs'  },
+    ];
+
+    async function renderShop() {
+      let paintings = [];
+      let products  = [];
+
+      try {
+        const [paintingsRes, productsRes] = await Promise.all([
+          fetch('../data/paintings.json'),
+          fetch('../data/shopProducts.json'),
+        ]);
+        paintings = (await paintingsRes.json()).paintings || [];
+        products  = (await productsRes.json()).products  || [];
+      } catch (err) {
+        paintings = [];
+        products  = [];
       }
-    });
+
+      /* Originals: only paintings explicitly marked inShop (not every
+         original painting on the Works page is necessarily for sale here) */
+      const originals = paintings.filter(p => p.category === 'originals' && p.inShop === true);
+      document.getElementById('originalsList').innerHTML = originals.map(originalHtml).join('');
+      document.getElementById('originalsCount').textContent = originals.length + ' available';
+
+      /* Each shopProducts.json category */
+      SHOP_CATEGORIES.forEach(({ key, label }) => {
+        const listEl  = document.getElementById('products-' + key);
+        const countEl = document.getElementById('count-' + key);
+        if (!listEl) return;
+
+        const items = products.filter(p => p.category === key && p.available !== false);
+
+        if (items.length > 0) {
+          listEl.innerHTML  = items.map(p => productHtml(p, label, key)).join('');
+          countEl.textContent = items.length + ' available';
+        } else {
+          listEl.innerHTML  = productHtml(null, label, key) + productHtml(null, label, key);
+          countEl.textContent = 'Coming soon';
+        }
+      });
+
+      /* Wire "Buy" buttons to Stripe Payment Links (PAYMENT_LINKS, from
+         ../data/paymentLinks.js), falling back to the contact-to-purchase
+         flow when no link exists yet for that category. */
+      document.querySelectorAll('.js-buy-btn').forEach(function (btn) {
+        var key  = btn.dataset.paymentKey;
+        var link = (typeof PAYMENT_LINKS !== 'undefined') ? PAYMENT_LINKS[key] : null;
+
+        if (link) {
+          btn.href = link;
+          btn.target = '_blank';
+          btn.rel = 'noopener noreferrer';
+          btn.textContent = 'Buy';
+        } else {
+          var name = btn.dataset.productName || 'this item';
+          btn.href = 'mailto:visualartrc@gmail.com?subject=' + encodeURIComponent('Inquiry: ' + name);
+          btn.removeAttribute('target');
+          btn.removeAttribute('rel');
+          btn.textContent = 'Inquire to Purchase';
+        }
+      });
+    }
+
+    renderShop();
 
     /* Commission form — intercept submit, POST via fetch to Formspree */
     const form = document.getElementById('commissionForm');

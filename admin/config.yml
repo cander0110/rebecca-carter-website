@@ -1,0 +1,222 @@
+# ============================================================
+# Rebecca Carter — Sveltia CMS config
+# ============================================================
+# SETUP (one-time, done by Connor):
+#   1. Create a GitHub OAuth App at
+#      https://github.com/settings/developers
+#        - Homepage URL: https://rebeccacarter.net
+#        - Authorization callback URL:
+#            https://YOUR-CLOUDFLARE-WORKER.workers.dev/callback
+#   2. Replace "OWNER/REPO_NAME" below with this repo's actual path,
+#      e.g. rebeccacarter/rebecca-carter-website.
+#   3. Replace the base_url below with the Cloudflare Worker's real
+#      URL once it's deployed (see functions/auth/[[path]].js).
+#   4. Paste the OAuth App's Client ID and Client Secret into the
+#      Cloudflare Worker's environment variables (never into this
+#      file — see the SETUP comment in functions/auth/[[path]].js).
+#
+# Everything below this point is real, working CMS configuration —
+# only the three placeholders above need to change before launch.
+# ============================================================
+
+backend:
+  name: github
+  repo: OWNER/REPO_NAME
+  branch: main
+  # SWAP: Cloudflare Worker OAuth handler URL, see functions/auth/[[path]].js
+  base_url: https://YOUR-CLOUDFLARE-WORKER.workers.dev
+  auth_endpoint: auth
+
+# Where uploaded images land in the repo, and the URL prefix used to
+# reference them from the site (matches assets/uploads/... paths used
+# throughout data/*.json).
+media_folder: assets/uploads
+public_folder: /assets/uploads
+
+collections:
+
+  - name: paintings
+    label: Paintings
+    files:
+      - name: paintings
+        label: Paintings
+        file: data/paintings.json
+        fields:
+          - label: Paintings
+            name: paintings
+            widget: list
+            summary: "{{title}} ({{category}})"
+            fields:
+              - { label: Title, name: title, widget: string }
+              - label: Category
+                name: category
+                widget: select
+                hint: "Which section of the Works page and Shop this appears under"
+                options: [originals, prints, magnets, ornaments, earrings, aceos]
+              - { label: Medium, name: medium, widget: string, required: false, hint: "e.g. Watercolor on linen" }
+              - { label: Dimensions, name: dimensions, widget: string, required: false, hint: "e.g. 24 × 31 in." }
+              - { label: Year, name: year, widget: string, required: false }
+              - label: Price (USD)
+                name: price
+                widget: string
+                required: false
+                hint: "e.g. $850. Leave blank if not for sale."
+              - { label: Photo, name: image, widget: image, required: false }
+              - label: Availability
+                name: availability
+                widget: select
+                options: [available, sold, not-for-sale]
+                default: available
+              - label: Show in Shop
+                name: inShop
+                widget: boolean
+                default: false
+                hint: "Turn on to list this painting for sale in the Shop's Originals column"
+              - { label: Description, name: description, widget: text, required: false }
+
+  - name: photography
+    label: Photography
+    files:
+      - name: photography
+        label: Photography
+        file: data/photography.json
+        fields:
+          - label: Photos
+            name: photography
+            widget: list
+            summary: "{{category}}: {{title}}"
+            fields:
+              - { label: Title, name: title, widget: string, required: false }
+              - label: Category
+                name: category
+                widget: select
+                hint: "Which series this photo belongs to on the Works page"
+                options: [portraits, documentary-events, nature-still-life, travel-places]
+              - { label: Photo, name: image, widget: image }
+              - { label: Print Available, name: printAvailable, widget: boolean, default: true }
+              - label: Print Price (USD)
+                name: printPrice
+                widget: string
+                required: false
+                hint: "e.g. $45. Leave blank if not priced yet."
+
+  - name: shopProducts
+    label: Shop Products
+    files:
+      - name: shopProducts
+        label: Shop Products
+        file: data/shopProducts.json
+        fields:
+          - label: Products
+            name: products
+            widget: list
+            summary: "{{name}} ({{category}})"
+            fields:
+              - { label: Name, name: name, widget: string }
+              - label: Category
+                name: category
+                widget: select
+                options:
+                  - { label: "Painting Prints", value: paintingPrints }
+                  - { label: "Photography Prints", value: photographyPrints }
+                  - { label: Earrings, value: earrings }
+                  - { label: "Hand-Painted Magnets", value: handPaintedMagnets }
+                  - { label: "Hand-Painted Ornaments", value: handPaintedOrnaments }
+                  - { label: "Trading Cards / ACEOs", value: tradingCardsAceos }
+              - { label: Price (USD), name: price, widget: string, hint: "e.g. $35" }
+              - { label: Photo, name: image, widget: image, required: false }
+              - { label: Description, name: description, widget: text, required: false }
+              - label: Stripe Payment Link
+                name: stripeLink
+                widget: string
+                required: false
+                hint: "Optional. If set, overrides the category-wide link in data/paymentLinks.js for this one product."
+              - { label: Available, name: available, widget: boolean, default: true }
+
+  - name: shows
+    label: Shows
+    files:
+      - name: shows
+        label: Shows
+        file: data/shows.json
+        fields:
+          - label: Shows
+            name: shows
+            widget: list
+            summary: "{{title}} ({{status}})"
+            fields:
+              - { label: Title, name: title, widget: string }
+              - { label: Venue, name: venue, widget: string }
+              - { label: Location, name: location, widget: string, hint: "City, State" }
+              - label: Dates
+                name: dates
+                widget: string
+                hint: "Human-readable, e.g. \"June 6-28, 2025\" (past shows can just use the year)"
+              - label: Start Date
+                name: startDate
+                widget: datetime
+                type: date
+                format: "YYYY-MM-DD"
+                hint: "Used to sort shows and build the date badge on the home page"
+              - { label: Opening Reception, name: opening, widget: string, required: false }
+              - label: Type
+                name: type
+                widget: select
+                options: [Solo, Group, Duo]
+              - label: Status
+                name: status
+                widget: select
+                options: [upcoming, past]
+              - { label: Description, name: description, widget: text, required: false }
+              - label: Photos
+                name: images
+                widget: list
+                field: { label: Photo, name: image, widget: image }
+                required: false
+                hint: "Past shows only: a small gallery of work from this show"
+              - label: Shop Link
+                name: shopLink
+                widget: string
+                required: false
+                hint: "Filename inside /pages/ to send visitors who want to buy from this show, e.g. shop.html"
+
+  - name: printClubEpisodes
+    label: Print Club Episodes
+    files:
+      - name: printClubEpisodes
+        label: Print Club Episodes
+        file: data/printClubEpisodes.json
+        fields:
+          - label: Episodes
+            name: episodes
+            widget: list
+            summary: "{{name}} ({{date}})"
+            fields:
+              - { label: "Artist Name", name: name, widget: string }
+              - { label: Photo, name: image, widget: image, required: false, hint: "Leave blank to show initials instead" }
+              - { label: Initials, name: initials, widget: string, hint: "Shown in the avatar circle if there's no photo" }
+              - { label: Medium, name: medium, widget: string }
+              - { label: Location, name: location, widget: string, hint: "City, State" }
+              - { label: Quote, name: quote, widget: text }
+              - { label: Episode Date, name: date, widget: string, hint: "e.g. February 2025" }
+              - { label: Instagram Link, name: instagramUrl, widget: string }
+
+  - name: siteText
+    label: Site Text
+    files:
+      - name: siteText
+        label: Site Text
+        file: data/siteText.json
+        fields:
+          - label: Home Hero Tagline
+            name: heroTagline
+            widget: text
+            hint: "The line under the hero words on the home page"
+          - label: About Blurb
+            name: aboutBlurb
+            widget: text
+            hint: "Rebecca's bio paragraph on the home page"
+          - label: Footer Availability Sentence
+            name: footerAvailability
+            widget: string
+            hint: "Short line in the footer about current availability"

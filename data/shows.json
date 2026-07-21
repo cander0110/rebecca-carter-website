@@ -1,0 +1,82 @@
+{
+  "shows": [
+    {
+      "title": "Drawn to the Skin",
+      "venue": "[Tattoo Studio Name]",
+      "location": "York, Pennsylvania",
+      "dates": "June 6–28, 2025",
+      "startDate": "2025-06-06",
+      "opening": "Friday, June 6 · 6:00 pm to 9:00 pm",
+      "type": "Group",
+      "status": "upcoming",
+      "description": "A group exhibition celebrating the intersection of tattooing, painting, and printmaking at [Tattoo Studio Name] in York, PA. Rebecca will show five new paintings alongside works by local and regional artists. Free and open to the public. [Add additional details here once confirmed.]",
+      "images": [],
+      "shopLink": null
+    },
+    {
+      "title": "Exhibition Title",
+      "venue": "Gallery Name",
+      "location": "Philadelphia, PA",
+      "dates": "2024",
+      "startDate": "2024-01-01",
+      "opening": "",
+      "type": "Solo",
+      "status": "past",
+      "description": "",
+      "images": ["", "", ""],
+      "shopLink": "shop.html"
+    },
+    {
+      "title": "Exhibition Title",
+      "venue": "Art Center Name",
+      "location": "New York, NY",
+      "dates": "2023",
+      "startDate": "2023-01-01",
+      "opening": "",
+      "type": "Group",
+      "status": "past",
+      "description": "",
+      "images": [],
+      "shopLink": null
+    },
+    {
+      "title": "Exhibition Title",
+      "venue": "Gallery Name",
+      "location": "York, PA",
+      "dates": "2023",
+      "startDate": "2023-01-01",
+      "opening": "",
+      "type": "Solo",
+      "status": "past",
+      "description": "",
+      "images": [],
+      "shopLink": null
+    },
+    {
+      "title": "Exhibition Title",
+      "venue": "Studio Space",
+      "location": "Baltimore, MD",
+      "dates": "2022",
+      "startDate": "2022-01-01",
+      "opening": "",
+      "type": "Group",
+      "status": "past",
+      "description": "",
+      "images": [],
+      "shopLink": null
+    },
+    {
+      "title": "Exhibition Title",
+      "venue": "Community Arts",
+      "location": "Harrisburg, PA",
+      "dates": "2021",
+      "startDate": "2021-01-01",
+      "opening": "",
+      "type": "Group",
+      "status": "past",
+      "description": "",
+      "images": [],
+      "shopLink": null
+    }
+  ]
+}

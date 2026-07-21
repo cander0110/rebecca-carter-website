@@ -364,50 +364,10 @@
   (function () {
     'use strict';
 
-    /* ============================================================
-       INTERVIEWS DATA
-       ============================================================
-       To add a new interview, append an object to this array.
-       Fields:
-         name      — artist's full name
-         initials  — 1–2 letter abbreviation shown in the avatar circle
-         medium    — primary medium or discipline
-         location  — city, state / country
-         quote     — short pull quote from the interview
-         date      — episode date, e.g. 'February 2025'
-         url       — direct Instagram post URL (or profile if no post link yet)
-
-       Avatar circle background colors cycle through AVATAR_COLORS below.
-       ============================================================ */
-    var INTERVIEWS = [
-      {
-        name:     'Jordan Park',
-        initials: 'JP',
-        medium:   'Ceramics',
-        location: 'Philadelphia, PA',
-        quote:    'Every piece I make starts with a question I don’t have an answer to yet. The clay helps me find my way toward something.',
-        date:     'February 2025',
-        url:      'https://www.instagram.com/r.c.artist/',
-      },
-      {
-        name:     'Sam Reyes',
-        initials: 'SR',
-        medium:   'Illustration',
-        location: 'New York, NY',
-        quote:    'Community is where the work comes from. I don’t know if I’d make anything if there wasn’t someone to share it with.',
-        date:     'January 2025',
-        url:      'https://www.instagram.com/r.c.artist/',
-      },
-      {
-        name:     'Maya Osei',
-        initials: 'MO',
-        medium:   'Printmaking',
-        location: 'Baltimore, MD',
-        quote:    'You can pull twenty prints from the same plate and each one is slightly different. It’s never quite the same twice.',
-        date:     'December 2024',
-        url:      'https://www.instagram.com/r.c.artist/',
-      },
-    ];
+    /* Populated by fetch() below from ../data/printClubEpisodes.json
+       before renderInterviews() runs. To add a new episode, edit that
+       file, not this one. */
+    var INTERVIEWS = [];
 
     /* Avatar colors — cycle by index */
     var AVATAR_COLORS = [
@@ -437,13 +397,14 @@
       if (!list) return;
 
       list.innerHTML = INTERVIEWS.map(function (iv, i) {
-        var color = AVATAR_COLORS[i % AVATAR_COLORS.length];
+        var color   = AVATAR_COLORS[i % AVATAR_COLORS.length];
+        var avatar  = iv.image
+          ? '<img class="avatar-circle" style="object-fit:cover;" src="../' + esc(iv.image) + '" alt="' + esc(iv.name) + '" />'
+          : '<div class="avatar-circle" style="background-color:' + color + ';" aria-hidden="true">' + esc(iv.initials) + '</div>';
         return (
           '<article class="interview-card">' +
             '<div class="interview-card__header">' +
-              '<div class="avatar-circle" style="background-color:' + color + ';" aria-hidden="true">' +
-                esc(iv.initials) +
-              '</div>' +
+              avatar +
               '<div>' +
                 '<p class="interview-card__name">'       + esc(iv.name)                         + '</p>' +
                 '<p class="interview-card__medium-loc">' + esc(iv.medium) + ' &middot; ' + esc(iv.location) + '</p>' +
@@ -454,7 +415,7 @@
             '</blockquote>' +
             '<div class="interview-card__footer">' +
               '<span class="interview-card__date">' + esc(iv.date) + '</span>' +
-              '<a href="' + esc(safeHref(iv.url)) + '" ' +
+              '<a href="' + esc(safeHref(iv.instagramUrl)) + '" ' +
                 'target="_blank" rel="noopener noreferrer" ' +
                 'class="interview-card__watch" ' +
                 'aria-label="Watch ' + esc(iv.name) + ' interview on Instagram">' +
@@ -533,7 +494,15 @@
       }
     }
 
-    document.addEventListener('DOMContentLoaded', function () {
+    document.addEventListener('DOMContentLoaded', async function () {
+      try {
+        var res  = await fetch('../data/printClubEpisodes.json');
+        var json = await res.json();
+        INTERVIEWS = json.episodes || [];
+      } catch (err) {
+        INTERVIEWS = [];
+      }
+
       renderInterviews();
       initInterestForm();
       initJoinClubButton();

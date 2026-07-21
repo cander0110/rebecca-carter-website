@@ -38,9 +38,9 @@
         </div>
 
         <!--
-          Rendered from SHOWS_DATA (../data/shows.js) by the script near
-          the bottom of this page. To add, edit, or remove a show, update
-          that file only — nothing here needs to change.
+          Rendered from ../data/shows.json by the script near the bottom
+          of this page. To add, edit, or remove a show, update that file
+          only, nothing here needs to change.
         -->
         <div id="upcomingShowsContainer" role="list"></div>
 
@@ -55,7 +55,7 @@
     <!-- ============================================================
          PAST EXHIBITIONS
          Table body (and the galleries below it) are rendered from
-         SHOWS_DATA in ../data/shows.js. To add a show, edit that file.
+         ../data/shows.json. To add a show, edit that file.
          ============================================================ -->
     <section class="section section--alt" id="past" aria-labelledby="past-heading">
       <div class="container">
@@ -174,11 +174,14 @@
 
   <div id="site-footer"></div>
   <script src="../js/main.js"></script>
-  <script src="../data/shows.js"></script>
 
   <script>
   (function () {
     'use strict';
+
+    /* Populated by fetch() below from ../data/shows.json before either
+       render function runs. */
+    var SHOWS_DATA = [];
 
     /* Safe HTML encoding for dynamic content */
     function esc(s) {
@@ -350,7 +353,15 @@
       });
     }
 
-    document.addEventListener('DOMContentLoaded', function () {
+    document.addEventListener('DOMContentLoaded', async function () {
+      try {
+        var res = await fetch('../data/shows.json');
+        var data = await res.json();
+        SHOWS_DATA = data.shows || [];
+      } catch (err) {
+        SHOWS_DATA = [];
+      }
+
       renderUpcomingShows();
       var past = renderPastShows();
       renderPastShowGalleries(past);

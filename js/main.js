@@ -13,6 +13,11 @@ const NAV_LINKS = [
   { href: 'mailto:visualartrc@gmail.com',      label: 'Contact', absolute: true },
 ];
 
+/* Populated by fetch() in the DOMContentLoaded handler below, from
+   data/siteText.json. Small editable text blocks (hero tagline, about
+   blurb, footer availability sentence) read from here. */
+let SITE_TEXT = {};
+
 /* Resolve whether we're at root or in /pages/ */
 function isInPages() {
   return window.location.pathname.includes('/pages/');
@@ -80,7 +85,7 @@ function buildFooter() {
         <div class="footer-brand">
           <a class="footer-brand__logo" href="${root}index.html">Rebecca Carter</a>
           <p>Painting, photography, and mixed media.<br/>Based in Maryland.</p>
-          <p>Original work and commissions are available.</p>
+          <p>${SITE_TEXT.footerAvailability || 'Original work and commissions are available.'}</p>
         </div>
 
         <div class="footer-col">
@@ -294,7 +299,14 @@ function initLazyImages() {
 
 /* ---------- Boot ---------- */
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', async () => {
+  try {
+    const res = await fetch(rootPrefix() + 'data/siteText.json');
+    SITE_TEXT = await res.json();
+  } catch (err) {
+    SITE_TEXT = {};
+  }
+
   injectShell();         // Nav + footer must come first
   initNavToggle();
   initNavScroll();       // Transparent → opaque on hero scroll (home page)

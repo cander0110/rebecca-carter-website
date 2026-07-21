@@ -56,7 +56,7 @@
           Painting.<br />Photography.<br />Community.<!-- SWAP: may change to "Collectors" -->
         </h1>
 
-        <p class="hero__tagline reveal reveal-delay-2">
+        <p class="hero__tagline reveal reveal-delay-2" id="heroTagline">
           Original work rooted in exploration of the human experience and a deep need for connection.
         </p>
 
@@ -109,7 +109,7 @@
             </h2>
 
             <!-- REWRITE PENDING: Rebecca will supply new bio copy -->
-            <p class="reveal reveal-delay-2">
+            <p class="reveal reveal-delay-2" id="aboutBlurb">
               Rebecca Carter graduated from York College of Pennsylvania, earning a Bachelor
               of Arts Degree with a major in Fine Art. She has earned minors in Art History,
               Photography, Visual Communication, and Speech Communication. Her membership
@@ -483,15 +483,38 @@
   <div id="site-footer"></div>
 
   <script src="js/main.js"></script>
-  <script src="data/shows.js"></script>
 
   <script>
-  (function () {
+  (async function () {
     'use strict';
 
-    /* Same SHOWS_DATA file (data/shows.js) that pages/shows.html renders
-       from — this just checks whether any upcoming show exists. */
-    var upcomingShows = SHOWS_DATA.filter(function (s) { return s.status === 'upcoming'; });
+    /* Hero tagline + about blurb: same data/siteText.json file the
+       footer (js/main.js) reads its availability sentence from. */
+    try {
+      var textRes  = await fetch('data/siteText.json');
+      var siteText = await textRes.json();
+
+      var heroTagline = document.getElementById('heroTagline');
+      if (heroTagline && siteText.heroTagline) heroTagline.textContent = siteText.heroTagline;
+
+      var aboutBlurb = document.getElementById('aboutBlurb');
+      if (aboutBlurb && siteText.aboutBlurb) aboutBlurb.textContent = siteText.aboutBlurb;
+    } catch (err) {
+      /* Keep the hardcoded fallback text already in the markup */
+    }
+
+    /* Same data/shows.json file that pages/shows.html renders from,
+       this just checks whether any upcoming show exists. */
+    var showsData = [];
+    try {
+      var res  = await fetch('data/shows.json');
+      var json = await res.json();
+      showsData = json.shows || [];
+    } catch (err) {
+      showsData = [];
+    }
+
+    var upcomingShows = showsData.filter(function (s) { return s.status === 'upcoming'; });
 
     var content        = document.getElementById('upcomingShowContent');
     var fallback       = document.getElementById('noUpcomingShowsFallback');

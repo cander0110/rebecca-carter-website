@@ -112,207 +112,13 @@
         <p class="text-xs text-muted" id="paintingsCount"
            style="margin-bottom:var(--sp-6);" aria-live="polite"></p>
 
-        <!-- Paintings grid -->
         <!--
-          ADDING A NEW PAINTING:
-          1. Copy a .painting-card block below.
-          2. Update data-year, data-medium (watercolor / acrylic / mixed) to match the filters.
-          3. Replace .placeholder with:
-               <img src="../assets/images/your-file.jpg"
-                    alt="Title, medium, year"
-                    loading="lazy" />
-          4. Set data-full-src="../assets/images/your-file-large.jpg" on the article
-             for the higher-res lightbox version (optional — thumbnail is used as fallback).
+          Paintings grid: rendered from ../data/paintings.json by the script
+          near the bottom of this page. To add, edit, or remove a painting,
+          update that file only (category: "originals" for this section).
         -->
         <div class="artwork-grid artwork-grid--3" id="paintingsGrid" role="list">
-
-          <article class="painting-card reveal"
-                   role="listitem"
-                   data-year="2024"
-                   data-medium="watercolor"
-                   data-title="Threshold I"
-                   data-details="Watercolor on linen · 24 × 31 in. · 2024"
-                   data-price="$850"
-                   data-full-src="">
-            <div class="painting-card__image js-lb-trigger"
-                 role="button" tabindex="0"
-                 aria-label="Open Threshold I in lightbox">
-              <!-- REPLACE: swap this div with <img src="../assets/images/threshold-i.jpg" alt="Threshold I" loading="lazy"> -->
-              <div class="placeholder" style="background:#E8E0D0; flex-direction:column; gap:10px; color:#A89880;">
-                <svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 44 44" fill="none" aria-hidden="true"><rect x="3" y="3" width="38" height="38" rx="2" stroke="#A89880" stroke-width="2"/><rect x="8" y="8" width="28" height="28" rx="1" stroke="#A89880" stroke-width="1.5"/><path d="M8 30 L16 20 L22 26 L28 18 L36 30" stroke="#A89880" stroke-width="1.5" fill="none" stroke-linejoin="round"/><circle cx="28" cy="15" r="3" stroke="#A89880" stroke-width="1.5"/></svg>
-                <span style="font-size:10px; letter-spacing:0.1em; text-transform:uppercase; font-family:sans-serif;">Artwork photo coming soon</span>
-              </div>
-            </div>
-            <div class="painting-card__meta">
-              <h3 class="painting-card__title">Threshold I</h3>
-              <p class="painting-card__medium">Watercolor on linen</p>
-              <p class="painting-card__year">2024</p>
-              <div class="painting-card__footer">
-                <span class="painting-card__price">$850</span>
-                <button class="btn btn--sm js-lb-trigger"
-                        aria-label="View details for Threshold I">
-                  View Details
-                </button>
-              </div>
-            </div>
-          </article>
-
-          <article class="painting-card reveal reveal-delay-1"
-                   role="listitem"
-                   data-year="2024"
-                   data-medium="watercolor"
-                   data-title="Still Ground"
-                   data-details="Watercolor on canvas · 20 × 24 in. · 2024"
-                   data-price="$650"
-                   data-full-src="">
-            <div class="painting-card__image js-lb-trigger"
-                 role="button" tabindex="0"
-                 aria-label="Open Still Ground in lightbox">
-              <!-- REPLACE: swap this div with <img src="../assets/images/still-ground.jpg" alt="Still Ground" loading="lazy"> -->
-              <div class="placeholder" style="background:#E8E0D0; flex-direction:column; gap:10px; color:#A89880;">
-                <svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 44 44" fill="none" aria-hidden="true"><rect x="3" y="3" width="38" height="38" rx="2" stroke="#A89880" stroke-width="2"/><rect x="8" y="8" width="28" height="28" rx="1" stroke="#A89880" stroke-width="1.5"/><path d="M8 30 L16 20 L22 26 L28 18 L36 30" stroke="#A89880" stroke-width="1.5" fill="none" stroke-linejoin="round"/><circle cx="28" cy="15" r="3" stroke="#A89880" stroke-width="1.5"/></svg>
-                <span style="font-size:10px; letter-spacing:0.1em; text-transform:uppercase; font-family:sans-serif;">Artwork photo coming soon</span>
-              </div>
-            </div>
-            <div class="painting-card__meta">
-              <h3 class="painting-card__title">Still Ground</h3>
-              <p class="painting-card__medium">Watercolor on canvas</p>
-              <p class="painting-card__year">2024</p>
-              <div class="painting-card__footer">
-                <span class="painting-card__price">$650</span>
-                <button class="btn btn--sm js-lb-trigger"
-                        aria-label="View details for Still Ground">
-                  View Details
-                </button>
-              </div>
-            </div>
-          </article>
-
-          <article class="painting-card reveal reveal-delay-2"
-                   role="listitem"
-                   data-year="2023"
-                   data-medium="acrylic"
-                   data-title="Morning Field"
-                   data-details="Acrylic on board · 16 × 20 in. · 2023"
-                   data-price="NFS"
-                   data-full-src="">
-            <div class="painting-card__image js-lb-trigger"
-                 role="button" tabindex="0"
-                 aria-label="Open Morning Field in lightbox">
-              <!-- REPLACE: swap this div with <img src="../assets/images/morning-field.jpg" alt="Morning Field" loading="lazy"> -->
-              <div class="placeholder" style="background:#E8E0D0; flex-direction:column; gap:10px; color:#A89880;">
-                <svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 44 44" fill="none" aria-hidden="true"><rect x="3" y="3" width="38" height="38" rx="2" stroke="#A89880" stroke-width="2"/><rect x="8" y="8" width="28" height="28" rx="1" stroke="#A89880" stroke-width="1.5"/><path d="M8 30 L16 20 L22 26 L28 18 L36 30" stroke="#A89880" stroke-width="1.5" fill="none" stroke-linejoin="round"/><circle cx="28" cy="15" r="3" stroke="#A89880" stroke-width="1.5"/></svg>
-                <span style="font-size:10px; letter-spacing:0.1em; text-transform:uppercase; font-family:sans-serif;">Artwork photo coming soon</span>
-              </div>
-            </div>
-            <div class="painting-card__meta">
-              <h3 class="painting-card__title">Morning Field</h3>
-              <p class="painting-card__medium">Acrylic on board</p>
-              <p class="painting-card__year">2023</p>
-              <div class="painting-card__footer">
-                <span class="painting-card__price--nfs">Not for sale</span>
-                <button class="btn btn--sm js-lb-trigger"
-                        aria-label="View details for Morning Field">
-                  View Details
-                </button>
-              </div>
-            </div>
-          </article>
-
-          <article class="painting-card reveal"
-                   role="listitem"
-                   data-year="2023"
-                   data-medium="mixed"
-                   data-title="The Wait"
-                   data-details="Mixed media on paper · 12 × 17 in. · 2023"
-                   data-price="$320"
-                   data-full-src="">
-            <div class="painting-card__image js-lb-trigger"
-                 role="button" tabindex="0"
-                 aria-label="Open The Wait in lightbox">
-              <!-- REPLACE: swap this div with <img src="../assets/images/the-wait.jpg" alt="The Wait" loading="lazy"> -->
-              <div class="placeholder" style="background:#E8E0D0; flex-direction:column; gap:10px; color:#A89880;">
-                <svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 44 44" fill="none" aria-hidden="true"><rect x="3" y="3" width="38" height="38" rx="2" stroke="#A89880" stroke-width="2"/><rect x="8" y="8" width="28" height="28" rx="1" stroke="#A89880" stroke-width="1.5"/><path d="M8 30 L16 20 L22 26 L28 18 L36 30" stroke="#A89880" stroke-width="1.5" fill="none" stroke-linejoin="round"/><circle cx="28" cy="15" r="3" stroke="#A89880" stroke-width="1.5"/></svg>
-                <span style="font-size:10px; letter-spacing:0.1em; text-transform:uppercase; font-family:sans-serif;">Artwork photo coming soon</span>
-              </div>
-            </div>
-            <div class="painting-card__meta">
-              <h3 class="painting-card__title">The Wait</h3>
-              <p class="painting-card__medium">Mixed media on paper</p>
-              <p class="painting-card__year">2023</p>
-              <div class="painting-card__footer">
-                <span class="painting-card__price">$320</span>
-                <button class="btn btn--sm js-lb-trigger"
-                        aria-label="View details for The Wait">
-                  View Details
-                </button>
-              </div>
-            </div>
-          </article>
-
-          <article class="painting-card reveal reveal-delay-1"
-                   role="listitem"
-                   data-year="2022"
-                   data-medium="watercolor"
-                   data-title="Interior, Blue"
-                   data-details="Watercolor on linen · 28 × 35 in. · 2022"
-                   data-price="$1,200"
-                   data-full-src="">
-            <div class="painting-card__image js-lb-trigger"
-                 role="button" tabindex="0"
-                 aria-label="Open Interior, Blue in lightbox">
-              <!-- REPLACE: swap this div with <img src="../assets/images/interior-blue.jpg" alt="Interior, Blue" loading="lazy"> -->
-              <div class="placeholder" style="background:#E8E0D0; flex-direction:column; gap:10px; color:#A89880;">
-                <svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 44 44" fill="none" aria-hidden="true"><rect x="3" y="3" width="38" height="38" rx="2" stroke="#A89880" stroke-width="2"/><rect x="8" y="8" width="28" height="28" rx="1" stroke="#A89880" stroke-width="1.5"/><path d="M8 30 L16 20 L22 26 L28 18 L36 30" stroke="#A89880" stroke-width="1.5" fill="none" stroke-linejoin="round"/><circle cx="28" cy="15" r="3" stroke="#A89880" stroke-width="1.5"/></svg>
-                <span style="font-size:10px; letter-spacing:0.1em; text-transform:uppercase; font-family:sans-serif;">Artwork photo coming soon</span>
-              </div>
-            </div>
-            <div class="painting-card__meta">
-              <h3 class="painting-card__title">Interior, Blue</h3>
-              <p class="painting-card__medium">Watercolor on linen</p>
-              <p class="painting-card__year">2022</p>
-              <div class="painting-card__footer">
-                <span class="painting-card__price">$1,200</span>
-                <button class="btn btn--sm js-lb-trigger"
-                        aria-label="View details for Interior, Blue">
-                  View Details
-                </button>
-              </div>
-            </div>
-          </article>
-
-          <article class="painting-card reveal reveal-delay-2"
-                   role="listitem"
-                   data-year="2022"
-                   data-medium="mixed"
-                   data-title="Root Study"
-                   data-details="Mixed media on canvas · 20 × 20 in. · 2022"
-                   data-price="NFS"
-                   data-full-src="">
-            <div class="painting-card__image js-lb-trigger"
-                 role="button" tabindex="0"
-                 aria-label="Open Root Study in lightbox">
-              <!-- REPLACE: swap this div with <img src="../assets/images/root-study.jpg" alt="Root Study" loading="lazy"> -->
-              <div class="placeholder" style="background:#E8E0D0; flex-direction:column; gap:10px; color:#A89880;">
-                <svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 44 44" fill="none" aria-hidden="true"><rect x="3" y="3" width="38" height="38" rx="2" stroke="#A89880" stroke-width="2"/><rect x="8" y="8" width="28" height="28" rx="1" stroke="#A89880" stroke-width="1.5"/><path d="M8 30 L16 20 L22 26 L28 18 L36 30" stroke="#A89880" stroke-width="1.5" fill="none" stroke-linejoin="round"/><circle cx="28" cy="15" r="3" stroke="#A89880" stroke-width="1.5"/></svg>
-                <span style="font-size:10px; letter-spacing:0.1em; text-transform:uppercase; font-family:sans-serif;">Artwork photo coming soon</span>
-              </div>
-            </div>
-            <div class="painting-card__meta">
-              <h3 class="painting-card__title">Root Study</h3>
-              <p class="painting-card__medium">Mixed media on canvas</p>
-              <p class="painting-card__year">2022</p>
-              <div class="painting-card__footer">
-                <span class="painting-card__price--nfs">Not for sale</span>
-                <button class="btn btn--sm js-lb-trigger"
-                        aria-label="View details for Root Study">
-                  View Details
-                </button>
-              </div>
-            </div>
-          </article>
-
-        </div><!-- /paintingsGrid -->
+</div><!-- /paintingsGrid -->
 
         <p class="no-results" id="paintingsNoResults" hidden aria-live="polite">
           No paintings match the selected filters.
@@ -324,155 +130,35 @@
         <div id="categoryPanel-prints" class="category-panel" style="display:none;">
           <!-- SWAP: Prints images -->
           <div class="artwork-grid artwork-grid--3">
-            <div class="artwork-card">
-              <div class="artwork-card__image">
-                <div class="placeholder" style="background:#E8E0D0; flex-direction:column; gap:10px; color:#A89880;">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 44 44" fill="none" aria-hidden="true"><rect x="3" y="3" width="38" height="38" rx="2" stroke="#A89880" stroke-width="2"/><rect x="8" y="8" width="28" height="28" rx="1" stroke="#A89880" stroke-width="1.5"/><path d="M8 30 L16 20 L22 26 L28 18 L36 30" stroke="#A89880" stroke-width="1.5" fill="none" stroke-linejoin="round"/><circle cx="28" cy="15" r="3" stroke="#A89880" stroke-width="1.5"/></svg>
-                  <span style="font-size:10px; letter-spacing:0.1em; text-transform:uppercase; font-family:sans-serif;">Print coming soon</span>
-                </div>
-              </div>
-            </div>
-            <div class="artwork-card">
-              <div class="artwork-card__image">
-                <div class="placeholder" style="background:#E8E0D0; flex-direction:column; gap:10px; color:#A89880;">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 44 44" fill="none" aria-hidden="true"><rect x="3" y="3" width="38" height="38" rx="2" stroke="#A89880" stroke-width="2"/><rect x="8" y="8" width="28" height="28" rx="1" stroke="#A89880" stroke-width="1.5"/><path d="M8 30 L16 20 L22 26 L28 18 L36 30" stroke="#A89880" stroke-width="1.5" fill="none" stroke-linejoin="round"/><circle cx="28" cy="15" r="3" stroke="#A89880" stroke-width="1.5"/></svg>
-                  <span style="font-size:10px; letter-spacing:0.1em; text-transform:uppercase; font-family:sans-serif;">Print coming soon</span>
-                </div>
-              </div>
-            </div>
-            <div class="artwork-card">
-              <div class="artwork-card__image">
-                <div class="placeholder" style="background:#E8E0D0; flex-direction:column; gap:10px; color:#A89880;">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 44 44" fill="none" aria-hidden="true"><rect x="3" y="3" width="38" height="38" rx="2" stroke="#A89880" stroke-width="2"/><rect x="8" y="8" width="28" height="28" rx="1" stroke="#A89880" stroke-width="1.5"/><path d="M8 30 L16 20 L22 26 L28 18 L36 30" stroke="#A89880" stroke-width="1.5" fill="none" stroke-linejoin="round"/><circle cx="28" cy="15" r="3" stroke="#A89880" stroke-width="1.5"/></svg>
-                  <span style="font-size:10px; letter-spacing:0.1em; text-transform:uppercase; font-family:sans-serif;">Print coming soon</span>
-                </div>
-              </div>
-            </div>
-          </div>
+</div>
         </div>
 
         <!-- MAGNETS -->
         <div id="categoryPanel-magnets" class="category-panel" style="display:none;">
           <!-- SWAP: Magnets images -->
           <div class="artwork-grid artwork-grid--3">
-            <div class="artwork-card">
-              <div class="artwork-card__image">
-                <div class="placeholder" style="background:#E8E0D0; flex-direction:column; gap:10px; color:#A89880;">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 44 44" fill="none" aria-hidden="true"><rect x="3" y="3" width="38" height="38" rx="2" stroke="#A89880" stroke-width="2"/><rect x="8" y="8" width="28" height="28" rx="1" stroke="#A89880" stroke-width="1.5"/><path d="M8 30 L16 20 L22 26 L28 18 L36 30" stroke="#A89880" stroke-width="1.5" fill="none" stroke-linejoin="round"/><circle cx="28" cy="15" r="3" stroke="#A89880" stroke-width="1.5"/></svg>
-                  <span style="font-size:10px; letter-spacing:0.1em; text-transform:uppercase; font-family:sans-serif;">Magnet coming soon</span>
-                </div>
-              </div>
-            </div>
-            <div class="artwork-card">
-              <div class="artwork-card__image">
-                <div class="placeholder" style="background:#E8E0D0; flex-direction:column; gap:10px; color:#A89880;">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 44 44" fill="none" aria-hidden="true"><rect x="3" y="3" width="38" height="38" rx="2" stroke="#A89880" stroke-width="2"/><rect x="8" y="8" width="28" height="28" rx="1" stroke="#A89880" stroke-width="1.5"/><path d="M8 30 L16 20 L22 26 L28 18 L36 30" stroke="#A89880" stroke-width="1.5" fill="none" stroke-linejoin="round"/><circle cx="28" cy="15" r="3" stroke="#A89880" stroke-width="1.5"/></svg>
-                  <span style="font-size:10px; letter-spacing:0.1em; text-transform:uppercase; font-family:sans-serif;">Magnet coming soon</span>
-                </div>
-              </div>
-            </div>
-            <div class="artwork-card">
-              <div class="artwork-card__image">
-                <div class="placeholder" style="background:#E8E0D0; flex-direction:column; gap:10px; color:#A89880;">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 44 44" fill="none" aria-hidden="true"><rect x="3" y="3" width="38" height="38" rx="2" stroke="#A89880" stroke-width="2"/><rect x="8" y="8" width="28" height="28" rx="1" stroke="#A89880" stroke-width="1.5"/><path d="M8 30 L16 20 L22 26 L28 18 L36 30" stroke="#A89880" stroke-width="1.5" fill="none" stroke-linejoin="round"/><circle cx="28" cy="15" r="3" stroke="#A89880" stroke-width="1.5"/></svg>
-                  <span style="font-size:10px; letter-spacing:0.1em; text-transform:uppercase; font-family:sans-serif;">Magnet coming soon</span>
-                </div>
-              </div>
-            </div>
-          </div>
+</div>
         </div>
 
         <!-- ORNAMENTS -->
         <div id="categoryPanel-ornaments" class="category-panel" style="display:none;">
           <!-- SWAP: Ornaments images -->
           <div class="artwork-grid artwork-grid--3">
-            <div class="artwork-card">
-              <div class="artwork-card__image">
-                <div class="placeholder" style="background:#E8E0D0; flex-direction:column; gap:10px; color:#A89880;">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 44 44" fill="none" aria-hidden="true"><rect x="3" y="3" width="38" height="38" rx="2" stroke="#A89880" stroke-width="2"/><rect x="8" y="8" width="28" height="28" rx="1" stroke="#A89880" stroke-width="1.5"/><path d="M8 30 L16 20 L22 26 L28 18 L36 30" stroke="#A89880" stroke-width="1.5" fill="none" stroke-linejoin="round"/><circle cx="28" cy="15" r="3" stroke="#A89880" stroke-width="1.5"/></svg>
-                  <span style="font-size:10px; letter-spacing:0.1em; text-transform:uppercase; font-family:sans-serif;">Ornament coming soon</span>
-                </div>
-              </div>
-            </div>
-            <div class="artwork-card">
-              <div class="artwork-card__image">
-                <div class="placeholder" style="background:#E8E0D0; flex-direction:column; gap:10px; color:#A89880;">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 44 44" fill="none" aria-hidden="true"><rect x="3" y="3" width="38" height="38" rx="2" stroke="#A89880" stroke-width="2"/><rect x="8" y="8" width="28" height="28" rx="1" stroke="#A89880" stroke-width="1.5"/><path d="M8 30 L16 20 L22 26 L28 18 L36 30" stroke="#A89880" stroke-width="1.5" fill="none" stroke-linejoin="round"/><circle cx="28" cy="15" r="3" stroke="#A89880" stroke-width="1.5"/></svg>
-                  <span style="font-size:10px; letter-spacing:0.1em; text-transform:uppercase; font-family:sans-serif;">Ornament coming soon</span>
-                </div>
-              </div>
-            </div>
-            <div class="artwork-card">
-              <div class="artwork-card__image">
-                <div class="placeholder" style="background:#E8E0D0; flex-direction:column; gap:10px; color:#A89880;">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 44 44" fill="none" aria-hidden="true"><rect x="3" y="3" width="38" height="38" rx="2" stroke="#A89880" stroke-width="2"/><rect x="8" y="8" width="28" height="28" rx="1" stroke="#A89880" stroke-width="1.5"/><path d="M8 30 L16 20 L22 26 L28 18 L36 30" stroke="#A89880" stroke-width="1.5" fill="none" stroke-linejoin="round"/><circle cx="28" cy="15" r="3" stroke="#A89880" stroke-width="1.5"/></svg>
-                  <span style="font-size:10px; letter-spacing:0.1em; text-transform:uppercase; font-family:sans-serif;">Ornament coming soon</span>
-                </div>
-              </div>
-            </div>
-          </div>
+</div>
         </div>
 
         <!-- EARRINGS -->
         <div id="categoryPanel-earrings" class="category-panel" style="display:none;">
           <!-- SWAP: Earrings images -->
           <div class="artwork-grid artwork-grid--3">
-            <div class="artwork-card">
-              <div class="artwork-card__image">
-                <div class="placeholder" style="background:#E8E0D0; flex-direction:column; gap:10px; color:#A89880;">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 44 44" fill="none" aria-hidden="true"><rect x="3" y="3" width="38" height="38" rx="2" stroke="#A89880" stroke-width="2"/><rect x="8" y="8" width="28" height="28" rx="1" stroke="#A89880" stroke-width="1.5"/><path d="M8 30 L16 20 L22 26 L28 18 L36 30" stroke="#A89880" stroke-width="1.5" fill="none" stroke-linejoin="round"/><circle cx="28" cy="15" r="3" stroke="#A89880" stroke-width="1.5"/></svg>
-                  <span style="font-size:10px; letter-spacing:0.1em; text-transform:uppercase; font-family:sans-serif;">Earrings coming soon</span>
-                </div>
-              </div>
-            </div>
-            <div class="artwork-card">
-              <div class="artwork-card__image">
-                <div class="placeholder" style="background:#E8E0D0; flex-direction:column; gap:10px; color:#A89880;">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 44 44" fill="none" aria-hidden="true"><rect x="3" y="3" width="38" height="38" rx="2" stroke="#A89880" stroke-width="2"/><rect x="8" y="8" width="28" height="28" rx="1" stroke="#A89880" stroke-width="1.5"/><path d="M8 30 L16 20 L22 26 L28 18 L36 30" stroke="#A89880" stroke-width="1.5" fill="none" stroke-linejoin="round"/><circle cx="28" cy="15" r="3" stroke="#A89880" stroke-width="1.5"/></svg>
-                  <span style="font-size:10px; letter-spacing:0.1em; text-transform:uppercase; font-family:sans-serif;">Earrings coming soon</span>
-                </div>
-              </div>
-            </div>
-            <div class="artwork-card">
-              <div class="artwork-card__image">
-                <div class="placeholder" style="background:#E8E0D0; flex-direction:column; gap:10px; color:#A89880;">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 44 44" fill="none" aria-hidden="true"><rect x="3" y="3" width="38" height="38" rx="2" stroke="#A89880" stroke-width="2"/><rect x="8" y="8" width="28" height="28" rx="1" stroke="#A89880" stroke-width="1.5"/><path d="M8 30 L16 20 L22 26 L28 18 L36 30" stroke="#A89880" stroke-width="1.5" fill="none" stroke-linejoin="round"/><circle cx="28" cy="15" r="3" stroke="#A89880" stroke-width="1.5"/></svg>
-                  <span style="font-size:10px; letter-spacing:0.1em; text-transform:uppercase; font-family:sans-serif;">Earrings coming soon</span>
-                </div>
-              </div>
-            </div>
-          </div>
+</div>
         </div>
 
         <!-- ACEOS / TRADING CARDS -->
         <div id="categoryPanel-aceos" class="category-panel" style="display:none;">
           <!-- SWAP: ACEOs / Trading Cards images -->
           <div class="artwork-grid artwork-grid--3">
-            <div class="artwork-card">
-              <div class="artwork-card__image">
-                <div class="placeholder" style="background:#E8E0D0; flex-direction:column; gap:10px; color:#A89880;">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 44 44" fill="none" aria-hidden="true"><rect x="3" y="3" width="38" height="38" rx="2" stroke="#A89880" stroke-width="2"/><rect x="8" y="8" width="28" height="28" rx="1" stroke="#A89880" stroke-width="1.5"/><path d="M8 30 L16 20 L22 26 L28 18 L36 30" stroke="#A89880" stroke-width="1.5" fill="none" stroke-linejoin="round"/><circle cx="28" cy="15" r="3" stroke="#A89880" stroke-width="1.5"/></svg>
-                  <span style="font-size:10px; letter-spacing:0.1em; text-transform:uppercase; font-family:sans-serif;">ACEO coming soon</span>
-                </div>
-              </div>
-            </div>
-            <div class="artwork-card">
-              <div class="artwork-card__image">
-                <div class="placeholder" style="background:#E8E0D0; flex-direction:column; gap:10px; color:#A89880;">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 44 44" fill="none" aria-hidden="true"><rect x="3" y="3" width="38" height="38" rx="2" stroke="#A89880" stroke-width="2"/><rect x="8" y="8" width="28" height="28" rx="1" stroke="#A89880" stroke-width="1.5"/><path d="M8 30 L16 20 L22 26 L28 18 L36 30" stroke="#A89880" stroke-width="1.5" fill="none" stroke-linejoin="round"/><circle cx="28" cy="15" r="3" stroke="#A89880" stroke-width="1.5"/></svg>
-                  <span style="font-size:10px; letter-spacing:0.1em; text-transform:uppercase; font-family:sans-serif;">ACEO coming soon</span>
-                </div>
-              </div>
-            </div>
-            <div class="artwork-card">
-              <div class="artwork-card__image">
-                <div class="placeholder" style="background:#E8E0D0; flex-direction:column; gap:10px; color:#A89880;">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 44 44" fill="none" aria-hidden="true"><rect x="3" y="3" width="38" height="38" rx="2" stroke="#A89880" stroke-width="2"/><rect x="8" y="8" width="28" height="28" rx="1" stroke="#A89880" stroke-width="1.5"/><path d="M8 30 L16 20 L22 26 L28 18 L36 30" stroke="#A89880" stroke-width="1.5" fill="none" stroke-linejoin="round"/><circle cx="28" cy="15" r="3" stroke="#A89880" stroke-width="1.5"/></svg>
-                  <span style="font-size:10px; letter-spacing:0.1em; text-transform:uppercase; font-family:sans-serif;">ACEO coming soon</span>
-                </div>
-              </div>
-            </div>
-          </div>
+</div>
         </div>
 
       </div><!-- /panel-paintings -->
@@ -496,324 +182,14 @@
         <p class="text-xs text-muted" id="photosCount" style="display:none;" aria-live="polite"></p>
 
         <!--
-          NOTE: the groupings below (Portraits, Documentary & Events, Nature & Still
-          Life, Travel & Places) are placeholder categories splitting the existing
-          images roughly evenly by position. Rebecca should re-sort these into
-          accurate series/subjects once she reviews the actual photos.
+          Rendered from ../data/photography.json by the script near the
+          bottom of this page, grouped by each photo's "category" field
+          (Portraits, Documentary & Events, Nature & Still Life, Travel &
+          Places are placeholder categories; Rebecca can re-sort photos
+          into accurate series/subjects by editing that field).
         -->
         <div id="photoGrid">
-
-          <h3 class="reveal" style="margin-bottom:var(--sp-4);">Portraits</h3>
-          <div class="photo-grid" role="list" style="margin-bottom:var(--sp-12);">
-
-          <article class="photo-card" role="listitem" data-title="" data-details="" data-price="" data-full-src="../assets/images/photography/photography-portraits-01.jpg">
-            <div class="photo-card__image js-lb-trigger" role="button" tabindex="0" aria-label="Open photo in lightbox">
-              <img src="../assets/images/photography/photography-portraits-01.jpg" alt="Photography by Rebecca Carter" loading="lazy" />
-            </div>
-          </article>
-          <article class="photo-card" role="listitem" data-title="" data-details="" data-price="" data-full-src="../assets/images/photography/photography-portraits-02.jpg">
-            <div class="photo-card__image js-lb-trigger" role="button" tabindex="0" aria-label="Open photo in lightbox">
-              <img src="../assets/images/photography/photography-portraits-02.jpg" alt="Photography by Rebecca Carter" loading="lazy" />
-            </div>
-          </article>
-          <article class="photo-card" role="listitem" data-title="" data-details="" data-price="" data-full-src="../assets/images/photography/photography-portraits-03.jpg">
-            <div class="photo-card__image js-lb-trigger" role="button" tabindex="0" aria-label="Open photo in lightbox">
-              <img src="../assets/images/photography/photography-portraits-03.jpg" alt="Photography by Rebecca Carter" loading="lazy" />
-            </div>
-          </article>
-          <article class="photo-card" role="listitem" data-title="" data-details="" data-price="" data-full-src="../assets/images/photography/photography-portraits-04.jpg">
-            <div class="photo-card__image js-lb-trigger" role="button" tabindex="0" aria-label="Open photo in lightbox">
-              <img src="../assets/images/photography/photography-portraits-04.jpg" alt="Photography by Rebecca Carter" loading="lazy" />
-            </div>
-          </article>
-          <article class="photo-card" role="listitem" data-title="" data-details="" data-price="" data-full-src="../assets/images/photography/photography-portraits-05.jpg">
-            <div class="photo-card__image js-lb-trigger" role="button" tabindex="0" aria-label="Open photo in lightbox">
-              <img src="../assets/images/photography/photography-portraits-05.jpg" alt="Photography by Rebecca Carter" loading="lazy" />
-            </div>
-          </article>
-          <article class="photo-card" role="listitem" data-title="" data-details="" data-price="" data-full-src="../assets/images/photography/photography-portraits-06.jpg">
-            <div class="photo-card__image js-lb-trigger" role="button" tabindex="0" aria-label="Open photo in lightbox">
-              <img src="../assets/images/photography/photography-portraits-06.jpg" alt="Photography by Rebecca Carter" loading="lazy" />
-            </div>
-          </article>
-          <article class="photo-card" role="listitem" data-title="" data-details="" data-price="" data-full-src="../assets/images/photography/photography-portraits-07.jpg">
-            <div class="photo-card__image js-lb-trigger" role="button" tabindex="0" aria-label="Open photo in lightbox">
-              <img src="../assets/images/photography/photography-portraits-07.jpg" alt="Photography by Rebecca Carter" loading="lazy" />
-            </div>
-          </article>
-          <article class="photo-card" role="listitem" data-title="" data-details="" data-price="" data-full-src="../assets/images/photography/photography-portraits-08.jpg">
-            <div class="photo-card__image js-lb-trigger" role="button" tabindex="0" aria-label="Open photo in lightbox">
-              <img src="../assets/images/photography/photography-portraits-08.jpg" alt="Photography by Rebecca Carter" loading="lazy" />
-            </div>
-          </article>
-          <article class="photo-card" role="listitem" data-title="" data-details="" data-price="" data-full-src="../assets/images/photography/photography-portraits-09.jpg">
-            <div class="photo-card__image js-lb-trigger" role="button" tabindex="0" aria-label="Open photo in lightbox">
-              <img src="../assets/images/photography/photography-portraits-09.jpg" alt="Photography by Rebecca Carter" loading="lazy" />
-            </div>
-          </article>
-          <article class="photo-card" role="listitem" data-title="" data-details="" data-price="" data-full-src="../assets/images/photography/photography-portraits-10.jpg">
-            <div class="photo-card__image js-lb-trigger" role="button" tabindex="0" aria-label="Open photo in lightbox">
-              <img src="../assets/images/photography/photography-portraits-10.jpg" alt="Photography by Rebecca Carter" loading="lazy" />
-            </div>
-          </article>
-          <article class="photo-card" role="listitem" data-title="" data-details="" data-price="" data-full-src="../assets/images/photography/photography-portraits-11.jpg">
-            <div class="photo-card__image js-lb-trigger" role="button" tabindex="0" aria-label="Open photo in lightbox">
-              <img src="../assets/images/photography/photography-portraits-11.jpg" alt="Photography by Rebecca Carter" loading="lazy" />
-            </div>
-          </article>
-          <article class="photo-card" role="listitem" data-title="" data-details="" data-price="" data-full-src="../assets/images/photography/photography-portraits-12.jpg">
-            <div class="photo-card__image js-lb-trigger" role="button" tabindex="0" aria-label="Open photo in lightbox">
-              <img src="../assets/images/photography/photography-portraits-12.jpg" alt="Photography by Rebecca Carter" loading="lazy" />
-            </div>
-          </article>
-          <article class="photo-card" role="listitem" data-title="" data-details="" data-price="" data-full-src="../assets/images/photography/photography-portraits-13.jpg">
-            <div class="photo-card__image js-lb-trigger" role="button" tabindex="0" aria-label="Open photo in lightbox">
-              <img src="../assets/images/photography/photography-portraits-13.jpg" alt="Photography by Rebecca Carter" loading="lazy" />
-            </div>
-          </article>
-          <article class="photo-card" role="listitem" data-title="" data-details="" data-price="" data-full-src="../assets/images/photography/photography-portraits-14.jpg">
-            <div class="photo-card__image js-lb-trigger" role="button" tabindex="0" aria-label="Open photo in lightbox">
-              <img src="../assets/images/photography/photography-portraits-14.jpg" alt="Photography by Rebecca Carter" loading="lazy" />
-            </div>
-          </article>
-          <article class="photo-card" role="listitem" data-title="" data-details="" data-price="" data-full-src="../assets/images/photography/photography-portraits-15.jpg">
-            <div class="photo-card__image js-lb-trigger" role="button" tabindex="0" aria-label="Open photo in lightbox">
-              <img src="../assets/images/photography/photography-portraits-15.jpg" alt="Photography by Rebecca Carter" loading="lazy" />
-            </div>
-          </article>
-          </div>
-
-          <h3 class="reveal" style="margin-bottom:var(--sp-4);">Documentary &amp; Events</h3>
-          <div class="photo-grid" role="list" style="margin-bottom:var(--sp-12);">
-
-          <article class="photo-card" role="listitem" data-title="" data-details="" data-price="" data-full-src="../assets/images/photography/photography-documentary-events-01.jpg">
-            <div class="photo-card__image js-lb-trigger" role="button" tabindex="0" aria-label="Open photo in lightbox">
-              <img src="../assets/images/photography/photography-documentary-events-01.jpg" alt="Photography by Rebecca Carter" loading="lazy" />
-            </div>
-          </article>
-          <article class="photo-card" role="listitem" data-title="" data-details="" data-price="" data-full-src="../assets/images/photography/photography-documentary-events-02.jpg">
-            <div class="photo-card__image js-lb-trigger" role="button" tabindex="0" aria-label="Open photo in lightbox">
-              <img src="../assets/images/photography/photography-documentary-events-02.jpg" alt="Photography by Rebecca Carter" loading="lazy" />
-            </div>
-          </article>
-          <article class="photo-card" role="listitem" data-title="" data-details="" data-price="" data-full-src="../assets/images/photography/photography-documentary-events-03.jpg">
-            <div class="photo-card__image js-lb-trigger" role="button" tabindex="0" aria-label="Open photo in lightbox">
-              <img src="../assets/images/photography/photography-documentary-events-03.jpg" alt="Photography by Rebecca Carter" loading="lazy" />
-            </div>
-          </article>
-          <article class="photo-card" role="listitem" data-title="" data-details="" data-price="" data-full-src="../assets/images/photography/photography-documentary-events-04.jpg">
-            <div class="photo-card__image js-lb-trigger" role="button" tabindex="0" aria-label="Open photo in lightbox">
-              <img src="../assets/images/photography/photography-documentary-events-04.jpg" alt="Photography by Rebecca Carter" loading="lazy" />
-            </div>
-          </article>
-          <article class="photo-card" role="listitem" data-title="" data-details="" data-price="" data-full-src="../assets/images/photography/photography-documentary-events-05.jpg">
-            <div class="photo-card__image js-lb-trigger" role="button" tabindex="0" aria-label="Open photo in lightbox">
-              <img src="../assets/images/photography/photography-documentary-events-05.jpg" alt="Photography by Rebecca Carter" loading="lazy" />
-            </div>
-          </article>
-          <article class="photo-card" role="listitem" data-title="" data-details="" data-price="" data-full-src="../assets/images/photography/photography-documentary-events-06.jpg">
-            <div class="photo-card__image js-lb-trigger" role="button" tabindex="0" aria-label="Open photo in lightbox">
-              <img src="../assets/images/photography/photography-documentary-events-06.jpg" alt="Photography by Rebecca Carter" loading="lazy" />
-            </div>
-          </article>
-          <article class="photo-card" role="listitem" data-title="" data-details="" data-price="" data-full-src="../assets/images/photography/photography-documentary-events-07.jpg">
-            <div class="photo-card__image js-lb-trigger" role="button" tabindex="0" aria-label="Open photo in lightbox">
-              <img src="../assets/images/photography/photography-documentary-events-07.jpg" alt="Photography by Rebecca Carter" loading="lazy" />
-            </div>
-          </article>
-          <article class="photo-card" role="listitem" data-title="" data-details="" data-price="" data-full-src="../assets/images/photography/photography-documentary-events-08.jpg">
-            <div class="photo-card__image js-lb-trigger" role="button" tabindex="0" aria-label="Open photo in lightbox">
-              <img src="../assets/images/photography/photography-documentary-events-08.jpg" alt="Photography by Rebecca Carter" loading="lazy" />
-            </div>
-          </article>
-          <article class="photo-card" role="listitem" data-title="" data-details="" data-price="" data-full-src="../assets/images/photography/photography-documentary-events-09.jpg">
-            <div class="photo-card__image js-lb-trigger" role="button" tabindex="0" aria-label="Open photo in lightbox">
-              <img src="../assets/images/photography/photography-documentary-events-09.jpg" alt="Photography by Rebecca Carter" loading="lazy" />
-            </div>
-          </article>
-          <article class="photo-card" role="listitem" data-title="" data-details="" data-price="" data-full-src="../assets/images/photography/photography-documentary-events-10.jpg">
-            <div class="photo-card__image js-lb-trigger" role="button" tabindex="0" aria-label="Open photo in lightbox">
-              <img src="../assets/images/photography/photography-documentary-events-10.jpg" alt="Photography by Rebecca Carter" loading="lazy" />
-            </div>
-          </article>
-          <article class="photo-card" role="listitem" data-title="" data-details="" data-price="" data-full-src="../assets/images/photography/photography-documentary-events-11.jpg">
-            <div class="photo-card__image js-lb-trigger" role="button" tabindex="0" aria-label="Open photo in lightbox">
-              <img src="../assets/images/photography/photography-documentary-events-11.jpg" alt="Photography by Rebecca Carter" loading="lazy" />
-            </div>
-          </article>
-          <article class="photo-card" role="listitem" data-title="" data-details="" data-price="" data-full-src="../assets/images/photography/photography-documentary-events-12.jpg">
-            <div class="photo-card__image js-lb-trigger" role="button" tabindex="0" aria-label="Open photo in lightbox">
-              <img src="../assets/images/photography/photography-documentary-events-12.jpg" alt="Photography by Rebecca Carter" loading="lazy" />
-            </div>
-          </article>
-          <article class="photo-card" role="listitem" data-title="" data-details="" data-price="" data-full-src="../assets/images/photography/photography-documentary-events-13.jpg">
-            <div class="photo-card__image js-lb-trigger" role="button" tabindex="0" aria-label="Open photo in lightbox">
-              <img src="../assets/images/photography/photography-documentary-events-13.jpg" alt="Photography by Rebecca Carter" loading="lazy" />
-            </div>
-          </article>
-          <article class="photo-card" role="listitem" data-title="" data-details="" data-price="" data-full-src="../assets/images/photography/photography-documentary-events-14.jpg">
-            <div class="photo-card__image js-lb-trigger" role="button" tabindex="0" aria-label="Open photo in lightbox">
-              <img src="../assets/images/photography/photography-documentary-events-14.jpg" alt="Photography by Rebecca Carter" loading="lazy" />
-            </div>
-          </article>
-          <article class="photo-card" role="listitem" data-title="" data-details="" data-price="" data-full-src="../assets/images/photography/photography-documentary-events-15.jpg">
-            <div class="photo-card__image js-lb-trigger" role="button" tabindex="0" aria-label="Open photo in lightbox">
-              <img src="../assets/images/photography/photography-documentary-events-15.jpg" alt="Photography by Rebecca Carter" loading="lazy" />
-            </div>
-          </article>
-          </div>
-
-          <h3 class="reveal" style="margin-bottom:var(--sp-4);">Nature &amp; Still Life</h3>
-          <div class="photo-grid" role="list" style="margin-bottom:var(--sp-12);">
-
-          <article class="photo-card" role="listitem" data-title="" data-details="" data-price="" data-full-src="../assets/images/photography/photography-nature-still-life-01.jpg">
-            <div class="photo-card__image js-lb-trigger" role="button" tabindex="0" aria-label="Open photo in lightbox">
-              <img src="../assets/images/photography/photography-nature-still-life-01.jpg" alt="Photography by Rebecca Carter" loading="lazy" />
-            </div>
-          </article>
-          <article class="photo-card" role="listitem" data-title="" data-details="" data-price="" data-full-src="../assets/images/photography/photography-nature-still-life-02.jpg">
-            <div class="photo-card__image js-lb-trigger" role="button" tabindex="0" aria-label="Open photo in lightbox">
-              <img src="../assets/images/photography/photography-nature-still-life-02.jpg" alt="Photography by Rebecca Carter" loading="lazy" />
-            </div>
-          </article>
-          <article class="photo-card" role="listitem" data-title="" data-details="" data-price="" data-full-src="../assets/images/photography/photography-nature-still-life-03.jpg">
-            <div class="photo-card__image js-lb-trigger" role="button" tabindex="0" aria-label="Open photo in lightbox">
-              <img src="../assets/images/photography/photography-nature-still-life-03.jpg" alt="Photography by Rebecca Carter" loading="lazy" />
-            </div>
-          </article>
-          <article class="photo-card" role="listitem" data-title="" data-details="" data-price="" data-full-src="../assets/images/photography/photography-nature-still-life-04.jpg">
-            <div class="photo-card__image js-lb-trigger" role="button" tabindex="0" aria-label="Open photo in lightbox">
-              <img src="../assets/images/photography/photography-nature-still-life-04.jpg" alt="Photography by Rebecca Carter" loading="lazy" />
-            </div>
-          </article>
-          <article class="photo-card" role="listitem" data-title="" data-details="" data-price="" data-full-src="../assets/images/photography/photography-nature-still-life-05.jpg">
-            <div class="photo-card__image js-lb-trigger" role="button" tabindex="0" aria-label="Open photo in lightbox">
-              <img src="../assets/images/photography/photography-nature-still-life-05.jpg" alt="Photography by Rebecca Carter" loading="lazy" />
-            </div>
-          </article>
-          <article class="photo-card" role="listitem" data-title="" data-details="" data-price="" data-full-src="../assets/images/photography/photography-nature-still-life-06.jpg">
-            <div class="photo-card__image js-lb-trigger" role="button" tabindex="0" aria-label="Open photo in lightbox">
-              <img src="../assets/images/photography/photography-nature-still-life-06.jpg" alt="Photography by Rebecca Carter" loading="lazy" />
-            </div>
-          </article>
-          <article class="photo-card" role="listitem" data-title="" data-details="" data-price="" data-full-src="../assets/images/photography/photography-nature-still-life-07.jpg">
-            <div class="photo-card__image js-lb-trigger" role="button" tabindex="0" aria-label="Open photo in lightbox">
-              <img src="../assets/images/photography/photography-nature-still-life-07.jpg" alt="Photography by Rebecca Carter" loading="lazy" />
-            </div>
-          </article>
-          <article class="photo-card" role="listitem" data-title="" data-details="" data-price="" data-full-src="../assets/images/photography/photography-nature-still-life-08.jpg">
-            <div class="photo-card__image js-lb-trigger" role="button" tabindex="0" aria-label="Open photo in lightbox">
-              <img src="../assets/images/photography/photography-nature-still-life-08.jpg" alt="Photography by Rebecca Carter" loading="lazy" />
-            </div>
-          </article>
-          <article class="photo-card" role="listitem" data-title="" data-details="" data-price="" data-full-src="../assets/images/photography/photography-nature-still-life-09.jpg">
-            <div class="photo-card__image js-lb-trigger" role="button" tabindex="0" aria-label="Open photo in lightbox">
-              <img src="../assets/images/photography/photography-nature-still-life-09.jpg" alt="Photography by Rebecca Carter" loading="lazy" />
-            </div>
-          </article>
-          <article class="photo-card" role="listitem" data-title="" data-details="" data-price="" data-full-src="../assets/images/photography/photography-nature-still-life-10.jpg">
-            <div class="photo-card__image js-lb-trigger" role="button" tabindex="0" aria-label="Open photo in lightbox">
-              <img src="../assets/images/photography/photography-nature-still-life-10.jpg" alt="Photography by Rebecca Carter" loading="lazy" />
-            </div>
-          </article>
-          <article class="photo-card" role="listitem" data-title="" data-details="" data-price="" data-full-src="../assets/images/photography/photography-nature-still-life-11.jpg">
-            <div class="photo-card__image js-lb-trigger" role="button" tabindex="0" aria-label="Open photo in lightbox">
-              <img src="../assets/images/photography/photography-nature-still-life-11.jpg" alt="Photography by Rebecca Carter" loading="lazy" />
-            </div>
-          </article>
-          <article class="photo-card" role="listitem" data-title="" data-details="" data-price="" data-full-src="../assets/images/photography/photography-nature-still-life-12.jpg">
-            <div class="photo-card__image js-lb-trigger" role="button" tabindex="0" aria-label="Open photo in lightbox">
-              <img src="../assets/images/photography/photography-nature-still-life-12.jpg" alt="Photography by Rebecca Carter" loading="lazy" />
-            </div>
-          </article>
-          <article class="photo-card" role="listitem" data-title="" data-details="" data-price="" data-full-src="../assets/images/photography/photography-nature-still-life-13.jpg">
-            <div class="photo-card__image js-lb-trigger" role="button" tabindex="0" aria-label="Open photo in lightbox">
-              <img src="../assets/images/photography/photography-nature-still-life-13.jpg" alt="Photography by Rebecca Carter" loading="lazy" />
-            </div>
-          </article>
-          <article class="photo-card" role="listitem" data-title="" data-details="" data-price="" data-full-src="../assets/images/photography/photography-nature-still-life-14.jpg">
-            <div class="photo-card__image js-lb-trigger" role="button" tabindex="0" aria-label="Open photo in lightbox">
-              <img src="../assets/images/photography/photography-nature-still-life-14.jpg" alt="Photography by Rebecca Carter" loading="lazy" />
-            </div>
-          </article>
-          </div>
-
-          <h3 class="reveal" style="margin-bottom:var(--sp-4);">Travel &amp; Places</h3>
-          <div class="photo-grid" role="list">
-
-          <article class="photo-card" role="listitem" data-title="" data-details="" data-price="" data-full-src="../assets/images/photography/photography-travel-places-01.jpg">
-            <div class="photo-card__image js-lb-trigger" role="button" tabindex="0" aria-label="Open photo in lightbox">
-              <img src="../assets/images/photography/photography-travel-places-01.jpg" alt="Photography by Rebecca Carter" loading="lazy" />
-            </div>
-          </article>
-          <article class="photo-card" role="listitem" data-title="" data-details="" data-price="" data-full-src="../assets/images/photography/photography-travel-places-02.jpg">
-            <div class="photo-card__image js-lb-trigger" role="button" tabindex="0" aria-label="Open photo in lightbox">
-              <img src="../assets/images/photography/photography-travel-places-02.jpg" alt="Photography by Rebecca Carter" loading="lazy" />
-            </div>
-          </article>
-          <article class="photo-card" role="listitem" data-title="" data-details="" data-price="" data-full-src="../assets/images/photography/photography-travel-places-03.jpg">
-            <div class="photo-card__image js-lb-trigger" role="button" tabindex="0" aria-label="Open photo in lightbox">
-              <img src="../assets/images/photography/photography-travel-places-03.jpg" alt="Photography by Rebecca Carter" loading="lazy" />
-            </div>
-          </article>
-          <article class="photo-card" role="listitem" data-title="" data-details="" data-price="" data-full-src="../assets/images/photography/photography-travel-places-04.jpg">
-            <div class="photo-card__image js-lb-trigger" role="button" tabindex="0" aria-label="Open photo in lightbox">
-              <img src="../assets/images/photography/photography-travel-places-04.jpg" alt="Photography by Rebecca Carter" loading="lazy" />
-            </div>
-          </article>
-          <article class="photo-card" role="listitem" data-title="" data-details="" data-price="" data-full-src="../assets/images/photography/photography-travel-places-05.jpg">
-            <div class="photo-card__image js-lb-trigger" role="button" tabindex="0" aria-label="Open photo in lightbox">
-              <img src="../assets/images/photography/photography-travel-places-05.jpg" alt="Photography by Rebecca Carter" loading="lazy" />
-            </div>
-          </article>
-          <article class="photo-card" role="listitem" data-title="" data-details="" data-price="" data-full-src="../assets/images/photography/photography-travel-places-06.jpg">
-            <div class="photo-card__image js-lb-trigger" role="button" tabindex="0" aria-label="Open photo in lightbox">
-              <img src="../assets/images/photography/photography-travel-places-06.jpg" alt="Photography by Rebecca Carter" loading="lazy" />
-            </div>
-          </article>
-          <article class="photo-card" role="listitem" data-title="" data-details="" data-price="" data-full-src="../assets/images/photography/photography-travel-places-07.jpg">
-            <div class="photo-card__image js-lb-trigger" role="button" tabindex="0" aria-label="Open photo in lightbox">
-              <img src="../assets/images/photography/photography-travel-places-07.jpg" alt="Photography by Rebecca Carter" loading="lazy" />
-            </div>
-          </article>
-          <article class="photo-card" role="listitem" data-title="" data-details="" data-price="" data-full-src="../assets/images/photography/photography-travel-places-08.jpg">
-            <div class="photo-card__image js-lb-trigger" role="button" tabindex="0" aria-label="Open photo in lightbox">
-              <img src="../assets/images/photography/photography-travel-places-08.jpg" alt="Photography by Rebecca Carter" loading="lazy" />
-            </div>
-          </article>
-          <article class="photo-card" role="listitem" data-title="" data-details="" data-price="" data-full-src="../assets/images/photography/photography-travel-places-09.jpg">
-            <div class="photo-card__image js-lb-trigger" role="button" tabindex="0" aria-label="Open photo in lightbox">
-              <img src="../assets/images/photography/photography-travel-places-09.jpg" alt="Photography by Rebecca Carter" loading="lazy" />
-            </div>
-          </article>
-          <article class="photo-card" role="listitem" data-title="" data-details="" data-price="" data-full-src="../assets/images/photography/photography-travel-places-10.jpg">
-            <div class="photo-card__image js-lb-trigger" role="button" tabindex="0" aria-label="Open photo in lightbox">
-              <img src="../assets/images/photography/photography-travel-places-10.jpg" alt="Photography by Rebecca Carter" loading="lazy" />
-            </div>
-          </article>
-          <article class="photo-card" role="listitem" data-title="" data-details="" data-price="" data-full-src="../assets/images/photography/photography-travel-places-11.jpg">
-            <div class="photo-card__image js-lb-trigger" role="button" tabindex="0" aria-label="Open photo in lightbox">
-              <img src="../assets/images/photography/photography-travel-places-11.jpg" alt="Photography by Rebecca Carter" loading="lazy" />
-            </div>
-          </article>
-          <article class="photo-card" role="listitem" data-title="" data-details="" data-price="" data-full-src="../assets/images/photography/photography-travel-places-12.jpg">
-            <div class="photo-card__image js-lb-trigger" role="button" tabindex="0" aria-label="Open photo in lightbox">
-              <img src="../assets/images/photography/photography-travel-places-12.jpg" alt="Photography by Rebecca Carter" loading="lazy" />
-            </div>
-          </article>
-          <article class="photo-card" role="listitem" data-title="" data-details="" data-price="" data-full-src="../assets/images/photography/photography-travel-places-13.jpg">
-            <div class="photo-card__image js-lb-trigger" role="button" tabindex="0" aria-label="Open photo in lightbox">
-              <img src="../assets/images/photography/photography-travel-places-13.jpg" alt="Photography by Rebecca Carter" loading="lazy" />
-            </div>
-          </article>
-          <article class="photo-card" role="listitem" data-title="" data-details="" data-price="" data-full-src="../assets/images/photography/photography-travel-places-14.jpg">
-            <div class="photo-card__image js-lb-trigger" role="button" tabindex="0" aria-label="Open photo in lightbox">
-              <img src="../assets/images/photography/photography-travel-places-14.jpg" alt="Photography by Rebecca Carter" loading="lazy" />
-            </div>
-          </article>
-          </div>
-
-        </div><!-- /photoGrid -->
+</div><!-- /photoGrid -->
 
         <p class="no-results" id="photosNoResults" hidden aria-live="polite">
           No photographs match the selected year.
@@ -1004,7 +380,8 @@
       });
     });
 
-    applyPaintingFilters(); /* run once on load */
+    /* Initial call happens after renderPaintingsAndPhotos() below, once
+       the data-driven cards actually exist in the DOM. */
 
 
     /* ── Painting category switching (Originals / Prints / Magnets / etc.) ── */
@@ -1061,7 +438,8 @@
       });
     });
 
-    applyPhotoFilters(); /* run once on load */
+    /* Initial call happens after renderPaintingsAndPhotos() below, once
+       the data-driven cards actually exist in the DOM. */
 
 
     /* ── Lightbox ─────────────────────────────────────────────
@@ -1219,6 +597,157 @@
 
     bindPanel('panel-paintings');
     bindPanel('panel-photography');
+
+
+    /* ── Render paintings + photography from data files ─────────────
+       ../data/paintings.json and ../data/photography.json are fetched
+       once here; everything above (filters, category switching, tab
+       switching, lightbox) works the same regardless of how the cards
+       got into the DOM, so it's all defined before this point and just
+       re-applied once the fetched data has been rendered. */
+
+    function esc(s) {
+      return String(s)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;');
+    }
+
+    const PLACEHOLDER_SVG = '<svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 44 44" fill="none" aria-hidden="true"><rect x="3" y="3" width="38" height="38" rx="2" stroke="#A89880" stroke-width="2"/><rect x="8" y="8" width="28" height="28" rx="1" stroke="#A89880" stroke-width="1.5"/><path d="M8 30 L16 20 L22 26 L28 18 L36 30" stroke="#A89880" stroke-width="1.5" fill="none" stroke-linejoin="round"/><circle cx="28" cy="15" r="3" stroke="#A89880" stroke-width="1.5"/></svg>';
+
+    function placeholderBlock(label) {
+      return `<div class="placeholder" style="background:#E8E0D0; flex-direction:column; gap:10px; color:#A89880;">${PLACEHOLDER_SVG}<span style="font-size:10px; letter-spacing:0.1em; text-transform:uppercase; font-family:sans-serif;">${esc(label)}</span></div>`;
+    }
+
+    /* One .painting-card article for the Originals grid */
+    function paintingCardHtml(p) {
+      const mediumKey = (p.medium || '').split(' ')[0].toLowerCase();
+      const details   = [p.medium, p.dimensions, p.year].filter(Boolean).join(' · ');
+      const isNfs     = p.availability === 'not-for-sale';
+      const priceAttr = isNfs ? 'NFS' : (p.price || '');
+      const priceHtml = isNfs
+        ? '<span class="painting-card__price--nfs">Not for sale</span>'
+        : `<span class="painting-card__price">${esc(p.price || '')}</span>`;
+      const imgSrc  = p.image ? `../${p.image}` : '';
+      const imgHtml = imgSrc
+        ? `<img src="${esc(imgSrc)}" alt="${esc(p.title)}" loading="lazy" />`
+        : placeholderBlock('Artwork photo coming soon');
+
+      return `
+        <article class="painting-card reveal" role="listitem"
+                 data-year="${esc(p.year || '')}" data-medium="${esc(mediumKey)}"
+                 data-title="${esc(p.title)}" data-details="${esc(details)}"
+                 data-price="${esc(priceAttr)}" data-full-src="${esc(imgSrc)}">
+          <div class="painting-card__image js-lb-trigger" role="button" tabindex="0"
+               aria-label="Open ${esc(p.title)} in lightbox">
+            ${imgHtml}
+          </div>
+          <div class="painting-card__meta">
+            <h3 class="painting-card__title">${esc(p.title)}</h3>
+            <p class="painting-card__medium">${esc(p.medium || '')}</p>
+            <p class="painting-card__year">${esc(p.year || '')}</p>
+            <div class="painting-card__footer">
+              ${priceHtml}
+              <button class="btn btn--sm js-lb-trigger" aria-label="View details for ${esc(p.title)}">
+                View Details
+              </button>
+            </div>
+          </div>
+        </article>`;
+    }
+
+    /* One .artwork-card tile for a non-Originals category (Prints,
+       Magnets, Ornaments, Earrings, ACEOs). Falls back to a generic
+       "coming soon" placeholder when there's no image yet. */
+    function productTileHtml(p, comingSoonLabel) {
+      const inner = p.image
+        ? `<img src="../${esc(p.image)}" alt="${esc(p.title || comingSoonLabel)}" loading="lazy" />`
+        : placeholderBlock(p.title ? `${p.title} coming soon` : comingSoonLabel);
+      return `<div class="artwork-card"><div class="artwork-card__image">${inner}</div></div>`;
+    }
+
+    /* One .photo-card article for the Photography grid */
+    function photoCardHtml(photo) {
+      const src = photo.image ? `../${photo.image}` : '';
+      return `
+        <article class="photo-card" role="listitem" data-title="${esc(photo.title || '')}"
+                 data-details="" data-price="" data-full-src="${esc(src)}">
+          <div class="photo-card__image js-lb-trigger" role="button" tabindex="0" aria-label="Open photo in lightbox">
+            <img src="${esc(src)}" alt="${esc(photo.title || 'Photography by Rebecca Carter')}" loading="lazy" />
+          </div>
+        </article>`;
+    }
+
+    const CATEGORY_COMING_SOON_LABEL = {
+      prints:    'Print coming soon',
+      magnets:   'Magnet coming soon',
+      ornaments: 'Ornament coming soon',
+      earrings:  'Earrings coming soon',
+      aceos:     'ACEO coming soon',
+    };
+
+    const PHOTO_CATEGORY_HEADINGS = {
+      'portraits':           'Portraits',
+      'documentary-events':  'Documentary &amp; Events',
+      'nature-still-life':   'Nature &amp; Still Life',
+      'travel-places':       'Travel &amp; Places',
+    };
+
+    async function renderPaintingsAndPhotos() {
+      let paintings = [];
+      let photos    = [];
+
+      try {
+        const [paintingsRes, photosRes] = await Promise.all([
+          fetch('../data/paintings.json'),
+          fetch('../data/photography.json'),
+        ]);
+        const paintingsData = await paintingsRes.json();
+        const photosData    = await photosRes.json();
+        paintings = paintingsData.paintings || [];
+        photos    = photosData.photography  || [];
+      } catch (err) {
+        paintings = [];
+        photos    = [];
+      }
+
+      /* Originals grid */
+      const originals = paintings.filter(p => p.category === 'originals');
+      paintingsGrid.innerHTML = originals.map(paintingCardHtml).join('');
+
+      /* Other 5 categories: real products if any exist, else 3 generic
+         "coming soon" tiles matching the original placeholder design. */
+      Object.keys(CATEGORY_COMING_SOON_LABEL).forEach(cat => {
+        const grid  = qs(`#categoryPanel-${cat} .artwork-grid`);
+        if (!grid) return;
+        const items = paintings.filter(p => p.category === cat);
+        const label = CATEGORY_COMING_SOON_LABEL[cat];
+        grid.innerHTML = items.length > 0
+          ? items.map(p => productTileHtml(p, label)).join('')
+          : Array(3).fill(`<div class="artwork-card"><div class="artwork-card__image">${placeholderBlock(label)}</div></div>`).join('');
+      });
+
+      /* Photography grid, grouped by category in first-appearance order */
+      const order = [];
+      photos.forEach(p => { if (!order.includes(p.category)) order.push(p.category); });
+
+      photoGrid.innerHTML = order.map((cat, i) => {
+        const heading = PHOTO_CATEGORY_HEADINGS[cat] || esc(cat);
+        const items   = photos.filter(p => p.category === cat);
+        const margin  = i < order.length - 1 ? ' style="margin-bottom:var(--sp-12);"' : '';
+        return (
+          `<h3 class="reveal" style="margin-bottom:var(--sp-4);">${heading}</h3>` +
+          `<div class="photo-grid" role="list"${margin}>${items.map(photoCardHtml).join('')}</div>`
+        );
+      }).join('');
+
+      /* Re-apply filters and counts now that real cards exist */
+      applyPaintingFilters();
+      applyPhotoFilters();
+    }
+
+    renderPaintingsAndPhotos();
 
   })();
   </script>

@@ -1,0 +1,76 @@
+{
+  "paintings": [
+    {
+      "title": "Threshold I",
+      "category": "originals",
+      "medium": "Watercolor on linen",
+      "dimensions": "24 × 31 in.",
+      "year": "2024",
+      "price": "$850",
+      "image": "",
+      "availability": "available",
+      "inShop": true,
+      "description": ""
+    },
+    {
+      "title": "Still Ground",
+      "category": "originals",
+      "medium": "Watercolor on canvas",
+      "dimensions": "20 × 24 in.",
+      "year": "2024",
+      "price": "$650",
+      "image": "",
+      "availability": "available",
+      "inShop": true,
+      "description": ""
+    },
+    {
+      "title": "Morning Field",
+      "category": "originals",
+      "medium": "Acrylic on board",
+      "dimensions": "16 × 20 in.",
+      "year": "2023",
+      "price": "",
+      "image": "",
+      "availability": "not-for-sale",
+      "inShop": false,
+      "description": ""
+    },
+    {
+      "title": "The Wait",
+      "category": "originals",
+      "medium": "Mixed media on paper",
+      "dimensions": "12 × 17 in.",
+      "year": "2023",
+      "price": "$320",
+      "image": "",
+      "availability": "available",
+      "inShop": true,
+      "description": ""
+    },
+    {
+      "title": "Interior, Blue",
+      "category": "originals",
+      "medium": "Watercolor on linen",
+      "dimensions": "28 × 35 in.",
+      "year": "2022",
+      "price": "$1,200",
+      "image": "",
+      "availability": "available",
+      "inShop": false,
+      "description": ""
+    },
+    {
+      "title": "Root Study",
+      "category": "originals",
+      "medium": "Mixed media on canvas",
+      "dimensions": "20 × 20 in.",
+      "year": "2022",
+      "price": "",
+      "image": "",
+      "availability": "not-for-sale",
+      "inShop": false,
+      "description": ""
+    }
+  ]
+}
