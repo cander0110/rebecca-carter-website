@@ -6,14 +6,20 @@
 #      https://github.com/settings/developers
 #        - Homepage URL: https://rebeccacarter.net
 #        - Authorization callback URL:
-#            https://YOUR-CLOUDFLARE-WORKER.workers.dev/callback
+#            https://YOUR-SITE-DOMAIN/callback
+#            (the *.pages.dev domain while testing, then
+#            https://rebeccacarter.net/callback after the custom
+#            domain cutover)
 #   2. Replace "OWNER/REPO_NAME" below with this repo's actual path,
 #      e.g. rebeccacarter/rebecca-carter-website.
-#   3. Replace the base_url below with the Cloudflare Worker's real
-#      URL once it's deployed (see functions/auth/[[path]].js).
+#   3. Replace the base_url below with that same deployed domain.
+#      The OAuth handler is NOT a separate Worker to deploy: it's the
+#      Cloudflare Pages Functions already in this repo at
+#      functions/auth.js and functions/callback.js, which ship
+#      automatically with every deploy of this site.
 #   4. Paste the OAuth App's Client ID and Client Secret into the
-#      Cloudflare Worker's environment variables (never into this
-#      file — see the SETUP comment in functions/auth/[[path]].js).
+#      Cloudflare Pages project's environment variables (never into
+#      this file — see the SETUP comment in functions/auth.js).
 #
 # Everything below this point is real, working CMS configuration —
 # only the three placeholders above need to change before launch.
@@ -23,8 +29,9 @@ backend:
   name: github
   repo: OWNER/REPO_NAME
   branch: main
-  # SWAP: Cloudflare Worker OAuth handler URL, see functions/auth/[[path]].js
-  base_url: https://YOUR-CLOUDFLARE-WORKER.workers.dev
+  # SWAP: this site's deployed domain (see setup notes above);
+  # functions/auth.js and functions/callback.js handle login from here
+  base_url: https://YOUR-SITE-DOMAIN
   auth_endpoint: auth
 
 # Where uploaded images land in the repo, and the URL prefix used to
