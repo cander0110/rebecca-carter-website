@@ -399,7 +399,7 @@
       list.innerHTML = INTERVIEWS.map(function (iv, i) {
         var color   = AVATAR_COLORS[i % AVATAR_COLORS.length];
         var avatar  = iv.image
-          ? '<img class="avatar-circle" style="object-fit:cover;" src="../' + esc(iv.image) + '" alt="' + esc(iv.name) + '" />'
+          ? '<img class="avatar-circle" style="object-fit:cover;" src="../' + esc(iv.image.replace(/^\/+/, '')) + '" alt="' + esc(iv.name) + '" />'
           : '<div class="avatar-circle" style="background-color:' + color + ';" aria-hidden="true">' + esc(iv.initials) + '</div>';
         return (
           '<article class="interview-card">' +

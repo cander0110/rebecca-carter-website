@@ -324,7 +324,7 @@
     /* One .painting-product article for the Originals column */
     function originalHtml(p) {
       const imgHtml = p.image
-        ? '<img src="../' + esc(p.image) + '" alt="' + esc(p.title) + '" loading="lazy" />'
+        ? '<img src="../' + esc(p.image.replace(/^\/+/, '')) + '" alt="' + esc(p.title) + '" loading="lazy" />'
         : placeholderBlock('Artwork photo coming soon');
       const dims = [p.dimensions, p.year].filter(Boolean).join('  &middot;  ');
       const subject = encodeURIComponent('Inquiry: ' + p.title);
@@ -353,7 +353,7 @@
       const price  = p ? p.price : '';
       const desc   = p ? (p.description || '') : 'Coming soon';
       const imgHtml = (p && p.image)
-        ? '<img src="../' + esc(p.image) + '" alt="' + esc(title) + '" loading="lazy" />'
+        ? '<img src="../' + esc(p.image.replace(/^\/+/, '')) + '" alt="' + esc(title) + '" loading="lazy" />'
         : placeholderBlock((p ? title : categoryLabel) + ' coming soon');
 
       return (

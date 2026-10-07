@@ -629,7 +629,7 @@
       const priceHtml = isNfs
         ? '<span class="painting-card__price--nfs">Not for sale</span>'
         : `<span class="painting-card__price">${esc(p.price || '')}</span>`;
-      const imgSrc  = p.image ? `../${p.image}` : '';
+      const imgSrc  = p.image ? `../${p.image.replace(/^\/+/, '')}` : '';
       const imgHtml = imgSrc
         ? `<img src="${esc(imgSrc)}" alt="${esc(p.title)}" loading="lazy" />`
         : placeholderBlock('Artwork photo coming soon');
@@ -662,14 +662,14 @@
        "coming soon" placeholder when there's no image yet. */
     function productTileHtml(p, comingSoonLabel) {
       const inner = p.image
-        ? `<img src="../${esc(p.image)}" alt="${esc(p.title || comingSoonLabel)}" loading="lazy" />`
+        ? `<img src="../${esc(p.image.replace(/^\/+/, ''))}" alt="${esc(p.title || comingSoonLabel)}" loading="lazy" />`
         : placeholderBlock(p.title ? `${p.title} coming soon` : comingSoonLabel);
       return `<div class="artwork-card"><div class="artwork-card__image">${inner}</div></div>`;
     }
 
     /* One .photo-card article for the Photography grid */
     function photoCardHtml(photo) {
-      const src = photo.image ? `../${photo.image}` : '';
+      const src = photo.image ? `../${photo.image.replace(/^\/+/, '')}` : '';
       return `
         <article class="photo-card" role="listitem" data-title="${esc(photo.title || '')}"
                  data-details="" data-price="" data-full-src="${esc(src)}">
