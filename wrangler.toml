@@ -1,0 +1,22 @@
+# ============================================================
+# Rebecca Carter — Cloudflare Worker config
+# ============================================================
+# The site is a Worker with static assets: the repo root is served
+# as-is (no build step), and worker.js handles only the two CMS login
+# routes, /auth and /callback.
+#
+# Secrets are NOT set here. GITHUB_CLIENT_ID and GITHUB_CLIENT_SECRET
+# live in the Cloudflare dashboard (Worker -> Settings -> Variables and
+# Secrets, type "Secret"). See the SETUP comment in functions/auth.js.
+#
+# Files that must not be published (this file, the Worker source,
+# docs) are listed in .assetsignore.
+# ============================================================
+
+name = "rebecca-carter-website"
+main = "worker.js"
+compatibility_date = "2026-09-01"
+
+[assets]
+directory = "./"
+binding = "ASSETS"

@@ -9,8 +9,9 @@
         Homepage URL:              https://rebeccacarter.net
         Authorization callback URL: https://<this-site's-deployed-domain>/callback
 
-   2. In the Cloudflare Pages project (Settings -> Environment variables),
-      add these for both Production and Preview:
+   2. In the Cloudflare dashboard, open the rebecca-carter-website
+      Worker (Settings -> Variables and Secrets) and add both of these
+      with type "Secret":
         GITHUB_CLIENT_ID      = the OAuth App's Client ID
         GITHUB_CLIENT_SECRET  = the OAuth App's Client Secret
       Never put these values directly in this file or commit them.

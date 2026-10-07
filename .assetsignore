@@ -1,0 +1,20 @@
+# Files in the repo that are not part of the public site.
+# Same syntax as .gitignore. Anything listed here is left out of the
+# static assets Cloudflare serves.
+
+# Worker source and config
+wrangler.toml
+worker.js
+functions/
+.wrangler/
+node_modules/
+
+# Repo housekeeping
+.git/
+.gitignore
+.assetsignore
+.claude/
+
+# Project docs and planning notes
+docs/
+*.md
