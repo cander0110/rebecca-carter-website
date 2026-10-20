@@ -1,10 +1,12 @@
 # Updating Your Website
 
-This is your guide to adding and changing things on rebeccacarter.net yourself, without needing Connor (or any code). It only covers the day-to-day stuff. If something looks broken or confusing, just reach out.
+This is your guide to adding and changing things on your website yourself, without needing Connor (or any code). It only covers the day-to-day stuff. If something looks broken or confusing, just reach out.
+
+Your site currently lives at **https://rebecca-carter-website.cganderson2014.workers.dev**. It will move to its own domain once one is chosen, and this guide will be updated when that happens.
 
 ## Logging in
 
-1. Go to **rebeccacarter.net/admin**
+1. Go to **rebecca-carter-website.cganderson2014.workers.dev/admin**
 2. Click **Log in with GitHub**
 3. The first time, GitHub will ask you to approve access. Click **Authorize**.
 4. You'll land on the content dashboard, with a list on the left: Paintings, Photography, Shop Products, Shows, Print Club Episodes, and Site Text.

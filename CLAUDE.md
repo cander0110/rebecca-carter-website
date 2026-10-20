@@ -12,7 +12,9 @@ never read like one.
 - Custom static site. No client-side framework, no server-side rendering.
 - Sveltia CMS with a GitHub backend. Admin at `/admin`.
 - Stripe Payment Links for commerce. No card data touches the site.
-- Hosted on Cloudflare Pages at `rebeccacarter.net`.
+- Hosted on Cloudflare as a Worker with static assets at
+  `rebecca-carter-website.cganderson2014.workers.dev`. Her real domain is not yet
+  determined. `rebeccacarter.net` is NOT hers; never link to it.
 
 ## Non-negotiables
 

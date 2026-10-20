@@ -15,9 +15,10 @@
 # Login is handled by this site's own Worker (worker.js), which routes
 # /auth and /callback to functions/auth.js and functions/callback.js.
 #
-# AT THE CUSTOM DOMAIN CUTOVER: change base_url below to
-# https://rebeccacarter.net and change the OAuth App's callback URL to
-# https://rebeccacarter.net/callback. Both must name the same domain.
+# CUSTOM DOMAIN: not yet determined (rebeccacarter.net is NOT hers).
+# Once one is chosen, change base_url below to https://<her-domain>
+# and change the OAuth App's callback URL to
+# https://<her-domain>/callback. Both must name the same domain.
 # ============================================================
 
 backend:

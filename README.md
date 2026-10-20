@@ -2,7 +2,8 @@
 
 Static website for Rebecca Carter. Built with plain HTML, CSS, and vanilla JavaScript — no build step, no frameworks, no dependencies.
 
-**Live site:** https://rebeccacarter.net
+**Live site:** https://rebecca-carter-website.cganderson2014.workers.dev  
+**Custom domain:** not yet determined. `rebeccacarter.net` is not Rebecca's domain; do not use it.
 
 ---
 
@@ -48,7 +49,7 @@ python3 -m http.server 8080
 
 The site is deployed on Cloudflare Pages, served directly from the repo root on `main`. Cloudflare handles CDN, HTTPS, and cache invalidation automatically.
 
-**Live URL:** https://rebeccacarter.net  
+**Live URL:** https://rebecca-carter-website.cganderson2014.workers.dev (custom domain not yet determined)  
 **Dashboard:** Cloudflare dashboard → Workers & Pages → rebecca-carter-website
 
 **Build settings:**
@@ -67,15 +68,17 @@ git push
 
 Cloudflare Pages picks up the push, deploys, and the live URL updates within a minute or two. Check deploy status in the Cloudflare dashboard.
 
-### Connect the custom domain (rebeccacarter.net)
+### Connect a custom domain (not yet determined)
+
+Rebecca's domain has not been chosen yet. Once it is, replace `<her-domain>` below with it.
 
 **In Cloudflare Pages:**
 1. Go to the project in the Cloudflare dashboard → **Custom domains**
-2. Click **Set up a custom domain** and type `rebeccacarter.net`
-3. Also add `www.rebeccacarter.net`
+2. Click **Set up a custom domain** and type `<her-domain>`
+3. Also add `www.<her-domain>`
 4. If the domain's DNS is already on Cloudflare, records are added automatically; otherwise Cloudflare shows the records to add at your registrar
 
-DNS propagation takes 10 minutes to 48 hours. Once verified, `rebeccacarter.net` goes live over HTTPS.
+DNS propagation takes 10 minutes to 48 hours. Once verified, `<her-domain>` goes live over HTTPS.
 
 ---
 
@@ -131,11 +134,11 @@ Drop image files into `/assets/images/`, then update the `src` in the HTML and p
 **Recommended specs:** WebP or JPG, max 2000 px wide for grids, max 3000 px for hero. Aim for files under 500 KB.
 
 ### Open Graph image (social sharing)
-Update this line in `index.html` with a real image URL once the domain is live:
+This line in `index.html` points at the workers.dev URL for now. Update it once her domain is determined:
 
 ```html
 <meta property="og:image"
-      content="https://rebeccacarter.net/assets/images/og-image.jpg" />
+      content="https://rebecca-carter-website.cganderson2014.workers.dev/assets/images/og-image.jpg" />
 ```
 
 ---
@@ -252,6 +255,6 @@ The nav and footer on every page update automatically from this array. To rename
 - [ ] Confirm upcoming show details are accurate in `pages/shows.html`
 - [ ] Add real Print Club interview data in `pages/print-club.html`
 - [ ] Push to GitHub `main` to trigger a Cloudflare Pages deploy
-- [ ] Connect `rebeccacarter.net` custom domain in Cloudflare Pages settings
+- [ ] Choose Rebecca's domain (not yet determined), then connect it in Cloudflare
 - [ ] Verify HTTPS is enforced
 - [ ] Test every page and form on the live URL

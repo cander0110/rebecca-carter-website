@@ -6,7 +6,8 @@
    1. Create a GitHub OAuth App at
         https://github.com/settings/developers
       with:
-        Homepage URL:              https://rebeccacarter.net
+        Homepage URL:              https://rebecca-carter-website.cganderson2014.workers.dev
+                                   (custom domain not yet determined)
         Authorization callback URL: https://<this-site's-deployed-domain>/callback
 
    2. In the Cloudflare dashboard, open the rebecca-carter-website
