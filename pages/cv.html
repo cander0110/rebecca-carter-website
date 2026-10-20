@@ -32,26 +32,10 @@
          ============================================================ -->
     <section class="section" aria-label="Biography">
       <div class="container" style="max-width: 760px;">
-        <p class="reveal">
-          Rebecca Carter graduated from York College of Pennsylvania, earning a Bachelor of Arts
-          Degree with a major in Fine Art. She has earned minors in Art History, Photography,
-          Visual Communication, and Speech Communication. Her membership in the honor societies
-          of Phi Theta Kappa and Delta Alpha Pi afforded her an opportunity to receive competitive
-          awards such as the All-Maryland Academic Scholarship, as well as the Coca Cola Gold
-          Scholar. In addition to this, she was inducted into the Alpha Chi National Honor Society.
-        </p>
-        <p class="reveal">
-          In 2019, three of her mixed media pieces were selected into the distinguished Emerging
-          Visions: Undergraduate Juried Show at Creative York, York, PA. This series was
-          awarded Best in Show. Rebecca had her work selected to hang as a banner design in the
-          WeCo District of downtown York, PA and was awarded second in the Collaboration: Fine
-          Art Senior Exhibition at York College Galleries.
-        </p>
-        <p class="reveal">
-          In more recent years she was awarded Best in Show in Plein Air at the Ball Park in
-          York, PA and had two Solo Shows, one at the Grotto, York PA and the other at
-          American Ice Co. Cafe in Westminster, MD. Her most recent endeavor was a residency in
-          Barcelona, Spain, where she was asked to photograph a Vans Off the Walls Sponsored Event.
+        <!-- Same text as the home page bio: both read aboutBlurb in
+             data/siteText.json, so one CMS edit updates both. -->
+        <p class="reveal" id="cvBio">
+          Rebecca Carter graduated with honors, Summa Cum Laude, from York College of Pennsylvania earning a Bachelor of Arts Degree with a major in Fine Art. She has earned minors in Art History, Photography, Visual Communication, and Speech Communication. Her membership in the honor societies of Phi Theta Kappa and Delta Alpha Pi afforded her an opportunity to receive competitive awards such as the All-Maryland Academic Scholarship, as well as the Coca Cola Gold Scholar. In addition to this, she was inducted into the Alpha Chi National Honor Society. Three of her mixed media pieces were selected into the distinguished Emerging Visions: Undergraduate Juried Show in 2019 at Creative York, York, PA. This series was awarded Best in Show in that exhibition. Additionally, she had her work featured on the cover of The York Review (Vol. 26, 2020) and one of her paintings was selected to hang as a banner design in the WeCo District of downtown York, PA. Most recently, Rebecca had a group show in The Art Lab at Creative York in York, PA, A Year in the Making in 2024, Returning: Alumni an Exhibition in Gallery Hall at Marketview Art in York, PA, 2024, and a solo show at the The Grotto in York, PA in 2025, The Imperfect Frame — Unfocused.
         </p>
       </div>
     </section>
@@ -133,6 +117,21 @@
 
   <div id="site-footer"></div>
   <script src="../js/main.js"></script>
+
+  <script>
+  (async function () {
+    'use strict';
+    /* Bio: same aboutBlurb field the home page About section uses. */
+    try {
+      var res = await fetch('../data/siteText.json');
+      var siteText = await res.json();
+      var cvBio = document.getElementById('cvBio');
+      if (cvBio && siteText.aboutBlurb) cvBio.textContent = siteText.aboutBlurb;
+    } catch (err) {
+      /* Keep the hardcoded fallback text already in the markup */
+    }
+  })();
+  </script>
 
   <script>
   (function () {
