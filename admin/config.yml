@@ -218,8 +218,12 @@ collections:
         fields:
           - label: Home Hero Tagline
             name: heroTagline
+            widget: string
+            hint: "The big headline over the video on the home page"
+          - label: Home Hero Subtitle
+            name: heroSubtitle
             widget: text
-            hint: "The line under the hero words on the home page"
+            hint: "The smaller line under the headline on the home page"
           - label: About Blurb
             name: aboutBlurb
             widget: text

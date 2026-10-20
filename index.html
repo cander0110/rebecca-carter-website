@@ -52,11 +52,11 @@
       <div class="hero__content">
         <p class="hero__eyebrow reveal">Rebecca Carter, Artist</p>
 
-        <h1 class="hero__headline reveal reveal-delay-1">
-          Painting.<br />Photography.<br />Community.<!-- SWAP: may change to "Collectors" -->
+        <h1 class="hero__headline reveal reveal-delay-1" id="heroTagline">
+          Where voice becomes art
         </h1>
 
-        <p class="hero__tagline reveal reveal-delay-2" id="heroTagline">
+        <p class="hero__tagline reveal reveal-delay-2" id="heroSubtitle">
           Original work rooted in exploration of the human experience and a deep need for connection.
         </p>
 
@@ -488,7 +488,7 @@
   (async function () {
     'use strict';
 
-    /* Hero tagline + about blurb: same data/siteText.json file the
+    /* Hero tagline, subtitle + about blurb: same data/siteText.json file the
        footer (js/main.js) reads its availability sentence from. */
     try {
       var textRes  = await fetch('data/siteText.json');
@@ -496,6 +496,9 @@
 
       var heroTagline = document.getElementById('heroTagline');
       if (heroTagline && siteText.heroTagline) heroTagline.textContent = siteText.heroTagline;
+
+      var heroSubtitle = document.getElementById('heroSubtitle');
+      if (heroSubtitle && siteText.heroSubtitle) heroSubtitle.textContent = siteText.heroSubtitle;
 
       var aboutBlurb = document.getElementById('aboutBlurb');
       if (aboutBlurb && siteText.aboutBlurb) aboutBlurb.textContent = siteText.aboutBlurb;
