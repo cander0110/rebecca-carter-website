@@ -133,6 +133,20 @@
 
 
     <!-- ========================================================
+         ③b ABOUT THE WORK — Rebecca's artist statement, in her own
+            words. Text comes from data/siteText.json (aboutTheWork).
+         ======================================================== -->
+    <section class="section" aria-labelledby="work-heading">
+      <div class="container" style="max-width: 760px;">
+        <h2 id="work-heading" class="label reveal">About the Work</h2>
+        <p class="reveal reveal-delay-1" id="aboutTheWork">
+          The first time I picked up a sketchbook with a serious intention to create art was my freshman year of college. At this time, I felt an innate urge to express myself, which motivated me to concretely present my thoughts and feelings on paper in the form of visual art. As I continued to generate pieces, I found a recurring theme began to surface. This theme, the neurological state and exploration of human emotions existing from the human condition, consistently emerged in my work. Throughout my art studies, I constantly experimented with new forms of media, but relied mostly on oils, acrylics, watercolor, ink, micron pens, collage, and digital photography. When stepping back to view my work, distinct organic lines are seen flowing in and around the larger portions of the shapes. In these pieces there are multiple layers that add to the bold abstract initiative patterning. This is accompanied by various color choices which represent the variety of the human condition. I often study humans in my work, I am more focused on portraying peoples' sentiments, voice, and mental states in my pieces than on the physicality of the figures themselves. I also draw heavy inspiration from intimate moments found throughout my daily life. Even though I hope to make work that is aesthetically pleasing, that is not my principal focus. My main focus is to create art where the viewer fastens their personal experiences to a piece in such a way that it creates a strong, unique, and individual connection with the work. We all see reflections of our experiences and make the artwork do our bidding to fit into these reflections. I hope my work can facilitate the viewer with the opportunity to create new perspectives within themselves.
+        </p>
+      </div>
+    </section>
+
+
+    <!-- ========================================================
          ④ FEATURED WORKS — 3-column grid
          ======================================================== -->
     <section class="section section--alt" aria-labelledby="featured-heading">
@@ -488,7 +502,7 @@
   (async function () {
     'use strict';
 
-    /* Hero tagline, subtitle + about blurb: same data/siteText.json file the
+    /* Hero tagline, subtitle, about blurb + artist statement: same data/siteText.json file the
        footer (js/main.js) reads its availability sentence from. */
     try {
       var textRes  = await fetch('data/siteText.json');
@@ -502,6 +516,9 @@
 
       var aboutBlurb = document.getElementById('aboutBlurb');
       if (aboutBlurb && siteText.aboutBlurb) aboutBlurb.textContent = siteText.aboutBlurb;
+
+      var aboutTheWork = document.getElementById('aboutTheWork');
+      if (aboutTheWork && siteText.aboutTheWork) aboutTheWork.textContent = siteText.aboutTheWork;
     } catch (err) {
       /* Keep the hardcoded fallback text already in the markup */
     }

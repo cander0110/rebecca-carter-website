@@ -228,6 +228,10 @@ collections:
             name: aboutBlurb
             widget: text
             hint: "Rebecca's bio paragraph on the home page"
+          - label: About the Work
+            name: aboutTheWork
+            widget: text
+            hint: "Your artist statement, shown under About the Work on the home page"
           - label: Footer Availability Sentence
             name: footerAvailability
             widget: string
